@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="AfterBuild">
+
+  <Import Project="C:\Program Files (x86)\MSBuild\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+  
+  <PropertyGroup>
+    <CurrentRoot>$(MSBuildProjectDirectory)\..\</CurrentRoot>
+	<BuildsStoragePath>C:\Builds</BuildsStoragePath>
+	<DeploymentRootFolder>$(BuildsStoragePath)\$(ProductName)\Build$(BUILD_NUMBER)</DeploymentRootFolder>
+       <DeploymentFolder>$(DeploymentRootFolder)\Website</DeploymentFolder>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <SolutionToBuild Include="$(SolutionName).sln" />
+  </ItemGroup>
+ <ItemGroup>
+    <ProjectToBuild Include="$(ProjectName)" />
+  </ItemGroup>
+
+  <Target Name="Build">
+    <MSBuild Projects="@(SolutionToBuild)"
+    Properties="Configuration=Release;Platform=Any CPU;AlwaysCompileMarkupFilesInSeparateDomain=$(AlwaysCompileMarkupFilesInSeparateDomain)"
+    Targets="ReBuild" />
+  </Target>
+    
+  <Target Name="Publish" DependsOnTargets="Build">
+    <RemoveDir Directories="$(OutputFolder)" ContinueOnError="true" />
+    <MSBuild Projects="@(ProjectToBuild)"
+             Targets="ResolveReferences;_CopyWebApplication"
+             Properties="Configuration=Release;WebProjectOutputDir=$(OutputFolder);OutDir=$(WebProjectOutputDir)\" />
+  </Target>
+
+  <Target Name="Deploy" DependsOnTargets="Publish">
+    <RemoveDir Directories="$(DeploymentFolder)" ContinueOnError="true" />
+	 <Message text="OutputFolder: $(OutputFolder)" />
+    <ItemGroup>
+      <DeploymentFiles Include="$(OutputFolder)\**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DeploymentFiles)" DestinationFolder="$(DeploymentFolder)\%(RecursiveDir)" />
+	
+  </Target>
+  
+  
+   <Target Name="DeployToFileSystem" DependsOnTargets="Deploy;">    
+   
+	  <Copy SourceFiles="@(DeploymentFiles)" DestinationFolder="$(FinalDeploymentFolder)\%(RecursiveDir)" />
+   
+   </Target>
+   
+</Project>

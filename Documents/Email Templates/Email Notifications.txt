@@ -1,0 +1,31 @@
+Auto –Triggered
+
+1.     Registration – Email verification
+
+2.     Forgot password
+
+3.     Invite friends
+
+4.     When friends Join Huntable
+
+5.     When Friends Friends joins Huntable
+
+6.     When 3rd connection join Huntable
+
+7.      Another user sends message
+
+8.     Requests a endorsement to another user
+
+9.     Endorse a user
+
+10. Some one follows a user – Subscribes to your feeds
+
+11. When a user applies for a job posting
+
+Sent From Admin
+
+12. All Huntable newsletter
+
+13. Job & Feed Notifications
+
+14. If user hasn’t upgraded to premium in 1 month

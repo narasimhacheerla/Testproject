@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="DeployToFileSystem">
+
+  <PropertyGroup>
+    <SolutionName>Huntable</SolutionName>
+	<ProjectName>Huntable.UI\Huntable.UI.csproj</ProjectName>
+    <ProductName>Huntable</ProductName>
+	<FinalDeploymentFolder>C:\inetpub\vhosts\snovasys.com\huntable</FinalDeploymentFolder>
+	<OutputFolder>$(CurrentRoot)\Output12</OutputFolder>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildProjectDirectory)\common.build" />
+  
+</Project>

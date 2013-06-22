@@ -1,0 +1,1637 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DocumentConversion</name>
+    </assembly>
+    <members>
+        <member name="M:DocumentConversion.WordDocxConverter.ConvertToText(System.Byte[])">
+            <summary>
+            Read the text (including headers and footers) from the document.
+            </summary>
+            <param name="bytes">The DOCX file in an array of bytes.</param>
+            <returns>Plain text.</returns>
+            <exception cref="T:ICSharpCode.SharpZipLib.Zip.ZipException">Not a zip file, or file is corrupted.</exception>
+        </member>
+        <member name="T:Sovren.ConverterException">
+            <summary>
+            Base class for all Sovren exceptions.
+            </summary>
+        </member>
+        <member name="M:Sovren.ConverterException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Sovren.ConverterException.#ctor(System.String)">
+            <summary>
+            Specify a custom message.
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="M:Sovren.ConverterException.#ctor(System.String,System.String)">
+            <summary>
+            Specify a custom message.
+            </summary>
+            <param name="message">Exception message</param>
+            <param name="outputValidity">Converter status code</param>
+        </member>
+        <member name="M:Sovren.ConverterException.#ctor(System.String,System.Exception,System.String)">
+            <summary>
+            Specify a custom message and an inner exception.
+            </summary>
+            <param name="message">Exception message</param>
+            <param name="innerException">Inner exception</param>
+            <param name="outputValidity">Converter status code</param>
+        </member>
+        <member name="M:Sovren.ConverterException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor
+            </summary>
+            <param name="info">Serialization info</param>
+            <param name="context">Streaming context</param>
+        </member>
+        <member name="P:Sovren.ConverterException.OutputValidity">
+            <summary>
+            Converter status code
+            </summary>
+        </member>
+        <member name="T:DocumentConversion.AsposeDocumentToTextVisitor">
+            <summary>
+            Save a document to a plain text format. Implemented as a Visitor.
+            Use this class by calling Aspose.Document.Accept(Visitor).
+            The Accept method walks the entire object hierarchy calling appropriate methods of this class.
+            This class responds by building a string from each event, doing any special handling
+            of things like lists, tables, special characters, etc.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.GetText">
+            <summary>
+            Gets the plain text of the document that was accumulated by the visitor.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.VisitParagraphStart(Aspose.Words.Paragraph)">
+            <summary>
+            Called when a Paragraph node is encountered in the document.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.GetLabelExtractor(Aspose.Words.Lists.List)">
+            <summary>
+            Return instance of ListLabelsExtractor for a specified list.
+            </summary>
+            <param name="list">List to precess</param>
+            <returns>Instance of ListLabelsExtractor for the specified list.</returns>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.VisitParagraphEnd(Aspose.Words.Paragraph)">
+            <summary>
+            Called when visiting the end of a Paragraph node.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.VisitRun(Aspose.Words.Run)">
+            <summary>
+            Called when a Run node is encountered in the document.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.VisitFieldStart(Aspose.Words.Fields.FieldStart)">
+            <summary>
+            Called when a FieldStart node is encountered in the document.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.VisitFieldSeparator(Aspose.Words.Fields.FieldSeparator)">
+            <summary>
+            Called when a FieldSeparator node is encountered in the document.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.VisitFieldEnd(Aspose.Words.Fields.FieldEnd)">
+            <summary>
+            Called when a FieldEnd node is encountered in the document.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.VisitShapeEnd(Aspose.Words.Drawing.Shape)">
+            <summary>
+            Process embedded OLE documents
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.VisitTableStart(Aspose.Words.Tables.Table)">
+            <summary>
+            Called when a Table node is encountered in the document.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.AppendText(System.Char)">
+            <summary>
+            Adds char to the current output. Honors the Skip flag.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.AppendText(System.Char,System.Int32)">
+            <summary>
+            Adds chars to the current output. Honors the Skip flag.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.AppendText(System.String)">
+            <summary>
+            Adds text to the current output. Honors the Skip flag.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeDocumentToTextVisitor.AppendUnicodeText(System.String,Aspose.Words.Font,Aspose.Words.Run)">
+            <summary>
+            Adds text to the current output. Honors the Skip flag.
+            </summary>
+        </member>
+        <member name="P:DocumentConversion.AsposeDocumentToTextVisitor.Timeout">
+            <summary>
+            Pass through the timeout for use with sub-conversion of embedded OLE documents.
+            </summary>
+        </member>
+        <member name="T:DocumentConversion.ListLabels">
+            <summary>
+            Contains all of the information about the labels for each list level.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.ListLabels.#ctor(Aspose.Words.Lists.List,System.Collections.Generic.Dictionary{Aspose.Words.Lists.List,DocumentConversion.ListLabels})">
+            <summary>
+            Private constructor that creates new collection of list levels 
+            and set starting number of each level.
+            </summary>
+            <param name="list">List to process</param>
+            <param name="listLabelsCache">Cache of List to ListLabels</param>
+        </member>
+        <member name="M:DocumentConversion.ListLabels.GetListLabel(System.Int32)">
+            <summary>
+            Get label of list item at specified list level.
+            </summary>
+            <param name="level">List level number</param>
+            <returns>List item label</returns>
+        </member>
+        <member name="M:DocumentConversion.ListLabels.GetLevelLabel(System.Int32)">
+            <summary>
+            Get label of specified level.
+            </summary>
+            <param name="level">List level number</param>
+            <returns>Label of specified level</returns>
+        </member>
+        <member name="M:DocumentConversion.ListLabels.GetLevelNumberFormat(Aspose.Words.Lists.ListLevel)">
+            <summary>
+            Get number format of list label (.NET format like {0}.{1})
+            </summary>
+            <param name="firstLevel">List Level</param>
+            <returns>Method returnt format of list label</returns>
+        </member>
+        <member name="M:DocumentConversion.ListLabels.RestartNumberingFromLevel(System.Int32)">
+            <summary>
+            Restart numbering of list after specified list level.
+            </summary>
+            <param name="level">List level number</param>
+        </member>
+        <member name="M:DocumentConversion.ListLabels.GetLowercaseLetter(System.Int32)">
+            <summary>
+            Get value of lowercase letter a, b, c ... aa, bb, cc ... etc
+            </summary>
+            <param name="listItemIndex">List item index, starts from 1. If value is less than 1 then return empty string.</param>
+            <returns>Value of lowercase letter a, b, c ... aa, bb, cc ... etc</returns>
+        </member>
+        <member name="M:DocumentConversion.ListLabels.GetLowerRoman(System.Int32)">
+            <summary>
+            Get value of lowercase roman numbers i, ii, iii, iv ... etc
+            </summary>
+            <param name="listItemIndex">List item index ranging from 1 to 3999.
+            Formatting gets more difficult at 4000, so we keep this code simple by stopping at 3999.
+            An empty string is returned if the value is out of range.</param>
+            <returns>Value of lowercase roman numbers i, ii, iii, iv ... etc</returns>
+        </member>
+        <member name="M:DocumentConversion.StructuredStorage.GetWordDocumentVersion(System.Byte[])">
+            <summary>
+            Detects if a file is a Word Document and if so determines the version of the file.
+            </summary>
+            <param name="fileBytes">File content.</param>
+            <returns>
+            Positive values indicate the major version of Microsoft Word. Negative values indicate errors. See <see cref="T:DocumentConversion.StructuredStorage.ErrorCodes"/>.
+            </returns>
+        </member>
+        <member name="M:DocumentConversion.UnicodeHelper.PrivateUseToEquivalent(System.Char,DocumentConversion.UnicodeHelper.PrivateUseFont)">
+            <summary>
+            Maps characters in the PrivateUse range to the best equivalent Unicode characters,
+            or a Bullet (0x2022) if there is no better equivalent, since that seems to be the most
+            common reason why PrivateUse characters appear in HR text. Characters outside the
+            PrivateUse range are returned unmodified.
+            </summary>
+            <param name="c">The PrivateUse character to map to Unicode.</param>
+            <param name="font">The font, if known.</param>
+            <returns>The equivalent character, or the Bullet if there is no equivalent, or the original character if the character was not in the PrivateUse range.</returns>
+        </member>
+        <member name="F:DocumentConversion.UnicodeHelper.SymbolToUnicode">
+            <summary>
+            Mapping of Symbol font characters (0xF020 to 0xF0FE) to equivalent Unicode characters.
+            Applies to Adobe/Apple/Microsoft "Symbol" fonts, based on this spec:
+            http://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/SYMBOL.TXT
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.UnicodeHelper.WingdingsToUnicode">
+            <summary>
+            Mapping of Wingdings characters (0xF020 to 0xF0FE) to equivalent Unicode characters.
+            Used this list as a reference: http://www.alanwood.net/demos/wingdings.html
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.UnicodeHelper.Wingdings2ToUnicode">
+            <summary>
+            Mapping of Wingdings2 characters (0xF020 to 0xF0F9) to equivalent Unicode characters.
+            Used this list as a reference: http://www.alanwood.net/demos/wingdings-2.html
+            </summary>
+        </member>
+        <member name="T:DocumentConversion.UnicodeHelper.PrivateUseFont">
+            <summary>
+            List of fonts having supported Unicode mappings.
+            </summary>
+        </member>
+        <member name="T:DocumentConversion.AsposeVisitorPreprocessForHtml">
+            <summary>
+            Convert all of the symbol fonts in the document to the best equivalent Unicode characters.
+            Implemented as a Visitor. Use this class by calling Aspose.Document.Accept(Visitor).
+            The Accept method walks the entire object hierarchy calling appropriate methods of this class.
+            This class modifies Fonts within the document to eliminate Symbol fonts.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeVisitorPreprocessForHtml.VisitRun(Aspose.Words.Run)">
+            <summary>
+            Called when a Run node is encountered in the document.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.AsposeVisitorPreprocessForHtml.VisitParagraphStart(Aspose.Words.Paragraph)">
+            <summary>
+            Called when a ParagraphStart node is encountered in the document.
+            </summary>
+        </member>
+        <member name="T:DocumentConversion.NamespaceDoc">
+            <summary>
+            <para>
+            The <b>Sovren Document Converter</b> is provided as a .NET assembly named <b>DocumentConversion.dll</b>
+            that exposes a single public class: <see cref="T:DocumentConversion.DocumentConverter"/>. This class provides methods for
+            converting documents from one format to another. All conversion is done in memory, without any disk access.
+            </para>
+            <para>
+            This assembly can be used in 32-bit and 64-bit environments, with trust levels as low as Medium. Be
+            sure to read the User Guide for information about deploying in Pure Managed Mode versus Mixed Mode.
+            </para>
+            <para>
+            The primary purpose of the <b>Sovren Document Converter</b> is to convert documents from their original
+            format into a plain text format in a way that provides the best possible parsing accuracy when using the
+            <b>Sovren Resume Parser</b>. Other text converters that you may be familiar with, such as Microsoft
+            Search IFilters, are designed to extract word tokens as quickly as possible, with little regard for
+            retention of formatting, layout, punctuation and whitespace that are important to parsing accuracy.
+            </para>
+            <para>
+            A secondary purpose of the <b>Sovren Document Converter</b> is to convert documents from their original
+            format into a common format (text, html, rtf) for use by end users. Again, the converter is focused
+            more on the quality of the results than on the raw performance.
+            </para>
+            <para>
+            The average performance converting a wide variety of real-world resumes to plain text is 50-100 documents per second per thread.
+            Throughput can be increased by running additional conversions in additional threads, until CPU utilization is maxed out.
+            </para>
+            <para>
+            32-bit and 64-bit platforms have the exact same functionality. However, the 64-bit version uses 30-60% more memory and
+            processes some file types (PDF, HTML) 20-30% slower, but otherwise the two platforms perform approximately the same.
+            </para>
+            </summary>
+        </member>
+        <member name="T:DocumentConversion.DocumentConverter">
+            <summary>
+            This class converts documents from a variety of input formats to several output formats.
+            In most cases, you should use the <see cref="M:DocumentConversion.DocumentConverter.DoConversion(System.Byte[],DocumentConversion.DocumentConverter.OutputTypes)"/> method.
+            </summary>
+            <example>
+            This example shows shows how to invoke the converter in C#.
+            <code><![CDATA[
+            using  DocumentConversion;
+            
+            ...
+            
+            // Load original document into a byte[] from a file. You could also load the
+            // byte[] from a database, web page upload, etc.
+            byte[] bytes = File.ReadAllBytes(filePath);
+             
+            // Create a new instance of the converter
+            DocumentConverter converter = new DocumentConverter();
+             
+            // If you want to use Pure Managed Mode, uncomment this next line, or set the
+            // application setting "Sovren.DocumentConverter.PureManaged" to "true".
+            //converter.PureManaged = true;
+             
+            // Specify the desired output type.
+            // Use OutputTypes.PlainText when you intend to pass the output to the parser.
+             
+            string[] result = converter.DoConversion(bytes, DocumentConverter.PLAIN_TEXT);
+            if (result != null && result.Length > 1)
+            {
+                // Optionally check output validity codes (DocumentConverter.ovXxxx) for possible error indicators.
+                string outputValidity = result[0];
+             
+                // Get the converted text. It will be an empty string if the document could not be converted.
+                string convertedText = result[1];
+             
+                // Pass convertedText to the Sovren Resume Parser
+                ...
+            }
+            ]]>
+            </code>
+            </example>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.Version">
+            <summary>
+            Version of this assembly.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.GetVersion">
+            <summary>
+            <see cref="F:DocumentConversion.DocumentConverter.Version"/> of this assembly.
+            </summary>
+            <remarks>
+            This method was added to make <see cref="F:DocumentConversion.DocumentConverter.Version"/> visible in COM.
+            </remarks>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.#cctor">
+            <summary>
+            Static constructor (to set licenses).
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.#ctor">
+            <summary>
+            Create a new instance of the converter.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.Reset">
+            <summary>
+            Reset internal state to be as if DoConversion() had not yet been called.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.Finalize">
+            <summary>
+            Finalizer
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.Dispose">
+            <summary>
+            Eagerly release any resources associated with this instance of the converter.
+            NOTE: The current implementation of IDisposable on this class does nothing; it has been
+            retained for backward and forward compatibility.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.NormalizeOutputType(System.String)">
+            <summary>
+            This methods assists with providing legacy support for code that
+            specifies the outputType as a string rather than an enum member.
+            </summary>
+            <param name="outputType">Text string that represents an enum member.</param>
+            <returns>The <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/> enum value that is the best match for the specified string.</returns>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovUnknown">
+            <summary>
+            We were unable to ascertain anything about the conversion.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovIsProbablyValid">
+            <summary>
+            We did not find anything that would indicate a problem, or that you should be warned/notified about.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovCorrupt">
+            <summary>
+            The document is corrupt, meaning that is unusable.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovIsEncrypted">
+            <summary>
+            The document is encrypted and cannot be opened except using a password, which we obviously do not have!
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovFileNotFound">
+            <summary>
+            We could not find the disk file that we were asked to convert.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovHighAsciiExceeds5Percent">
+            <summary>
+            We found that more than 5% of the characters in the converted text are "high ascii" or "extended" characters.
+            This may be good or bad, depending on whether you were expecting a lot of high ascii characters
+            (as, for instance, in a Greek or Japanese document).
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovHighAsciiExceeds10Percent">
+            <summary>
+            We found that more than 10% of the characters in the converted text are "high ascii" or "extended" characters.
+            This may be good or bad, depending on whether you were expecting a lot of high ascii characters
+            (as, for instance, in a Greek or Japanese document).
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovHighAsciiExceeds20Percent">
+            <summary>
+            We found that more than 20% of the characters in the converted text are "high ascii" or "extended" characters.
+            This may be good or bad, depending on whether you were expecting a lot of high ascii characters
+            (as, for instance, in a Greek or Japanese document).
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovUnsupportedFormat">
+            <summary>
+            We encountered an input/output format combination that we cannot convert with the current configuration.
+            If running with PureManaged = true, then you may need to run in Mixed Mode by setting PureManaged = false.
+            using the subset that you enabled using the <see cref="P:DocumentConversion.DocumentConverter.EnabledModules"/> property.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovWordConvErrorAndProbableProblems">
+            <summary>
+            We encountered an error converting the document, and we think it probably has some invalid text in it, or is truncated.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovOutputLessThan100Bytes">
+            <summary>
+            We got less than 100 bytes of text from the converter.  This is for information, as that may or may not be a bad thing,
+            depending on what was in the original document.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovIsImage">
+            <summary>
+            The document is just an image file.  You will need to OCR the file to extract the text.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovAvgWordLengthGreaterThan20">
+            <summary>
+            The converted text has an average word length exceeding 20 characters.
+            This normally means that should be wary of the validity of the text.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovAvgWordLengthLessThan4">
+            <summary>
+            The converted text has an average word length less than 4 characters.
+            This normally means that should be wary of the validity of the text.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovNullInput">
+            <summary>
+            A null parameter or empty byte array or empty file was passed to the converter.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovCouldNotLoadFile">
+            <summary>
+            The specified filename was found but could not be read.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovErrorOnOutputToText">
+            <summary>
+            An internal exception occurred while converting to PlainText or NormalizedText.
+            Enable trace listener for TraceSource named "DocumentConverter" to capture details about the error.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovErrorOnOutputToXml">
+            <summary>
+            An internal exception occurred while converting to WordXml.
+            Enable trace listener for TraceSource named "DocumentConverter" to capture details about the error.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovErrorOnOutputToRtf">
+            <summary>
+            An internal exception occurred while converting to RTF.
+            Enable trace listener for TraceSource named "DocumentConverter" to capture details about the error.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovErrorOnOutputToHtml">
+            <summary>
+            An internal exception occurred while converting to HTML.
+            Enable trace listener for TraceSource named "DocumentConverter" to capture details about the error.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovProbableGarbageInText">
+            <summary>
+            We found that 5% or more of the characters in the text are "symbols" (like the copyright sign and the trademark symbol)
+            rather than regular letters and digits and punctuation.  This is usually a sign that there is garbage in the converted text.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovConfigurationError">
+            <summary>
+            An installation/deployment/configuration error is preventing one or more modules from working properly.
+            As a result, the converted text may be worse than expected.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.ovTimeout">
+            <summary>
+            The Timeout was reached during conversion.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.PotentialOutputValidityValues">
+            <summary>
+            During conversion, tests are performed on the converted output to determine
+            its validity and warn you of <i>possible</i> problems. This property lists the possible
+            validity codes.
+            </summary>
+            <remarks>
+            <para>
+            These values are not necessarily error codes and are not necessarily indicative 
+            that there is a problem.  For instance ovHighAsciiExceeds10Percent may not be
+            a problem when the document was a Japanese resume, whereas for a US resume,
+            it almost certainly indicates that many garbage characters appear in the output.
+            </para>
+            
+            <para>SUCCESS codes:</para>
+            <list type="table">
+            <listheader><term>Code</term><description>Description</description></listheader>
+            <item><term>ovIsProbablyValid</term><description>Output passed all validity tests.</description></item>
+            </list>
+            
+            <para>WARNING codes:</para>
+            <list type="table">
+            <listheader><term>Code</term><description>Description</description></listheader>
+            <item><term>ovAvgWordLengthGreaterThan20</term><description>The converted text has an average word length exceeding 20 characters.  This normally means that should be wary of the validity of the text.</description></item>
+            <item><term>ovAvgWordLengthLessThan4</term><description>The converted text has an average word length less than 4 characters.  This normally means that should be wary of the validity of the text.</description></item>
+            <item><term>ovHighAsciiExceeds5Percent</term><description>More than 5% of the characters in the converted text are "high ascii" or "extended" characters.  This may be good or bad, depending on whether you were expecting a lot of high ascii characters (as, for instance, in a Greek or Japanese document).</description></item>
+            <item><term>ovHighAsciiExceeds10Percent</term><description>More than 10% of the characters in the converted text are "high ascii" or "extended" characters.  This may be good or bad, depending on whether you were expecting a lot of high ascii characters (as, for instance, in a Greek or Japanese document).</description></item>
+            <item><term>ovHighAsciiExceeds20Percent</term><description>More than 20% of the characters in the converted text are "high ascii" or "extended" characters.  This may be good or bad, depending on whether you were expecting a lot of high ascii characters (as, for instance, in a Greek or Japanese document).</description></item>
+            <item><term>ovOutputLessThan100Bytes</term><description>The converted output is less than 100 characters in length.  This is for information, as that may or may not be a bad thing, depending on what was in the original document. This often occurs when a document contains only scanned images, and there is no text to be extracted.</description></item>
+            <item><term>ovProbableGarbageInText</term><description>5% or more of the characters in the text are "symbols" (like the copyright sign and the trademark symbol) rather than regular letters and digits and punctuation.  This is usually a sign that there is garbage in the converted text.</description></item>
+            <item><term>ovUnknown</term><description>Validity could not be determined. Occurs if the converted text is empty.</description></item>
+            </list>
+            
+            <para>ERROR codes:</para>
+            <list type="table">
+            <listheader><term>Code</term><description>Description</description></listheader>
+            <item><term>ovConfigurationError</term><description>An installation/deployment/configuration error is preventing one or more modules from working properly. As a result, the converted text may be worse than expected.</description></item>
+            <item><term>ovCorrupt</term><description>The input document was recognized but is either corrupt or cannot be converted because the details of the file cannot be understood.</description></item>
+            <item><term>ovCouldNotLoadFile</term><description>The specified filename was found but could not be read.</description></item>
+            <item><term>ovErrorOnOutputToHtml</term><description>An internal exception occurred while converting to HTML. Enable trace listener for TraceSource named "DocumentConverter" to capture details about the error.</description></item>
+            <item><term>ovErrorOnOutputToRtf</term><description>An internal exception occurred while converting to RTF. Enable trace listener for TraceSource named "DocumentConverter" to capture details about the error.</description></item>
+            <item><term>ovErrorOnOutputToText</term><description>An internal exception occurred while converting to TEXT. Enable trace listener for TraceSource named "DocumentConverter" to capture details about the error.</description></item>
+            <item><term>ovErrorOnOutputToXml</term><description>An internal exception occurred while converting to WordXML. Enable trace listener for TraceSource named "DocumentConverter" to capture details about the error.</description></item>
+            <item><term>ovFileNotFound</term><description>We could not find the diskfile that we were asked to convert.</description></item>
+            <item><term>ovIsEncrypted</term><description>The document is encrypted and cannot be opened except using a password, which we obviously do not have!</description></item>
+            <item><term>ovIsImage</term><description>The document is just an image file.  You will need to OCR the file to extract the text.</description></item>
+            <item><term>ovNullInput</term><description>A null parameter or empty byte array or empty file was passed to the converter.</description></item>
+            <item><term>ovTimeout</term><description>The timeout was reached during conversion.</description></item>
+            <item><term>ovUnsupportedFormat</term><description>We encountered an input/output format combination that we cannot convert with the current converters, using the subset that you enabled using the EnabledModules property.</description></item>
+            <item><term>ovWordConvErrorAndProbableProblems</term><description>We encountered an error converting the document, and we think it probably has some invalid text in it, or is truncated.</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.LoadFromByteArray(System.Byte[])">
+            <summary>
+            Load a document from a byte array.
+            </summary>
+            <param name="documentBytes">An array of byte that is the exact binary representation of the document.</param>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.GetFileBytes(System.String)">
+            <summary>
+            Load a document from a file path.
+            </summary>
+            <param name="filePath">The fully qualified path to the file. A URI or URL will NOT work.</param>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsText(System.Byte[])">
+            <summary>
+            Determines whether the document content is text. Checks for Unicode encodings with
+            or without preambles. Allows up to 2% of non-usable-ASCII characters.
+            </summary>
+            <param name="documentBytes">Bytes of document content to examine.</param>
+            <returns>True if the bytes appear to be text.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsText">
+            <summary>
+            Is the document a TEXT file?
+            </summary>
+            <returns>True if the document is a TEXT file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsZip">
+            <summary>
+            Is the document a ZIP file?
+            </summary>
+            <returns>True if the document is a ZIP file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsBinHex">
+            <summary>
+            Is the document a BinHex file?
+            </summary>
+            <returns>True if the document is a BinHex file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsJpg">
+            <summary>
+            Is the document a JPEG file?
+            </summary>
+            <returns>True if the document is a JPEG file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsBmp">
+            <summary>
+            Is the document a BMP file?
+            </summary>
+            <returns>True if the document is a BMP file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsGif">
+            <summary>
+            Is the document a GIF file?
+            </summary>
+            <returns>True if the document is a GIF file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsTiff">
+            <summary>
+            Is the document a TIFF file?
+            </summary>
+            <returns>True if the document is a TIFF file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsPng">
+            <summary>
+            Is the document a PNG file?
+            </summary>
+            <returns>True if the document is a PNG file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsPdf">
+            <summary>
+            Is the document a PDF file?
+            </summary>
+            <returns>True if the document is a PDF file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsWordPerfect">
+            <summary>
+            Is the document a WordPerfect file?
+            </summary>
+            <returns>True if the document is a WordPerfect file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.GetWordDocVersion">
+            <summary>
+            Gets major version number for a Word document
+            </summary>
+            <returns>
+            Version 0 thru 7 is WordPre97.
+            Version 8 thru 11 is Word97Through2003.
+            Negative numbers are <see cref="T:DocumentConversion.StructuredStorage.ErrorCodes"/>.
+            </returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsWordDocx">
+            <summary>
+            Is the document a Word DOCX file?
+            </summary>
+            <returns>True if the document is a Word DOCX file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsOdt(DocumentConversion.DocumentConverter.DocumentTypes)">
+            <summary>
+            Is the file Open Document Text document (ODT)?
+            </summary>
+            <returns>True if the file is an ODT file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsRtf(System.Byte[])">
+            <summary>
+            Is the document an RTF file?
+            </summary>
+            <returns>True if the document is an RTF file.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsRtf">
+            <summary>
+            Is this an RTF file?
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsImage">
+            <summary>
+            Is this an image file?
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.ContainsMinimumMatches(System.Text.RegularExpressions.Regex,System.String,System.Int32)">
+            <summary>
+            Returns true when text contains at least minimum matches of regex.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsHtml">
+            <summary>
+            Is this an HTML file or fragment?
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsMht">
+            <summary>
+            Web Page Archive, typically created by Internet Explorer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsMime">
+            <summary>
+            MIME message
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.IsXml">
+            <summary>
+            XML and NOT WordML.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.TextHasSevereProblems(System.String)">
+            <summary>
+            Checks the converted text (which you pass in) and determines if it looks problematic.
+            </summary>
+            <param name="text">The converted text.</param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.XmlOrHtmlHasSevereProblems(System.String)">
+            <summary>
+            Checks the converted XML or HTML (which you pass in) and determines if it looks problematic.
+            </summary>
+            <param name="text">The converted XML or HTML.</param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.RtfHasSevereProblems(System.String)">
+            <summary>
+            Checks the converted RTF (which you pass in) and determines if it looks problematic.
+            </summary>
+            <param name="text">The converted RTF.</param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.SetOutputValidity(System.String,DocumentConversion.DocumentConverter.OutputTypes)">
+            <summary>
+            Given a piece of text, inspects it and returns one of the <see cref="F:DocumentConversion.DocumentConverter.PotentialOutputValidityValues"/>.
+            Only applies to PlainText and NormalizedText.
+            </summary>
+            <param name="text">The text to be evaluated.</param>
+            <param name="outputType">Output type</param>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.CleanText(System.String,DocumentConversion.DocumentConverter.OutputTypes,System.Boolean,System.Int32)">
+            <summary>
+            Cleans the text to eliminate known problems such as 
+            Unicode private characters and ASCII Vertical Tab characters.
+            </summary>
+            <param name="source">The string to fix.</param>
+            <param name="outputType">The type of output, which determines the set of cleanup rules that will be applied.</param>
+            <param name="decodeHtmlEntities">When true, HTML Entities are decoded for PlainText and NormalizedText outputs.</param>
+            <param name="normalizeLineLength">Specifies the desired line length for NormalizedText output.</param>
+            <returns>The fixed string.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.SanitizeHtml(System.String)">
+            <summary>
+            Remove/replace anything in the HTML that could possibly expose a security risk.
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.MergeIdenticalHtmlSpans(System.String)">
+            <summary>
+            Merges the values of adjacent spans that have <i>identical</i> attributes.
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+            <remarks><![CDATA[
+            Translate this:
+            <span style="font-family:'Times New Roman'; font-size:10pt; ">Bachelor of Scie</span><span style="font-family:'Times New Roman'; font-size:10pt; ">nce in Business Administration</span>
+            To this:
+            <span style="font-family:'Times New Roman'; font-size:10pt; ">Bachelor of Science in Business Administration</span>
+            ]]></remarks>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.FixBadCharacters(System.String)">
+            <summary>
+            Fix unsupportable characters by either replacing or removing them.
+            Replace control characters with appropriate whitespace.
+            Convert FF and VT characters to line breaks.
+            Convert Unicode PrivateUse characters with bullets.
+            Convert non-breaking space to normal space.
+            Convert Latin ligatures to equivalent multiple characters.
+            </summary>
+            <param name="source"></param>
+            <returns>String with replacements.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.FixOrdinals(System.String)">
+            <summary>
+            Remove whitespace between number and ordinal text.
+            For example: "1 st Street" to "1st Street".
+            But not if number is preceded by #, or if "st" is followed by a period as in "#1024 St. Petersburg".
+            </summary>
+            <param name="text"></param>
+            <returns>A string without ordinal text.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.FixWhitespace(System.String)">
+            <summary>
+            Remove unimportant whitespace.
+            </summary>
+            <param name="text">Text to fix</param>
+            <returns>Text with unimportant whitespace removed.</returns>
+            <remarks>
+            Makes the following changes:
+              Removes leading blank lines
+              Removes trailing blank lines
+              Removes whitespace characters from blank lines
+              Reduces spans of greater than 2 blank lines to only 2 blank lines
+            </remarks>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.NormalizePlainText(System.String)">
+            <summary>
+            Apply normalization rules (whitespace and linebreaks) to PlainText to
+            create NormalizedText output, using the desired length specified in
+            <see cref="P:DocumentConversion.DocumentConverter.NormalizeLineLength"/>.
+            </summary>
+            <param name="text">PlainText that you want to normalize.</param>
+            <returns>Normalized text</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.NormalizePlainText(System.String,System.Int32)">
+            <summary>
+            Apply normalization rules (whitespace and linebreaks) to PlainText to
+            create NormalizedText output.
+            </summary>
+            <param name="text">PlainText that you want to normalize.</param>
+            <param name="normalizeLineLength">Try to wrap lines at about this length.</param>
+            <returns>Normalized text</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.WordWrap(System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Word wraps and aligns text.
+            </summary>
+            <param name="text">The text to manipulate.</param>
+            <param name="maxLength">The maximum line length for word wrapping.</param>
+            <param name="flushLeft">When true, leading whitespace is stripped from all lines.</param>
+            <param name="align">When true, adjacent lines are aligned using the whitespace of the first line in the group.</param>
+            <returns>The word wrapped string.</returns>
+            <remarks>
+            Great effort was made to avoid unnecessary memory allocation.
+            </remarks>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.ConvertWithDtSearch(System.Byte[],DocumentConversion.DocumentConverter.OutputTypes)">
+            <summary>
+            Uses dtSearch Engine to convert the document.
+            </summary>
+            <param name="fileBytes">The file as a byte array.</param>
+            <param name="outputType">Desired output type</param>
+            <returns>The converted text (text, RTF, or whatever was requested).</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.ConvertCorruptFile(System.Byte[],DocumentConversion.DocumentConverter.OutputTypes)">
+            <summary>
+            Uses just one of the Sovren converters, dten600.dll, to convert the document.
+            </summary>
+            <param name="fileBytes"></param>
+            <param name="outputType">Desired output type.</param>
+            <returns>The converted text (text, RTF, or whatever was requested).</returns>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter._documentMediaTypesPrefixes">
+            <summary>
+            A listing of MIME media type prefixes (each entry may match more than one media type).
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter._octetStreamDocumentExtensions">
+            <summary>
+            A listing of file extensions that are interpreted as a desirable document when the MediaType is application/octet-stream.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.EscapeUnicodeForRtf(System.String)">
+            <summary>
+            Assumes Code Page 1252
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.DoConversion(System.String,System.String)">
+            <summary>
+            This method reads a file from disk and converts it, from any of the supported
+            <see cref="T:DocumentConversion.DocumentConverter.DocumentTypes"/> to any of the supported <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/>
+            for that document type.
+            .NET clients should use <see cref="M:DocumentConversion.DocumentConverter.DoConversion(System.String,DocumentConversion.DocumentConverter.OutputTypes)"/> instead.
+            </summary>
+            <param name="filePath">
+            The fully qualified path to the document to be converted.
+            A URI or URL will NOT work.
+            Document type detection is done automatically and is not in any way dependent on the filename.
+            </param>
+            <param name="outputType">
+            The type of document that you want the input document to be converted to.
+            For the parser, ask for PLAIN_TEXT.  The other output types are for
+            use in other ways, as in display, etc.
+            Legal values are these strings: 
+            <list type="bullet">
+            <item><term>PLAIN_TEXT</term></item>
+            <item><term>HTML_FORMATTED</term></item>
+            <item><term>HTML_PLAIN</term></item>
+            <item><term>RTF</term></item>
+            <item><term>XML</term></item>
+            </list>
+            Only plain text and plain HTML are available from PDFs.
+            </param>
+            <returns>
+            A string array containing two items:
+            <list type="number">
+            <item>
+            <description>
+            A value that indicates the possible validity of the output.
+            See <see cref="F:DocumentConversion.DocumentConverter.PotentialOutputValidityValues"/> for a list and explanation of possible values.
+            </description>
+            </item>
+            <item>
+            <description>
+            The converted document in one of the text-based <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/>, or an empty
+            string if it could not be converted.
+            </description>
+            </item>
+            </list>
+            </returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.DoConversion(System.String,DocumentConversion.DocumentConverter.OutputTypes)">
+            <summary>
+            This method reads a file from disk and converts it, from any of the supported
+            <see cref="T:DocumentConversion.DocumentConverter.DocumentTypes"/> to any of the supported <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/>
+            for that document type.
+            </summary>
+            <param name="filePath">
+            The fully qualified path to the document to be converted.
+            A URI or URL will NOT work.
+            Document type detection is done automatically and is not in any way dependent on the filename.
+            </param>
+            <param name="outputType">
+            The type of document that you want the input document to be converted to.
+            For the parser, ask for PlainText.  The other output types are for
+            use in other ways, as in display, etc. See <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/>.
+            Only PlainText and HtmlPlain are available from PDFs.
+            </param>
+            <returns>
+            A string array containing two items:
+            <list type="number">
+            <item>
+            <description>
+            A value that indicates the possible validity of the output.
+            See <see cref="F:DocumentConversion.DocumentConverter.PotentialOutputValidityValues"/> for a list and explanation of possible values.
+            </description>
+            </item>
+            <item>
+            <description>
+            The converted document in one of the text-based <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/>, or an empty
+            string if it could not be converted.
+            </description>
+            </item>
+            </list>
+            </returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.DoConversion(System.Byte[],System.String)">
+            <summary>
+            This method converts a file (provided as a byte array), from any of the supported
+            <see cref="T:DocumentConversion.DocumentConverter.DocumentTypes"/> to any of the supported <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/>
+            for that document type.
+            </summary>
+            <param name="documentBytes">The document to be converted, in an array of byte.</param>
+            <param name="outputType">
+            The type of document that you want the input document to be converted to.
+            For the parser, ask for PLAIN_TEXT.  The other output types are for
+            use in other ways, as in display, etc.
+            Legal values are these strings: 
+            <list type="bullet">
+            <item><term>PLAIN_TEXT</term></item>
+            <item><term>HTML_FORMATTED</term></item>
+            <item><term>HTML_PLAIN</term></item>
+            <item><term>RTF</term></item>
+            <item><term>XML</term></item>
+            </list>
+            Only plain text and plain HTML are available from PDFs.
+            </param>
+            <returns>
+            A string array containing two items:
+            <list type="number">
+            <item>
+            <description>
+            A value that indicates the possible validity of the output.
+            See <see cref="F:DocumentConversion.DocumentConverter.PotentialOutputValidityValues"/> for a list and explanation of possible values.
+            </description>
+            </item>
+            <item>
+            <description>
+            The converted document in one of the text-based <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/>, or an empty
+            string if it could not be converted.
+            </description>
+            </item>
+            </list>
+            </returns>
+            <example>
+            This example shows shows how to invoke the converter in C#.
+            <code>
+            using  DocumentConversion;
+            
+            ...
+            
+            // Load original document into a byte[] from a file. You could also load the
+            // byte[] from a database, web page upload, etc.
+            byte[] bytes = File.ReadAllBytes(filePath);
+             
+            // Create a new instance of the converter
+            DocumentConverter converter = new DocumentConverter();
+             
+            // Specify the desired output type.
+            // Possible values include: PLAIN_TEXT, HTML_FORMATTED, HTML_PLAIN, RTF, XML
+            // Use PLAIN_TEXT when you intend to pass the output to the parser.
+             
+            string[] result = converter.DoConversion(bytes, DocumentConverter.PLAIN_TEXT);
+            
+            // Optionally check output validity codes (DocumentConverter.ovXxxx) for possible error indicators.
+            string outputValidity = result[0];
+             
+            // Get the converted text. It will be an empty string if the document could not be converted.
+            string convertedText = result[1];
+             
+            // Pass convertedText to the Sovren Resume Parser
+            ...
+            </code>
+            </example>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.DoConversion(System.Byte[],DocumentConversion.DocumentConverter.OutputTypes)">
+            <summary>
+            This method converts a file (provided as a byte array), from any of the supported
+            <see cref="T:DocumentConversion.DocumentConverter.DocumentTypes"/> to any of the supported <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/>
+            for that document type.
+            </summary>
+            <param name="documentBytes">The document to be converted, in an array of byte.</param>
+            <param name="outputType">
+            The type of document that you want the input document to be converted to.
+            For the parser, ask for PlainText.  The other output types are for
+            use in other ways, as in display, etc. See <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/>.
+            Only PlainText and HtmlPlain are available from PDFs.
+            </param>
+            <returns>
+            A string array containing two items:
+            <list type="number">
+            <item>
+            <description>
+            A value that indicates the possible validity of the output.
+            See <see cref="F:DocumentConversion.DocumentConverter.PotentialOutputValidityValues"/> for a list and explanation of possible values.
+            </description>
+            </item>
+            <item>
+            <description>
+            The converted document in one of the text-based <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/>, or an empty
+            string if it could not be converted.
+            </description>
+            </item>
+            </list>
+            </returns>
+            <example>
+            This example shows shows how to invoke the converter in C#.
+            <code>
+            using  DocumentConversion;
+            
+            ...
+            
+            // Load original document into a byte[] from a file. You could also load the
+            // byte[] from a database, web page upload, etc.
+            byte[] bytes = File.ReadAllBytes(filePath);
+             
+            // Create a new instance of the converter
+            DocumentConverter converter = new DocumentConverter();
+             
+            // Specify the desired output type.
+            // Use OutputTypes.PlainText when you intend to pass the output to the parser.
+             
+            string[] result = converter.DoConversion(bytes, DocumentConverter.OutputTypes.PlainText);
+            
+            // Optionally check output validity codes (DocumentConverter.ovXxxx) for possible error indicators.
+            string outputValidity = result[0];
+             
+            // Get the converted text. It will be an empty string if the document could not be converted.
+            string convertedText = result[1];
+             
+            // Pass convertedText to the Sovren Resume Parser
+            ...
+            </code>
+            </example>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.DoConversionByRef(System.Byte[]@,DocumentConversion.DocumentConverter.OutputTypes)">
+            <summary>
+            Same as <see cref="M:DocumentConversion.DocumentConverter.DoConversion(System.Byte[],DocumentConversion.DocumentConverter.OutputTypes)"/> but is provided for use by COM clients
+            like VB6 that cannot pass arrays by value.
+            </summary>
+            <param name="documentBytes">The document to be converted, in an array of byte.</param>
+            <param name="outputType">
+            The type of document that you want the input document to be converted to.
+            For the parser, ask for PlainText.  The other output types are for
+            use in other ways, as in display, etc. See <see cref="T:DocumentConversion.DocumentConverter.OutputTypes"/>.
+            Only PlainText and HtmlPlain are available from PDFs.
+            </param>
+            <returns>See <see cref="M:DocumentConversion.DocumentConverter.DoConversion(System.Byte[],DocumentConversion.DocumentConverter.OutputTypes)"/>.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.GetDocumentType(System.Byte[])">
+            <summary>
+            This is primarily a diagnostic method to determine the type of document, as classified by this program.
+            </summary>
+            <param name="documentBytes">The document as a byte array.</param>
+            <returns>One of the DocumentTypes enumerated values.</returns>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.GetDocumentTypeAsString(System.Byte[])">
+            <summary>
+            This is primarily a diagnostic method to determine the type of document, as classified by this program.
+            </summary>
+            <param name="documentBytes">The document as a byte array.</param>
+            <returns>One of the DocumentTypes enumerated values, converted to a string representation.</returns>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.PureManaged">
+            <summary>
+            <para>When true, the converter uses <b>Pure Managed Mode</b> to do conversions.</para>
+            <br/>
+            <para>DO NOT SET THIS PROPERTY TO TRUE UNLESS YOU ABSOLUTELY MUST RUN IN A PURE .NET MANAGED CODE ENVIRONMENT.</para>
+            <br/>
+            <para>
+            Pure Managed Mode uses only Pure Managed modules, which may be required in some limited permission
+            environments such as 3rd party hosting, but beware that Pure Managed mode only offers a subset
+            of the available conversion inputs and outputs.
+            </para>
+            <br/>
+            <para>
+            When false, the converter uses <b>Mixed Mode</b> to do conversions.
+            Mixed Mode uses a combination of Pure Managed and Unmanaged modules and offers the
+            full range of input/output formats and the highest quality conversion ratios.
+            </para>
+            <br/>
+            <para>See the Sovren Document Converter User Guide for more details on these two modes.</para>
+            <para>Default = false.</para>
+            </summary>
+            <remarks>
+            This setting is derived from the more detailed EnabledModules property which is now
+            intended for diagnostic and testing purposes only. Customers should use this PureManaged setting.
+            </remarks>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.WordWrapHtmlPlain">
+            <summary>
+            When true, HTML styles are applied to cause line wrapping in the HtmlPlain format.
+            <br/>Default = true.
+            </summary>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.NormalizeHtmlPlain">
+            <summary>
+            When true, the text within the HtmlPlain format is normalized. See <see cref="M:DocumentConversion.DocumentConverter.NormalizePlainText(System.String)">NormalizePlainText</see>.
+            <br/>Default = false.
+            </summary>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.Timeout">
+            <summary>
+            Number of milliseconds allowed before the conversion will be stopped. Ordinarily, documents
+            are converted in a small fraction of a second, but in rare circumstances a corrupted or
+            unusually formatted document may take longer, so this timeout exists to prevent troublesome
+            documents from significantly impacting your application.
+            <br/>Default = 10000.
+            </summary>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.DecodeHtmlEntities">
+            <summary>
+            When true, HTML entities such as &amp;#8226; (bullet) and &amp;apos; (apostrophe) are
+            decoded to their equivalent Unicode character. It is common for Resumes to be copied
+            from web pages, and sometimes those copies bring over the escape sequences instead
+            of the actual characters. Set this option to false to prevent HTML entities from
+            being translated.
+            <br/>Default = true.
+            </summary>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.EnabledModules">
+            <summary>
+            OBSOLETE: Please use the new <see cref="P:DocumentConversion.DocumentConverter.PureManaged"/> setting.
+            
+            Get or set the list of enabled modules that are used by this instance of the converter.
+            See <see cref="T:DocumentConversion.DocumentConverter.Modules"/>. The default is <see cref="F:DocumentConversion.DocumentConverter.Modules.All"/> because it is the most comprehensive.
+            </summary>
+            <remarks>
+            The default value for this property can be configured in the <c>&lt;appSettings&gt;</c>
+            section of the application config file.
+            </remarks>
+            <example>
+            This example adds an entry to the <c>&lt;appSettings&gt;</c> section of a web.config file
+            that modifies the default value of this EnableModules property.
+            <code><![CDATA[
+            <appSettings>
+            	<!--
+            		Set the value to the bitwise OR value of the following flags:
+            			0  = None
+            			1  = Module1
+            			4  = Module3
+            			8  = Module4
+            			16 = Module5
+            			
+            		For example:
+            			5  = Module1 + Module3
+            			13 = Module1 + Module3 + Module4
+            	-->
+            	<add key="Sovren.DocumentConverter.EnabledModules" value="5"/>
+            </appSettings>
+            ]]></code>
+            </example>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.OutputValidity">
+            <summary>
+            This property can be read after parsing to get the success code.
+            <see cref="F:DocumentConversion.DocumentConverter.PotentialOutputValidityValues"/>.
+            </summary>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.ExceptionDetails">
+            <summary>
+            This property holds the description of any exceptions that occurred
+            during the most recent conversion.
+            </summary>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.ImageTypeAsString">
+            <summary>
+            Inspects the document content and returns one of the <see cref="T:DocumentConversion.DocumentConverter.DocumentTypes"/> values as a string;
+            otherwise, "Unknown".
+            </summary>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.DocumentTypeAsString">
+            <summary>
+            Inspects the document content and returns one of the <see cref="T:DocumentConversion.DocumentConverter.DocumentTypes"/> values as a string.
+            </summary>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.DocumentType">
+            <summary>
+            Inspects the document content and returns one of the <see cref="T:DocumentConversion.DocumentConverter.DocumentTypes"/> values.
+            </summary>
+            <returns>One of the <see cref="T:DocumentConversion.DocumentConverter.DocumentTypes"/> values.</returns>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.RecommendedFileExtension">
+            <summary>
+            Inspects the document and determines the appropriate file extension.
+            </summary>
+            <returns>A file extension without the leading period.</returns>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.NormalizeLineLength">
+            <summary>
+            When normalizing text, try to wrap lines at about this length.
+            Cannot be set to less than 40. Default = 100.
+            </summary>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.NormalizeFlushLeft">
+            <summary>
+            When normalizing text, remove all leading whitespace so that lines are
+            flush left. Default = true.
+            </summary>
+        </member>
+        <member name="P:DocumentConversion.DocumentConverter.NormalizeAlign">
+            <summary>
+            When normalizing text, align adjacent paragraphs (those without whitespace in between)
+            so that they have the same amount of whitespace on the left.
+            Default = false.
+            </summary>
+        </member>
+        <member name="T:DocumentConversion.DocumentConverter.Modules">
+            <summary>
+            OBSOLETE: Use the <see cref="P:DocumentConversion.DocumentConverter.PureManaged"/> property.
+            
+            Specifies the converter modules that can be enabled or disabled.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.Modules.None">
+            <summary>
+            No modules. At least one module is required.
+            <br/>Numeric value = 0.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.Modules.All">
+            <summary>
+            All modules.
+            <br/>Numeric value = 32767.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.Modules.PureManaged">
+            <summary>
+            Only Pure Managed modules. All Pure Managed code is included in the DocumentConversion.dll
+            and does not require any other files. Pure Managed supports DOC (97-2003), DOCX, RTF, HTML, MHTML, ODT, MIME, Word XML.
+            But it is important to point out that it does NOT support: PDF, or DOC versions prior to Word 97.
+            <br/>Numeric value = 1.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.Modules.Module1">
+            <summary>
+            This Pure Managed Code module is embedded within the DocumentConversion.dll and does not require any external files.
+            <br/>This module supports DOC (97-2003), DOCX, RTF, HTML, MHTML, ODT, MIME, Word XML.
+            But it is important to point out that it does NOT support: PDF, or DOC versions prior to Word 97.
+            <br/>Numeric value = 1.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.Modules.Module3">
+            <summary>
+            This Mixed Mode module supports virtually all document types but is not the best first option,
+            so other converters are used first if they are enabled.
+            <br/>Numeric value = 4.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.Modules.Module5">
+            <summary>
+            This Mixed Mode module supports the PDF document format. It provides better conversion of
+            PDF files than Module3.
+            <br/>Numeric value = 16.
+            </summary>
+        </member>
+        <member name="T:DocumentConversion.DocumentConverter.OutputTypes">
+            <summary>
+            The types of output that may be requested. All output types are Unicode compliant.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.OutputTypes.PlainText">
+            <summary>
+            Plain text that preserves original whitespace.
+            <br/>Numeric value = 0.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.OutputTypes.NormalizedText">
+            <summary>
+            Plain text that reformats the whitespace for improved human readability.
+            <br/>Numeric value = 1.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.OutputTypes.HtmlFormatted">
+            <summary>
+            Formatted HTML that preserves as much original formatting information as possible.
+            <br/>Numeric value = 2.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.OutputTypes.HtmlPlain">
+            <summary>
+            Plain HTML that preserves as much of the original whitespace layout as possible
+            but removes all other formatting information such as fonts and colors.
+            <br/>Numeric value = 3.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.OutputTypes.Rtf">
+            <summary>
+            Rich Text Format (RTF) that preserves as much original formatting information as possible.
+            <br/>Numeric value = 4.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.OutputTypes.WordXml">
+            <summary>
+            Word XML Document that preserves as much original formatting information as possible.
+            <br/>Numeric value = 5.
+            </summary>
+        </member>
+        <member name="T:DocumentConversion.DocumentConverter.DocumentTypes">
+            <summary>
+            The list of auto-detected input document formats.
+            </summary>
+            <remarks>
+            This property reports only a subset of the possible document formats.
+            Our converter uses multiple libraries to perform its job. We detect the document
+            formats for common document types that are supported by multiple libraries.
+            All other document formats are routed to a fallback library in Mixed Mode
+            that supports 60+ formats, but we do not currently return the document type
+            reported by that library. For more information about the range of formats that might return
+            content but be reported as <see cref="F:DocumentConversion.DocumentConverter.DocumentTypes.Unknown"/>, see http://support.dtsearch.com/dts0103.htm.
+            </remarks>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Unknown">
+            <summary>
+            The file format is Unknown or was handled by the fallback library.
+            <br/>Numeric value = 0.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.WordPre97">
+            <summary>
+            Microsoft Word DOC file versions prior to Word 97, the most common in this category
+            are Word 6.0 and Word 95. Conversion of these files requires Mixed Mode.
+            <br/>Numeric value = 1.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Word97Through2003">
+            <summary>
+            Microsoft Word DOC file versions 97, 2000, 2003.
+            <br/>Numeric value = 2.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.WordDocx">
+            <summary>
+            Microsoft Word DOCX file version 2007.
+            <br/>Numeric value = 3.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Rtf">
+            <summary>
+            Microsoft Rich Text Format
+            <br/>Numeric value = 4.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Html">
+            <summary>
+            HTML (HyperText Markup Language). Charset encoding is specified within the HTML file.
+            <br/>Numeric value = 5.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Text">
+            <summary>
+            Text file, including most Unicode variants (UTF-7, UTF-8, UTF-16, UTF-16 BE, UTF-32).
+            <b>WARNING:</b> Non-Unicode documents are assumed to use ANSI code page 1252, also known as "windows-1252",
+            which is a superset of "iso-8859-1" and only supports the Latin character set (English and other Western languages).
+            Because ANSI Code Page text documents do not store any information about the code page that was used when they were
+            created, it is not practical to auto-detect the code page.
+            <br/>Numeric value = 6.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Xml">
+            <summary>
+            XML (eXtensible Markup Language). This is not really a suitable input document type.
+            <br/>Numeric value = 7.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Pdf">
+            <summary>
+            PDF (Portable Document Format).
+            <br/>Numeric value = 8.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.WordPerfect">
+            <summary>
+            Word Perfect version 5.0 or later.
+            <br/>Numeric value = 9.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Image">
+            <summary>
+            Image format (BMP, GIF, JPG, PNG, TIFF, etc.) that does not contain extractable text.
+            <br/>Numeric value = 10.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Tiff">
+            <summary>
+            TIFF image format, usually does not contain extractable text.
+            <br/>Numeric value = 11.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Gif">
+            <summary>
+            GIF image format, does not contain extractable text.
+            <br/>Numeric value = 12.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Jpg">
+            <summary>
+            JPG image format, does not contain extractable text.
+            <br/>Numeric value = 13.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Bmp">
+            <summary>
+            BMP image format, does not contain extractable text.
+            <br/>Numeric value = 14.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Png">
+            <summary>
+            PNG image format, does not contain extractable text.
+            <br/>Numeric value = 15.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Zip">
+            <summary>
+            ZIP archive format, may contain one or more documents.
+            <br/>Numeric value = 16.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.WordXml">
+            <summary>
+            Word 2003 XML Document
+            <br/>Numeric value = 17.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Word2003Xml">
+            <summary>
+            Word 2003 XML Document
+            <br/>Numeric value = 17.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Mht">
+            <summary>
+            MHT (MIME-HTML) also known as EML and MHTML.
+            <br/>Numeric value = 18.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Mime">
+            <summary>
+            MIME message
+            <br/>Numeric value = 19.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.BinHex">
+            <summary>
+            BinHex file
+            <br/>Numeric value = 20.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Odt">
+            <summary>
+            Open Document Text (ODT) file
+            <br/>Numeric value = 21.
+            </summary>
+        </member>
+        <member name="F:DocumentConversion.DocumentConverter.DocumentTypes.Word2007Xml">
+            <summary>
+            Word 2007 XML Document
+            <br/>Numeric value = 22.
+            </summary>
+        </member>
+        <member name="T:DocumentConversion.DocumentConverter.DataTooShortException">
+            <summary>
+            The exception that is thrown when the data is too short to be usable.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.DataTooShortException.#ctor">
+            <summary>
+            Default constructor with default message of "The data is too short to be usable."
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.DataTooShortException.#ctor(System.String)">
+            <summary>
+            Constructor with a custom message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:DocumentConversion.DocumentConverter.ConverterThread2">
+            <summary>
+            This is a private class that implements the threading necessary to prevent the conversion
+            from hanging if it encounters an evil (corrupt) document.  The internals of this 
+            class are not documented, as it is designed to be a black box.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.ConverterThread2.RemoveRedundantHeadersAndFooters(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Removes any headers or footers that mostly duplicate other headers or footers.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.ConverterThread2.IsRedundant(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            Determine if the two sets of words are mostly the same.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.DocumentConverter.ConverterThread2.GetAlphaNumericWords(System.String)">
+            <summary>
+            Get the set of alphanumeric words in a string, sorted by OrdinalIgnoreCase.
+            </summary>
+        </member>
+        <member name="T:DocumentConversion.MimeParser">
+            <summary>
+            This class parses MIME content into an easily navigable object. This MIME parser was
+            specifically developed to process SAP MIME requests, which have some of their own
+            peculiarities, and may not work for all MIME formatted requests.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.MimeParser.#ctor">
+            <summary>
+            Create a new instance of the MIME parser.
+            </summary>
+        </member>
+        <member name="M:DocumentConversion.MimeParser.Parse(System.IO.Stream)">
+            <summary>
+            Parse a MIME message.
+            </summary>
+            <param name="content">Stream containing the MIME content.</param>
+        </member>
+        <member name="M:DocumentConversion.MimeParser.Parse(System.IO.Stream,System.String,System.String)">
+            <summary>
+            Parse a MIME message.
+            </summary>
+            <param name="content">Stream containing the MIME content.</param>
+            <param name="contentType">Value of the "Content-Type" header.</param>
+            <param name="contentEncoding">Name of the top-level encoding scheme, such as "utf-8".
+            If specified, overrides any charset value specified by contentType.</param>
+        </member>
+        <member name="M:DocumentConversion.MimeParser.GetAttachmentsByMediaType(System.String[])">
+            <summary>
+            Get all of the attachments of the specified media types.
+            </summary>
+            <param name="mediaType">The <see cref="P:System.Net.Mime.ContentType.MediaType"/> of attachments to retrieve.</param>
+            <returns>List of attachments, if any.</returns>
+        </member>
+        <member name="M:DocumentConversion.MimeParser.GetAttachmentsByMediaTypeStartsWith(System.String[])">
+            <summary>
+            Get all of the attachments having a MediaType value that starts with any of the specified mediaTypes.
+            </summary>
+            <param name="mediaType">The <see cref="P:System.Net.Mime.ContentType.MediaType"/> of attachments to retrieve.</param>
+            <returns>List of attachments, if any.</returns>
+        </member>
+        <member name="M:DocumentConversion.MimeParser.GetAttachmentText(System.Net.Mail.Attachment)">
+            <summary>
+            Read the attachment as text, using the CharSet defined in its ContentType.
+            </summary>
+            <param name="attachment">The attachment to read.</param>
+            <returns>The body of the attachment in a plain text format.</returns>
+        </member>
+        <member name="M:DocumentConversion.MimeParser.TryFromBase64String(System.String,System.Byte[]@)">
+            <summary>
+            Perform Base64 detection/decoding in a single step.
+            </summary>
+            <param name="s">String that may contain Base64 encoded text.</param>
+            <param name="bytes">Decoded bytes, or null if there was a decoding error.</param>
+            <returns>True if the string was Base64 decoded and bytes parameter is not null.</returns>
+            <remarks>
+            Even considering the cost of ignoring exceptions from failed detections, the
+            native-code decoder is probably still faster than our managed-code IsBase64 logic.
+            </remarks>
+        </member>
+        <member name="M:DocumentConversion.MimeParser.IsBase64(System.String)">
+            <summary>
+            Determines if a string is a Base64 encoding.
+            </summary>
+            <param name="s">String to test.</param>
+            <returns>True if string is validly formatted as Base64 encoding.</returns>
+        </member>
+        <member name="M:DocumentConversion.MimeParser.DecodeQuotedPrintable(System.String)">
+            <summary>
+            Decodes text encoded as "Content-Transfer-Encoding: quoted-printable"
+            </summary>
+            <param name="text">The text to be decoded.</param>
+            <returns>Decoded text. String.Empty is returned if text was null. Original string object is returned if nothing changed.</returns>
+        </member>
+        <member name="P:DocumentConversion.MimeParser.Attachments">
+            <summary>
+            A list of all the attachments included the MIME message, including the Root.
+            </summary>
+            <remarks>This property is only populated after calling Parse.</remarks>
+        </member>
+        <member name="P:DocumentConversion.MimeParser.Root">
+            <summary>
+            The Root part of the MIME message, as indicated by the "start" attribute of the Content-Type header.
+            </summary>
+            <remarks>This property is only populated after calling Parse.</remarks>
+        </member>
+    </members>
+</doc>

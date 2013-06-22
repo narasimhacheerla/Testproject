@@ -1,0 +1,54 @@
+
+
+
+Settings > 
+
+Email settings - Links to a static page where the user can select the email notifications they want to receive. Sample attached. 
+
+Customize feeds - Takes them to the customize page
+
+Customize jobs -Takes them to the customize page
+
+
+
+
+Affiliate > 
+
+Sent Invitations - Takes to new page ( already done)
+
+With draw funds - Take them to a new page with a account earning overview. clicking confirm, creates a invoice - send invoice through Paypal.
+
+account balance - Takes to new page ( already done)
+
+
+
+
+Profile >View profile - free user / premium user 
+
+edit profile - link to already done page - job board
+
+export - link to already done page -  pdf export of free user /premium user profile page.
+
+share - link to already done page
+
+
+
+
+Jobs >
+
+My Job postings - report on all job postings - job search page.
+
+My Job applications- Report on all jobs applied. click job takes to a individual job postings
+
+Candidates applied - report on all  applicants - click on any applicant takes to their profile. - user results - user results - 
+
+Buy Job credit - Takes them to the buy job credit page
+
+
+
+
+Messages> - Messages notifications page.
+
+Received - Take to the received messages 
+
+Sent - Take to sent messages 

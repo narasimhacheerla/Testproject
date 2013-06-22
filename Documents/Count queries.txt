@@ -1,0 +1,29 @@
+<div class="header">
+	
+    <div class="header_colour">
+    	<img src="<?php echo $pathToShared; ?>/images/logo_colour.gif" alt="Colour Portfolio" title="Colour Portfolio" />
+    </div>
+    <div class="header_site">
+    	<img src="/images/site_logo1.gif" alt="Colour Casting" title="Colour Casting" />
+    </div>
+    
+</div>
+select IsRssJob, IsNaukri, CONVERT(DATETIME, CONVERT(INT, CreatedDateTime)) CreatedDate, Count(1) 
+from dbo.[job] 
+where isRssJob=1 and IsNaukri IS NULl
+group by IsRssJob,IsNaukri, CONVERT(DATETIME, CONVERT(INT, CreatedDateTime)) 
+order by CreatedDate desc
+select CONVERT(DATETIME, CONVERT(INT, CreatedDateTime)) CreatedDate, Count(1) 
+from dbo.[job] 
+group by CONVERT(DATETIME, CONVERT(INT, CreatedDateTime)) 
+order by CreatedDate desc
+
+select Count(1) 
+from dbo.[job] 
+
+select Count(1) 
+from dbo.[job] 
+where isdeleted = 0 OR isdeleted IS NULL
+
+
+
