@@ -1,0 +1,55 @@
+/*
+
+Styling the counter itself.
+Set image paths accordingly.
+
+THIS YOU NEED TO KEEP.
+
+So you can have multiple counters on a page, just make sure each one has a class of "flip-counter".
+
+You can download the background sprite here:
+http://cnanney.com/journal/demo/apple-counter-revisited/img/digits.png
+
+*/
+.flip-counter
+{
+    margin: 0px auto;
+    margin-left: 60px;
+}
+
+.flip-counter ul.cd
+{
+    float: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.flip-counter li
+{
+    background: url(../images/digits.png) 0 0 no-repeat;
+}
+.flip-counter li.t
+{
+    background-position: 0 0;
+    width: 21px;
+    height: 16px;
+}
+.flip-counter li.b
+{
+    background-position: 0 0;
+    width: 21px;
+    height: 26px;
+}
+.flip-counter li.s
+{
+    background-position: -21px -1030px;
+    width: 5px;
+    height: 42px;
+}
+
+.users
+{
+    border-width: 2px;
+    border-style:dashed;
+    border-color:White;
+}

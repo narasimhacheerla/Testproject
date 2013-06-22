@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*Top news tab function style begins*/
+.top-news{ float:left; margin-top:20px;}
+.top-news-inner{ width:652px; float:left; border:1px solid #e2e2e2; margin-top:30px; border-radius:4px 4px; background-color:#f9f9f9;}
+#scroller-header a {
+	text-decoration:none; 
+	color:#494949;
+	text-shadow:0px 1px 1px #fff;
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fefefe), color-stop(100%,#eeeeee));
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fefefe',endColorstr='#eeeeee',GradientType=0);
+background:-ms-linear-gradient(#fefefe,#eeeeee);
+background:-moz-linear-gradient(#fefefe,#eeeeee);
+background:-o-linear-gradient(#fefefe,#eeeeee); border:1px solid #e8e8e8;  
+	padding:8px 10px; width:130px; margin:-15px 5px 0px 5px; float:left; text-align:center; font-weight:bold;
+}
+
+#scroller-header a:hover {
+background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#ededed), color-stop(100%,#fefefe));
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed',endColorstr='#fefefe',GradientType=0);
+background:-ms-linear-gradient(#ededed,#fefefe);
+background:-moz-linear-gradient(#ededed,#fefefe);
+background:-o-linear-gradient(#ededed,#fefefe); color:#000;
+}
+
+#scroller-header a.selected {
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#e8e8e8), color-stop(100%,#d2d2d2));
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e8e8',endColorstr='#d2d2d2',GradientType=0);
+background:-ms-linear-gradient(#e8e8e8,#d2d2d2);
+background:-moz-linear-gradient(#e8e8e8,#d2d2d2);
+background:-o-linear-gradient(#e8e8e8,#d2d2d2);
+}
+
+#scroller-header {	
+	width:100%;
+	float:left;		
+}
+
+#scroller-body {
+	background:url(images/body.gif) no-repeat bottom center;
+	width:100%;
+	float:left;
+	padding-bottom:30px;
+}
+
+#mask {
+	width:614px;
+	margin-left:2px;
+	padding:20px 0px 0px 0px;	
+	overflow:hidden;
+	
+}
+
+
+#panel div {
+float:left;
+}
+
+/* Extra styling for each panel*/
+
+#panel ul {
+ float:left;
+ width:100%;
+}
+
+	#panel ul li {
+		float:left;
+		width:140px;
+		padding:0px 0px;		
+	}
+#panel ul li img{ display:block;}
+#panel ul li p{ margin-top:5px;}
+#panel ul li.top-news-arrow{ float:left; width:15px; margin:55px 0px 0px 0px; }
+
+/*Tip news tab function style ends*/
+
+
+/*New Pages Style begins*/
+#mask{ margin-left:0px; width:644px;}
+#scroller-body{ padding-bottom:10px;}
+#panel ul li{ width:124px; padding:0px 4px;}
+

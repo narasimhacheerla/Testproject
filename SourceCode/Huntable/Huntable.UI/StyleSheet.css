@@ -1,0 +1,173 @@
+﻿body {
+}
+
+.headerDiv 
+{
+    background-color:#1589FF; 
+    height:58px;
+    width:100%;
+    margin:0px;
+    top:0px;
+}
+.footerDiv
+{
+    background-image:footer.png;
+    height: 305px;
+    width:100%;
+    bottom:0px;
+}
+.LinkButton:link { text-decoration:none; }
+
+  
+        .style3
+        {
+            width: 67px;
+        }
+        .style4
+        {
+            width: 60px;
+        }
+        .style5
+        {
+            width: 59px;
+        }
+        .style6
+        {
+            width: 67px;
+            height: 25px;
+        }
+        .style7
+        {
+            width: 60px;
+            height: 25px;
+        }
+        .style8
+        {
+            width: 59px;
+            height: 25px;
+        }
+        .style9
+        {
+            height: 25px;
+        }
+        .style10
+        {
+            width: 193px;
+        }
+        .style11
+        {
+            width: 196px;
+        }
+         .style12
+        {
+            width: 328px;
+            height: 25px;
+        }
+        .style13
+        {
+            width: 328px;
+        }
+        .style14
+        {
+            width: 445px;
+            height: 25px;
+        }
+        .style15
+        {
+           
+            width: 445px;
+        }
+        .style16
+        {
+            width: 234px;
+            height: 25px;
+        }
+        .style17
+        {
+            width: 234px;
+        }
+        .style18
+        {
+            width:50%;
+        }
+        .style19
+        {
+            width: 131px;
+        }
+        .style20
+        {
+            width: 113px;
+        }
+        .style21
+        {
+            width: 113px;
+            height: 57px;
+        }
+        .style22
+        {
+            height: 57px;
+        }
+        .style23
+        {
+            margin-left:30px;
+        }
+        .style23
+        {
+            width: 46px;
+            height: 57px;
+        }
+        .style24
+        {
+            width: 46px;
+            margin-left:30px;
+            
+        }
+        .style25
+        {
+            height: 57px;
+            width: 66px;
+        }
+        .style26
+        {
+            width: 66px;
+        }
+        .style27
+        {
+            width: 310px;
+                       
+        }
+         .style28
+        {
+            width: 246px;
+        }
+        .style29
+        {
+            width: 304px;
+        }
+        .style31
+        {
+             
+            border-style:none;
+            width:15px;
+        }
+        .labelStyle
+        {
+            vertical-align:baseline;
+            margin-left:20px;
+        }
+        .linkStyle
+        {
+            vertical-align:top;
+        }
+        .cellStyle
+        {
+            width:20%;
+        }
+        .cellStyle1{ width:30%;}
+        .cellStyle2{ width:25%;}
+        .cellStyle3{ margin-left:40px;
+                     width:25%;}
+        .ddlStyle{ width:35%;}
+        .textStyle{ width:75%;}
+        .tableStyle{ width:100%;}
+        

@@ -1,0 +1,105 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+    CodeBehind="ConfirmEmailAddress.aspx.cs" Inherits="Huntable.UI.ConfirmEmailAddress" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"
+        type="text/javascript"></script>
+    <script src="js/jquery.dragval-1.0-pack.js" type="text/javascript"></script>
+    <div id="content-section">
+        <div runat="server" id="pnlAlreadyConfirmed" visible="false">
+            <div id="content-inner">
+                <div class="content-inner-left">
+                    <div class="profile-box">
+                        <div class="accounts-profile accounts-profile1 accounts-profile-picture">
+                            <h2>
+                                Email Address verification</h2>
+                            <div class="style1">
+                                <p class="style1" style="color: Red; font-size: 15px">
+                                    <strong>This link has already been used to verify your email address</strong></p>
+                                <br />
+                                <p class="style1" style="color: Green">
+                                    You should now be able to access your account</p>
+                                <br />
+                                <p style="color: Green">
+                                    Sign In To Join Huntable Tour</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div runat="server" id="pnlSuccess" visible="false">
+        <div id="content-section">
+            <div id="content-inner">
+                <div class="content-inner-left">
+                    <div class="profile-box">
+                        <div class="accounts-profile accounts-profile1 accounts-profile-picture">
+                            <h2>
+                                Email Address verification</h2>
+                            <div class="style1">
+                                <p class="style1" style="color: Green; font-size: 15px">
+                                    <strong>Your email address successfully verified</strong></p>
+                                <br />
+                                <p class="style1" style="color: Green">
+                                    You should now be able to access your account</p>
+                                <br />
+                                <p style="color: Green">
+                                    Sign In To Join Huntable Tour</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       <div runat="server" id="divPassword" visible="false">
+        <div id="Div2">
+            <div id="Div3">
+                <div class="content-inner-left">
+                    <div class="profile-box">
+                        <div class="accounts-profile accounts-profile1 accounts-profile-picture" style="margin-left:470px;">
+                            <h2>
+                                Password Confirmation</h2>
+                            <div class="style1">
+                                <p class="style1" style="color: Green; font-size: 15px">
+                                    <strong>Your Password has been changed successfully.</strong></p>
+                                <br />
+                                <p class="style1" style="color: Black">
+                                    You should now be able to access your account with the new password.</p>
+                                <br />
+                                <p style="color: Green">
+                                   </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+           <div runat="server" id="divalreadyConfirmed" visible="false">
+            <div id="Div4">
+                <div class="content-inner-left">
+                    <div class="profile-box">
+                        <div class="accounts-profile accounts-profile1 accounts-profile-picture" style="margin-left:476px;">
+                            <h2>
+                                Password Confirmation</h2>
+                            <div class="style1">
+                                <p class="style1" style="color: Red; font-size: 15px">
+                                    <strong>This link has already been used to verify your email Password.</strong></p>
+                                <br />
+                                <p class="style1" style="color: Black">
+                                    You should now be able to access your account with the new password.</p>
+                                <br />
+                                <p style="color: Green">
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</asp:Content>

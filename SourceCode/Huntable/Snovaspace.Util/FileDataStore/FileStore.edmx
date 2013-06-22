@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FileStoreModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="FileStoreModelStoreContainer">
+          <EntitySet Name="ApplicationDefinition" EntityType="FileStoreModel.Store.ApplicationDefinition" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationEmail" EntityType="FileStoreModel.Store.ApplicationEmail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationEmailAccount" EntityType="FileStoreModel.Store.ApplicationEmailAccount" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationEmailAttachment" EntityType="FileStoreModel.Store.ApplicationEmailAttachment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationEmailEvent" EntityType="FileStoreModel.Store.ApplicationEmailEvent" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlockedEmail" EntityType="FileStoreModel.Store.BlockedEmail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UsageAudit" EntityType="FileStoreModel.Store.UsageAudit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserFileContent" EntityType="FileStoreModel.Store.UserFileContent" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ApplicationEmail_ApplicationEmailAccount" Association="FileStoreModel.Store.FK_ApplicationEmail_ApplicationEmailAccount">
+            <End Role="ApplicationEmailAccount" EntitySet="ApplicationEmailAccount" />
+            <End Role="ApplicationEmail" EntitySet="ApplicationEmail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationEmailAccount_ApplicationDefinition" Association="FileStoreModel.Store.FK_ApplicationEmailAccount_ApplicationDefinition">
+            <End Role="ApplicationDefinition" EntitySet="ApplicationDefinition" />
+            <End Role="ApplicationEmailAccount" EntitySet="ApplicationEmailAccount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationEmailAttachment_ApplicationEmail" Association="FileStoreModel.Store.FK_ApplicationEmailAttachment_ApplicationEmail">
+            <End Role="ApplicationEmail" EntitySet="ApplicationEmail" />
+            <End Role="ApplicationEmailAttachment" EntitySet="ApplicationEmailAttachment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationEmailEvent_ApplicationEmail" Association="FileStoreModel.Store.FK_ApplicationEmailEvent_ApplicationEmail">
+            <End Role="ApplicationEmail" EntitySet="ApplicationEmail" />
+            <End Role="ApplicationEmailEvent" EntitySet="ApplicationEmailEvent" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ApplicationDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="ApplicationEmail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationEmailAccountId" Type="int" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="550" />
+          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HtmlBody" Type="bit" Nullable="false" />
+          <Property Name="ToList" Type="varchar(max)" Nullable="false" />
+          <Property Name="CCList" Type="varchar(max)" />
+          <Property Name="BCCList" Type="varchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="SentDate" Type="datetime" />
+          <Property Name="SentSuccessfully" Type="bit" />
+          <Property Name="ErrorMessage" Type="varchar(max)" />
+          <Property Name="LastResentDate" Type="datetime" />
+          <Property Name="ResendTriggered" Type="bit" />
+          <Property Name="ResendTriggeredDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ApplicationEmailAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationDefinitionId" Type="int" Nullable="false" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="150" />
+          <Property Name="SMTPAddress" Type="varchar" MaxLength="150" />
+          <Property Name="SMTPPort" Type="int" />
+          <Property Name="EnableSsl" Type="bit" />
+          <Property Name="FromUserName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="FromPassword" Type="varchar" Nullable="false" MaxLength="550" />
+          <Property Name="DefaultAccount" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ApplicationEmailAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationEmailId" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="FileContent" Type="image" Nullable="false" />
+          <Property Name="Extension" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ApplicationEmailEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationEmailId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="ErrorMessage" Type="varchar(max)" />
+          <Property Name="ResendRequestedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BlockedEmail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="ProjectName" Type="varchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="UsageAudit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="LogonUser" Type="varchar" MaxLength="300" />
+          <Property Name="MachineName" Type="text" />
+          <Property Name="Url" Type="text" />
+          <Property Name="UserAgent" Type="text" />
+          <Property Name="CurrentExecutionFilePath" Type="text" />
+          <Property Name="PhysicalApplicationPath" Type="text" />
+          <Property Name="RemoteAddress" Type="text" />
+          <Property Name="UrlReferrer" Type="text" />
+          <Property Name="HttpHost" Type="text" />
+        </EntityType>
+        <EntityType Name="UserFileContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="FileName" Type="nvarchar" Nullable="false" MaxLength="2000" />
+          <Property Name="File" Type="image" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ApplicationEmail_ApplicationEmailAccount">
+          <End Role="ApplicationEmailAccount" Type="FileStoreModel.Store.ApplicationEmailAccount" Multiplicity="1" />
+          <End Role="ApplicationEmail" Type="FileStoreModel.Store.ApplicationEmail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationEmailAccount">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApplicationEmail">
+              <PropertyRef Name="ApplicationEmailAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationEmailAccount_ApplicationDefinition">
+          <End Role="ApplicationDefinition" Type="FileStoreModel.Store.ApplicationDefinition" Multiplicity="1" />
+          <End Role="ApplicationEmailAccount" Type="FileStoreModel.Store.ApplicationEmailAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationDefinition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApplicationEmailAccount">
+              <PropertyRef Name="ApplicationDefinitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationEmailAttachment_ApplicationEmail">
+          <End Role="ApplicationEmail" Type="FileStoreModel.Store.ApplicationEmail" Multiplicity="1" />
+          <End Role="ApplicationEmailAttachment" Type="FileStoreModel.Store.ApplicationEmailAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationEmail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApplicationEmailAttachment">
+              <PropertyRef Name="ApplicationEmailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationEmailEvent_ApplicationEmail">
+          <End Role="ApplicationEmail" Type="FileStoreModel.Store.ApplicationEmail" Multiplicity="1" />
+          <End Role="ApplicationEmailEvent" Type="FileStoreModel.Store.ApplicationEmailEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationEmail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApplicationEmailEvent">
+              <PropertyRef Name="ApplicationEmailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FileStoreModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="FileStoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserFileContents" EntityType="FileStoreModel.UserFileContent" />
+          <EntitySet Name="BlockedEmails" EntityType="FileStoreModel.BlockedEmail" />
+          <EntitySet Name="UsageAudits" EntityType="FileStoreModel.UsageAudit" />
+          <EntitySet Name="ApplicationDefinitions" EntityType="FileStoreModel.ApplicationDefinition" />
+          <EntitySet Name="ApplicationEmails" EntityType="FileStoreModel.ApplicationEmail" />
+          <EntitySet Name="ApplicationEmailAccounts" EntityType="FileStoreModel.ApplicationEmailAccount" />
+          <EntitySet Name="ApplicationEmailAttachments" EntityType="FileStoreModel.ApplicationEmailAttachment" />
+          <AssociationSet Name="FK_ApplicationEmailAccount_ApplicationDefinition" Association="FileStoreModel.FK_ApplicationEmailAccount_ApplicationDefinition">
+            <End Role="ApplicationDefinition" EntitySet="ApplicationDefinitions" />
+            <End Role="ApplicationEmailAccount" EntitySet="ApplicationEmailAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationEmailAttachment_ApplicationEmail" Association="FileStoreModel.FK_ApplicationEmailAttachment_ApplicationEmail">
+            <End Role="ApplicationEmail" EntitySet="ApplicationEmails" />
+            <End Role="ApplicationEmailAttachment" EntitySet="ApplicationEmailAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ApplicationEmail_ApplicationEmailAccount" Association="FileStoreModel.FK_ApplicationEmail_ApplicationEmailAccount">
+            <End Role="ApplicationEmailAccount" EntitySet="ApplicationEmailAccounts" />
+            <End Role="ApplicationEmail" EntitySet="ApplicationEmails" />
+          </AssociationSet>
+          <EntitySet Name="ApplicationEmailEvents" EntityType="FileStoreModel.ApplicationEmailEvent" />
+          <AssociationSet Name="FK_ApplicationEmailEvent_ApplicationEmail" Association="FileStoreModel.FK_ApplicationEmailEvent_ApplicationEmail">
+            <End Role="ApplicationEmail" EntitySet="ApplicationEmails" />
+            <End Role="ApplicationEmailEvent" EntitySet="ApplicationEmailEvents" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="UserFileContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="File" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="DateTime" Name="CreatedDateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="BlockedEmail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="EmailAddress" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UsageAudit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CurrentExecutionFilePath" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PhysicalApplicationPath" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Url" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UserAgent" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RemoteAddress" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UrlReferrer" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LogonUser" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HttpHost" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDateTime" Precision="3" />
+          <Property Type="String" Name="MachineName" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ApplicationDefinition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ApplicationEmailAccounts" Relationship="FileStoreModel.FK_ApplicationEmailAccount_ApplicationDefinition" FromRole="ApplicationDefinition" ToRole="ApplicationEmailAccount" />
+        </EntityType>
+        <EntityType Name="ApplicationEmail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ApplicationEmailAccountId" Nullable="false" />
+          <Property Type="String" Name="Subject" MaxLength="550" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Body" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="HtmlBody" Nullable="false" />
+          <Property Type="String" Name="ToList" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CCList" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BCCList" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <Property Type="DateTime" Name="SentDate" />
+          <Property Type="Boolean" Name="SentSuccessfully" />
+          <Property Type="String" Name="ErrorMessage" MaxLength="550" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastResentDate" />
+          <NavigationProperty Name="ApplicationEmailAttachments" Relationship="FileStoreModel.FK_ApplicationEmailAttachment_ApplicationEmail" FromRole="ApplicationEmail" ToRole="ApplicationEmailAttachment" />
+          <NavigationProperty Name="ApplicationEmailAccount" Relationship="FileStoreModel.FK_ApplicationEmail_ApplicationEmailAccount" FromRole="ApplicationEmail" ToRole="ApplicationEmailAccount" />
+          <Property Type="Boolean" Name="ResendTriggered" />
+          <Property Type="DateTime" Name="ResendTriggeredDate" />
+          <NavigationProperty Name="ApplicationEmailEvents" Relationship="FileStoreModel.FK_ApplicationEmailEvent_ApplicationEmail" FromRole="ApplicationEmail" ToRole="ApplicationEmailEvent" />
+        </EntityType>
+        <EntityType Name="ApplicationEmailAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ApplicationDefinitionId" Nullable="false" />
+          <Property Type="String" Name="SMTPAddress" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="SMTPPort" />
+          <Property Type="Boolean" Name="EnableSsl" />
+          <Property Type="String" Name="FromUserName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FromPassword" Nullable="false" MaxLength="550" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="DefaultAccount" Nullable="false" />
+          <NavigationProperty Name="ApplicationDefinition" Relationship="FileStoreModel.FK_ApplicationEmailAccount_ApplicationDefinition" FromRole="ApplicationEmailAccount" ToRole="ApplicationDefinition" />
+          <NavigationProperty Name="ApplicationEmails" Relationship="FileStoreModel.FK_ApplicationEmail_ApplicationEmailAccount" FromRole="ApplicationEmailAccount" ToRole="ApplicationEmail" />
+          <Property Type="String" Name="DisplayName" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ApplicationEmailAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ApplicationEmailId" Nullable="false" />
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Binary" Name="FileContent" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="Extension" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ApplicationEmail" Relationship="FileStoreModel.FK_ApplicationEmailAttachment_ApplicationEmail" FromRole="ApplicationEmailAttachment" ToRole="ApplicationEmail" />
+        </EntityType>
+        <Association Name="FK_ApplicationEmailAccount_ApplicationDefinition">
+          <End Type="FileStoreModel.ApplicationDefinition" Role="ApplicationDefinition" Multiplicity="1" />
+          <End Type="FileStoreModel.ApplicationEmailAccount" Role="ApplicationEmailAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationDefinition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApplicationEmailAccount">
+              <PropertyRef Name="ApplicationDefinitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationEmailAttachment_ApplicationEmail">
+          <End Type="FileStoreModel.ApplicationEmail" Role="ApplicationEmail" Multiplicity="1" />
+          <End Type="FileStoreModel.ApplicationEmailAttachment" Role="ApplicationEmailAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationEmail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApplicationEmailAttachment">
+              <PropertyRef Name="ApplicationEmailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ApplicationEmail_ApplicationEmailAccount">
+          <End Type="FileStoreModel.ApplicationEmailAccount" Role="ApplicationEmailAccount" Multiplicity="1" />
+          <End Type="FileStoreModel.ApplicationEmail" Role="ApplicationEmail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationEmailAccount">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApplicationEmail">
+              <PropertyRef Name="ApplicationEmailAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ApplicationEmailEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ApplicationEmailId" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="Int32" Name="EventId" Nullable="false" />
+          <Property Type="String" Name="ErrorMessage" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ResendRequestedDate" />
+          <NavigationProperty Name="ApplicationEmail" Relationship="FileStoreModel.FK_ApplicationEmailEvent_ApplicationEmail" FromRole="ApplicationEmailEvent" ToRole="ApplicationEmail" />
+        </EntityType>
+        <Association Name="FK_ApplicationEmailEvent_ApplicationEmail">
+          <End Type="FileStoreModel.ApplicationEmail" Role="ApplicationEmail" Multiplicity="1" />
+          <End Type="FileStoreModel.ApplicationEmailEvent" Role="ApplicationEmailEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationEmail">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ApplicationEmailEvent">
+              <PropertyRef Name="ApplicationEmailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FileStoreModelStoreContainer" CdmEntityContainer="FileStoreEntities">
+          <EntitySetMapping Name="UserFileContents">
+            <EntityTypeMapping TypeName="FileStoreModel.UserFileContent">
+              <MappingFragment StoreEntitySet="UserFileContent">
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="File" ColumnName="File" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlockedEmails">
+            <EntityTypeMapping TypeName="FileStoreModel.BlockedEmail">
+              <MappingFragment StoreEntitySet="BlockedEmail">
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsageAudits">
+            <EntityTypeMapping TypeName="FileStoreModel.UsageAudit">
+              <MappingFragment StoreEntitySet="UsageAudit">
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="HttpHost" ColumnName="HttpHost" />
+                <ScalarProperty Name="LogonUser" ColumnName="LogonUser" />
+                <ScalarProperty Name="UrlReferrer" ColumnName="UrlReferrer" />
+                <ScalarProperty Name="RemoteAddress" ColumnName="RemoteAddress" />
+                <ScalarProperty Name="UserAgent" ColumnName="UserAgent" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="PhysicalApplicationPath" ColumnName="PhysicalApplicationPath" />
+                <ScalarProperty Name="CurrentExecutionFilePath" ColumnName="CurrentExecutionFilePath" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationDefinitions">
+            <EntityTypeMapping TypeName="FileStoreModel.ApplicationDefinition">
+              <MappingFragment StoreEntitySet="ApplicationDefinition">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationEmails">
+            <EntityTypeMapping TypeName="FileStoreModel.ApplicationEmail">
+              <MappingFragment StoreEntitySet="ApplicationEmail">
+                <ScalarProperty Name="ResendTriggeredDate" ColumnName="ResendTriggeredDate" />
+                <ScalarProperty Name="ResendTriggered" ColumnName="ResendTriggered" />
+                <ScalarProperty Name="LastResentDate" ColumnName="LastResentDate" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="SentSuccessfully" ColumnName="SentSuccessfully" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="BCCList" ColumnName="BCCList" />
+                <ScalarProperty Name="CCList" ColumnName="CCList" />
+                <ScalarProperty Name="ToList" ColumnName="ToList" />
+                <ScalarProperty Name="HtmlBody" ColumnName="HtmlBody" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="ApplicationEmailAccountId" ColumnName="ApplicationEmailAccountId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationEmailAccounts">
+            <EntityTypeMapping TypeName="FileStoreModel.ApplicationEmailAccount">
+              <MappingFragment StoreEntitySet="ApplicationEmailAccount">
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="DefaultAccount" ColumnName="DefaultAccount" />
+                <ScalarProperty Name="FromPassword" ColumnName="FromPassword" />
+                <ScalarProperty Name="FromUserName" ColumnName="FromUserName" />
+                <ScalarProperty Name="EnableSsl" ColumnName="EnableSsl" />
+                <ScalarProperty Name="SMTPPort" ColumnName="SMTPPort" />
+                <ScalarProperty Name="SMTPAddress" ColumnName="SMTPAddress" />
+                <ScalarProperty Name="ApplicationDefinitionId" ColumnName="ApplicationDefinitionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationEmailAttachments">
+            <EntityTypeMapping TypeName="FileStoreModel.ApplicationEmailAttachment">
+              <MappingFragment StoreEntitySet="ApplicationEmailAttachment">
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="FileContent" ColumnName="FileContent" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ApplicationEmailId" ColumnName="ApplicationEmailId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationEmailEvents">
+            <EntityTypeMapping TypeName="FileStoreModel.ApplicationEmailEvent">
+              <MappingFragment StoreEntitySet="ApplicationEmailEvent">
+                <ScalarProperty Name="ResendRequestedDate" ColumnName="ResendRequestedDate" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ApplicationEmailId" ColumnName="ApplicationEmailId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="FileStore">
+        <EntityTypeShape EntityType="FileStoreModel.UserFileContent" Width="1.5" PointX="5.625" PointY="11.25" />
+        <EntityTypeShape EntityType="FileStoreModel.BlockedEmail" Width="1.5" PointX="2.8353919344187677" PointY="11.625446459104049" />
+        <EntityTypeShape EntityType="FileStoreModel.UsageAudit" Width="1.5" PointX="9.4514891009086224" PointY="12.569700515162992" />
+        <EntityTypeShape EntityType="FileStoreModel.ApplicationDefinition" Width="1.5" PointX="2.75" PointY="5.5" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="FileStoreModel.ApplicationEmail" Width="1.5" PointX="0.75" PointY="1" Height="3.7109993489583313" />
+        <EntityTypeShape EntityType="FileStoreModel.ApplicationEmailAccount" Width="1.5" PointX="5" PointY="5" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="FileStoreModel.ApplicationEmailAttachment" Width="1.5" PointX="3" PointY="1.75" Height="2.1725878906249996" />
+        <AssociationConnector Association="FileStoreModel.FK_ApplicationEmailAccount_ApplicationDefinition" >
+          <ConnectorPoint PointX="4.25" PointY="6.297841796875" />
+          <ConnectorPoint PointX="5" PointY="6.297841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="FileStoreModel.FK_ApplicationEmailAttachment_ApplicationEmail" >
+          <ConnectorPoint PointX="2.25" PointY="2.8362939453125" />
+          <ConnectorPoint PointX="3" PointY="2.8362939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="FileStoreModel.FK_ApplicationEmail_ApplicationEmailAccount" >
+          <ConnectorPoint PointX="5" PointY="5.2401025390625" />
+          <ConnectorPoint PointX="2.25" PointY="5.2401025390625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="FileStoreModel.ApplicationEmailEvent" Width="1.5" PointX="3" PointY="14" Height="2.3648893229166656" />
+        <AssociationConnector Association="FileStoreModel.FK_ApplicationEmailEvent_ApplicationEmail" >
+          <ConnectorPoint PointX="1.5" PointY="5.480205078125" />
+          <ConnectorPoint PointX="1.5" PointY="15.182444661458334" />
+          <ConnectorPoint PointX="3" PointY="15.182444661458334" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

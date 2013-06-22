@@ -1,0 +1,341 @@
+﻿<Window x:Class="HuntableRecruiter.FileUpload"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Data="clr-namespace:Huntable.Data;assembly=Huntable.Data" Title="Huntable" Height="650" Width="1000" MinHeight="650" MaxHeight="650" MinWidth="1000" MaxWidth="1000">
+    <Grid>
+        <Image Source="Images/huntable_logo.jpg" Margin="-3,12,731,549">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Width" Value="150"/>
+                    <Setter Property="Height" Value="50"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Width" Value="200"/>
+                            <Setter Property="Height" Value="200"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+
+        <Border BorderBrush="Blue"  CornerRadius="2,2,2,2" BorderThickness="1,1,1,1" Margin="41,123,20,12">
+            <Grid Width="851" x:Name="Upload" Visibility="Visible"  Height="481">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="829*" />
+                    <ColumnDefinition Width="22*" />
+                </Grid.ColumnDefinitions>
+                <TextBox Height="23" HorizontalAlignment="Left" IsReadOnly="True" Margin="25,69,0,0" Name="textBox1" VerticalAlignment="Top" Width="171" />
+                <ProgressBar Height="30" Visibility="Hidden" Name="DownlaodProgress" Margin="106,210,131,241"></ProgressBar>
+                <Label  Name="lblstatus"  Margin="156,412,237,46"></Label>
+                <Button Content="Browse..." Height="23" HorizontalAlignment="Left" Margin="222,69,0,0" Name="button1" VerticalAlignment="Top" Width="89" Click="Button1Click" />
+                <Button Content="Upload CV from this file" Background="#FCD5B4" Height="23" HorizontalAlignment="Left" Margin="668,412,0,0" Name="button2" VerticalAlignment="Top" Width="132" Click="Button2Click" />
+
+            </Grid>
+
+        </Border>
+        <Button Content="My Database" Background="#B7DEE8"  Height="23" HorizontalAlignment="Left" Margin="218,86,0,0" Name="button3" VerticalAlignment="Top" Width="92" Click="MydatabaseClick" />
+        <Button Content="Search my data" Background="#B7DEE8" Height="23" HorizontalAlignment="Left" Margin="334,86,0,0" Name="button4" VerticalAlignment="Top" Width="114" Click="Searchmydata" />
+        <Button Content="View My Company Profile" Background="#B7DEE8" Height="23" Margin="0,27,42,0" Name="button5" VerticalAlignment="Top" HorizontalAlignment="Right" Width="145" Click="SyncEmailApplications"/>
+        <Label Content="Followers" Foreground="Red" Margin="854,56,53,524" />
+        <Label Name="Followers" Foreground="Red" Margin="829,56,122,532" />
+         <Label Content="Profiles" Foreground="Green"  Margin="862,86,53,494" />
+        <Label Name="ProfileCount" Foreground="Green"  Margin="829,86,122,502" />
+        <Button Content="Add database from folder" Background="#B7DEE8" Height="23" HorizontalAlignment="Left" Margin="47,86,0,0" Name="button6" VerticalAlignment="Top" Width="148" Click="AddDatabase"/>
+        <!--<Button Content="ViewCv" Height="23" HorizontalAlignment="Right" Margin="0,84,299,0" Name="button7" VerticalAlignment="Top" Width="75" Click="ViewCv" />-->
+        <Grid Width="951" x:Name="Mydatabse" Margin="0,110,0,0" Visibility="Hidden"  Height="481">
+        
+            <DataGrid x:Name="ContentDataGrid"  AutoGenerateColumns="False" >
+               
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Header="Name"  Width="100" IsReadOnly="True" Binding="{Binding FirstName}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextBlock.Foreground" Value="#336097" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="JobTitle" Width="100" IsReadOnly="True" Binding="{Binding CurrentPosition}"/>
+                    <DataGridTextColumn Header="CurrentCompany" Width="100" IsReadOnly="True" Binding="{Binding CurrentCompany}"/>
+                    <DataGridTextColumn Header="Location" IsReadOnly="True" Width="200" Binding="{Binding LocationToDisplay}"/>
+                    <DataGridTextColumn Header="EmailAddress" IsReadOnly="True" Width="150" Binding="{Binding EmailAddress}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextBlock.Foreground" Value="#141AFF" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Updated" IsReadOnly="True" Width="100" Binding="{Binding UserProfileUpdated}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="Updated">
+                                        <Setter Property="Foreground"  Value="DarkGreen"/>
+                                    </Trigger>
+                                    <Trigger Property="Text" Value="Notupdated">
+                                        <Setter Property="Foreground"  Value="Red"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="InvitedDateTime" IsReadOnly="True" Width="100" Binding="{Binding CreatedDateTime,StringFormat={}\{0:dd/MM/yyyy\}}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="View" Click="ViewCv"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Width="951" x:Name="datasearch" Margin="0,110,0,0" Visibility="Hidden"  Height="481">
+            <Label Content="Keywords"  Margin="48,14,838,438" />
+            <Label Content="Job Title"  Margin="156,14,719,438" />
+            <Label Content="Name"  Margin="273,14,627,438" />
+            <Label Content="Last Name"  Margin="373,14,506,438" />
+            <Label Content="Skills"  Margin="494,14,403,438" />
+            <Label Content="Company"  Margin="605,14,284,438" />
+            <Label Content="Experience"  Margin="718,14,165,438" />
+            <TextBox Height="23" HorizontalAlignment="Left"  Margin="34,49,0,0" Name="txtKeyword" VerticalAlignment="Top" Width="91" />
+            <ComboBox Margin="142,49,0,0" Name="Comboexp" Text="Please Select" HorizontalAlignment="Left" VerticalAlignment="Top" Width="101" Height="23">
+                <ComboBoxItem Content="Any"></ComboBoxItem>
+                <ComboBoxItem Content="Past"></ComboBoxItem>
+                <ComboBoxItem Content="Current"></ComboBoxItem>
+            </ComboBox>
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="257,49,0,0" Name="txtName" VerticalAlignment="Top" Width="91"/>
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="362,49,0,0" Name="txtLastName" VerticalAlignment="Top" Width="91"/>
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="480,49,0,0" Name="txtSkills" VerticalAlignment="Top" Width="91"/>
+            <ComboBox Margin="0,49,267,0" Text="Please Select" Name="Combocomp" HorizontalAlignment="Right" VerticalAlignment="Top" Width="90" Height="23">
+                <ComboBoxItem Content="Any"></ComboBoxItem>
+                <ComboBoxItem Content="Past"></ComboBoxItem>
+                <ComboBoxItem Content="Current"></ComboBoxItem>
+            </ComboBox>
+            <TextBox Height="23" HorizontalAlignment="Right" Margin="0,49,150,0" Name="txtexp" VerticalAlignment="Top" Width="91"/>
+            <Button Height="23" Width="60" Content="Search" Background="#FCD5B4"  Margin="842,49,49,409" x:Name="Searchclick" Click="BtnSearchClick"/>
+            <DataGrid Width="951" x:Name="SearchDataGrid" Visibility="Hidden"  AutoGenerateColumns="False" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Header="Name"  Width="100" IsReadOnly="True" Binding="{Binding FirstName}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextBlock.Foreground" Value="#336097" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="JobTitle" Width="100" IsReadOnly="True" Binding="{Binding CurrentPosition}"/>
+                    <DataGridTextColumn Header="CurrentCompany" Width="100" IsReadOnly="True" Binding="{Binding CurrentCompany}"/>
+                    <DataGridTextColumn Header="Location" IsReadOnly="True" Width="200" Binding="{Binding LocationToDisplay}"/>
+                    <DataGridTextColumn Header="EmailAddress" IsReadOnly="True" Width="150" Binding="{Binding EmailAddress}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="TextBlock.Foreground" Value="#141AFF" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Updated" IsReadOnly="True" Width="100" Binding="{Binding UserProfileUpdated}">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="Updated">
+                                        <Setter Property="Foreground"  Value="DarkGreen"/>
+                                    </Trigger>
+                                    <Trigger Property="Text" Value="Notupdated">
+                                        <Setter Property="Foreground"  Value="Red"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="InvitedDateTime" IsReadOnly="True" Width="100" Binding="{Binding CreatedDateTime,StringFormat={}\{0:dd/MM/yyyy\}}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="View" Click="ViewCvClick"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Width="851" x:Name="ViewCvGrid" Visibility="Hidden"  Margin="0,110,0,0" Height="481">
+            <TextBlock FontWeight="Bold" Height="23" HorizontalAlignment="Left" Margin="12,10,0,0" Name="LoginHeading" Text="Mydatabase >" VerticalAlignment="Top" FontSize="12" FontStretch="ExtraCondensed"/>
+            <Label Margin="91,6,653,452" Name="lblName" ></Label>
+            <Button Content="Back" Name="BackButton" Margin="687,6,91,450" Click="BackButttonClick" />
+            <Button Content="View Profile"  Margin="593,6,185,448" Click="ViewProfileClick" />
+            <Image  Name="UserImage" Margin="766,6,1,395"></Image>
+            <Image Name="OnlineImage" Width="30" Source="Images/greendot.jpg" Visibility="Hidden"  Margin="670,70,138,400"></Image>
+            <Image Name="OfflineImage" Width="30" Source="Images/RedDot.png" Visibility="Hidden" Margin="670,70,138,400"></Image>
+            <Label Name="Onlinelabel" Margin="704,58,91,395"></Label>
+            <TextBlock FontWeight="Bold" Height="21" HorizontalAlignment="Left" Margin="12,39,0,0" Name="textBlock1" Text="Name" VerticalAlignment="Top" Width="80" />
+            <TextBlock FontWeight="Bold" HorizontalAlignment="Right" Margin="0,39,653,421" Name="textBlock2" Text="CurrentJobtitle" />
+            <TextBlock FontWeight="Bold" Height="21" HorizontalAlignment="Left" Margin="249,39,0,0" Name="textBlock3" Text="Company" VerticalAlignment="Top" />
+            <TextBlock FontWeight="Bold" Height="21" HorizontalAlignment="Left" Margin="373,39,0,0" Name="textBlock4" Text="Location/Country" VerticalAlignment="Top" />
+            <TextBlock  FontWeight="Bold" Height="21" HorizontalAlignment="Right" Margin="0,39,252,0" Name="textBlock5" Text="UpdatedOn" VerticalAlignment="Top" />
+            <Label   Name="Username" Margin="7,58,737,395" />
+            <Label  Name="CurrentJobtitle"  Margin="120,58,633,395" />
+            <Label  Name="CurrentCompany"  Margin="249,58,509,395" />
+            <Label   Name="LOC" Margin="365,58,320,395" />
+            <Label   Name="Updatedon" Margin="537,58,153,395" />
+            <Label Name="Userid" Visibility="Hidden"/>
+            <Grid Margin="12,84,6,6">
+                <Button Margin="6,14,699,340" Content="Summary" Click="BtnSummary"></Button>
+                <Button Margin="6,68,699,289" Content="Current Experience" Click="BtnExperience"></Button>
+                <Button Margin="6,117,699,241" Content="Education" Click="BtnEducation"/>
+                <Button Content="Interests" Margin="6,171,699,187" Click="BtnIntersts" />
+                <Button Content="Skill" Margin="6,225,699,132" Click="BtnSkill"/>
+                <Button Content="Endorsements" Margin="6,284,699,74" Click="BtnEndorsements"/>
+                <Button Content="Personal Details" Margin="6,342,699,19" Click="BtnPersonal"/>
+                <Grid Margin="138,0,6,0" Name="EmployeeDetails">
+                    <!--<Image Name="UserImage" Margin="598,-69,6,405">
+                        <Image.Style>
+                            <Style TargetType="{x:Type Image}">
+                                <Setter Property="Width" Value="100"/>
+                                <Setter Property="Height" Value="70"></Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="200"/>
+                                        <Setter Property="Height" Value="200"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>-->
+
+                    <TextBlock 
+         Name="txtsummary" TextWrapping="Wrap" Margin="6,14,22,0" />
+                    <Grid>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" ScrollChanged="ScrollViewer_ScrollChanged">
+                    <ItemsControl ItemsSource="{Binding}" Visibility="Hidden" x:Name="itcurrent">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                               
+                                    <StackPanel Margin="5,0,0,0"></StackPanel>
+                               
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding JobTitle}"/>
+                                    <TextBlock Text="{Binding MasterCompany}"/>
+                                    <TextBlock Text="{Binding Period}"/>
+                                    <TextBlock Text="{Binding Description}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                  </ScrollViewer>
+                    </Grid>
+                    <ItemsControl ItemsSource="{Binding}" Visibility="Hidden" x:Name="education">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Institution}"/>
+                                    <TextBlock Text="{Binding Course}"/>
+                                    <TextBlock Text="{Binding Period}"/>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <ItemsControl ItemsSource="{Binding}" Visibility="Hidden" x:Name="Interests">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Text="{Binding }"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <ItemsControl ItemsSource="{Binding}" Visibility="Hidden" x:Name="Skill">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Text="{Binding }"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+
+
+                    <ItemsControl ItemsSource="{Binding}" Visibility="Hidden" x:Name="Endorsements">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding EndorsedUserId}"/>
+                                    <TextBlock Text="{Binding Comments}"/>
+                                    <TextBlock Text="{Binding EndorsedDateTime}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <StackPanel Visibility="Hidden" Orientation="Vertical" Name="Personal">
+                        <Label Name="lblPhoneNumber"/>
+                        <Label Name="lblAddress"/>
+                        <Label Name="lblCity"/>
+                        <Label Name="lblCountryName"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <!--<Grid Height="371" HorizontalAlignment="Left" Margin="10,98,0,0" Name="grid1" VerticalAlignment="Top" Width="829">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="820*" />
+                    <ColumnDefinition Width="9*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,10,0,0" Name="textBlock6" Text="Summary" VerticalAlignment="Top"  Width="92" />
+                <ScrollViewer>
+                    <TextBlock ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+         ScrollViewer.VerticalScrollBarVisibility="Auto"  HorizontalAlignment="Left" Height="100" Margin="99,10,0,0" Name="txtsummary"  VerticalAlignment="Top" />
+                </ScrollViewer>
+                <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,83,0,0" Name="CurrentExperience" Text="CurrentExperience" VerticalAlignment="Top" Width="106" />
+                <ListView  HorizontalAlignment="Left" Margin="176,79,0,0" Name="CurrentExplist" VerticalAlignment="Top"  Width="600" Height="0" />
+                <ItemsControl ItemsSource="{Binding}" x:Name="itcurrent">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Margin="170,34,0,0"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding JobTitle}"/>
+                                <TextBlock Text="{Binding MasterCompany}"/>
+                                <TextBlock Text="{Binding Period}"/>
+                                <TextBlock Text="{Binding Description}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+             
+             
+                <Label Name="lblPhoneNumber"/>
+                <Label Name="lblAddress"/>
+                <Label Name="lblCity"/>
+                <Label Name="lblCountryName"/>
+
+            </Grid>-->
+        </Grid>
+    </Grid>
+</Window>

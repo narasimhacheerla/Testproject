@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="589a182e26bd42b7b8a0b47356f47539" Name="Diagram1" ZoomLevel="187">
+        <EntityTypeShape EntityType="huntableModel.Month" Width="1.5" PointX="1.5071987926527855" PointY="29.940791412229085" />
+        <EntityTypeShape EntityType="huntableModel.Year" Width="1.5" PointX="4.8367925271563195" PointY="11.881256481577296" />
+        <EntityTypeShape EntityType="huntableModel.EducationQualification" Width="1.5" PointX="2.1867655600359504" PointY="13.800403705705145" />
+        <AssociationConnector Association="huntableModel.FK_EducationQualification_EducationHistory" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_UserCV" />
+        <AssociationConnector Association="huntableModel.FK_Invitation_User" />
+        <AssociationConnector Association="huntableModel.FK_Job_MasterLocation" />
+        <AssociationConnector Association="huntableModel.FK_JobApplication_User" />
+        <AssociationConnector Association="huntableModel.FK_JobCreditsPurchased_User" />
+        <AssociationConnector Association="huntableModel.FK_User_User" />
+        <EntityTypeShape EntityType="huntableModel.Association" Width="1.5" PointX="6.1824118970811428" PointY="27.677801607026627" />
+        <EntityTypeShape EntityType="huntableModel.ChatAdmin" Width="1.5" PointX="7.5268313752146581" PointY="29.974610029707947" />
+        <EntityTypeShape EntityType="huntableModel.ChatBan" Width="1.5" PointX="9.9628900131037881" PointY="17.868455418324309" />
+        <EntityTypeShape EntityType="huntableModel.ChatIgnoredUser" Width="1.5" PointX="8.6889310817648351" PointY="1.1595032667552603" />
+        <EntityTypeShape EntityType="huntableModel.ChatMessage" Width="1.5" PointX="2.5551334184385524" PointY="20.813029954588519" />
+        <EntityTypeShape EntityType="huntableModel.ChatPresence" Width="1.5" PointX="0.83462642172101265" PointY="28.384273899898062" />
+        <EntityTypeShape EntityType="huntableModel.ChatRoomActivity" Width="1.5" PointX="9.6453405384185444" PointY="30.225758670934365" />
+        <EntityTypeShape EntityType="huntableModel.ChatRoomAdmin" Width="1.5" PointX="6.79508919399003" PointY="8.1039661653824" />
+        <EntityTypeShape EntityType="huntableModel.ChatRoom" Width="1.5" PointX="10.304876602396776" PointY="30.16143213126875" />
+        <EntityTypeShape EntityType="huntableModel.ChatSetting" Width="1.5" PointX="2.7767579233165636" PointY="21.439915845841131" />
+        <EntityTypeShape EntityType="huntableModel.ChatTranslation" Width="1.5" PointX="8.0191002916633618" PointY="6.3096103101547856" />
+        <EntityTypeShape EntityType="huntableModel.ChatUser" Width="1.5" PointX="6.0418798802615514" PointY="30.55565155975318" />
+        <EntityTypeShape EntityType="huntableModel.EducationHistory" Width="1.5" PointX="2.9608107316125234" PointY="21.658860619021048" />
+        <EntityTypeShape EntityType="huntableModel.EmailTemplate" Width="1.5" PointX="5.98706398810589" PointY="22.76685404347575" />
+        <EntityTypeShape EntityType="huntableModel.EmploymentHistory" Width="1.5" PointX="11.785863725368802" PointY="5.510242181602047" />
+        <EntityTypeShape EntityType="huntableModel.FeaturedCountry" Width="1.5" PointX="8.1384169515866862" PointY="2.2731597136115469" />
+        <EntityTypeShape EntityType="huntableModel.FeaturedIndustry" Width="1.5" PointX="2.0779717872282357" PointY="11.384520908531044" />
+        <EntityTypeShape EntityType="huntableModel.FeaturedInterest" Width="1.5" PointX="6.4387180742056653" PointY="3.5417742000621621" />
+        <EntityTypeShape EntityType="huntableModel.FeaturedSkill" Width="1.5" PointX="9.3603685150669733" PointY="21.005389849192177" />
+        <EntityTypeShape EntityType="huntableModel.Invitation" Width="1.5" PointX="10.954208828021869" PointY="3.3145236090358923" />
+        <EntityTypeShape EntityType="huntableModel.Job" Width="1.5" PointX="5.3478332577961645" PointY="30.439267157781529" />
+        <EntityTypeShape EntityType="huntableModel.JobApplication" Width="1.5" PointX="1.6480370618626647" PointY="16.600625835638784" />
+        <EntityTypeShape EntityType="huntableModel.JobCreditsPurchased" Width="1.5" PointX="11.050341506977723" PointY="19.02450936428481" />
+        <EntityTypeShape EntityType="huntableModel.JobFeed" Width="1.5" PointX="11.583686370208714" PointY="0.29683834328168923" />
+        <EntityTypeShape EntityType="huntableModel.MasterCity" Width="1.5" PointX="4.1957161408829116" PointY="26.654475895061378" />
+        <EntityTypeShape EntityType="huntableModel.MasterCompany" Width="1.5" PointX="0.74974252504750272" PointY="29.197400553709549" />
+        <EntityTypeShape EntityType="huntableModel.MasterCurrencyType" Width="1.5" PointX="6.8115934798547961" PointY="10.176821415394928" />
+        <EntityTypeShape EntityType="huntableModel.MasterGender" Width="1.5" PointX="4.3372957223734332" PointY="21.515898774152575" />
+        <EntityTypeShape EntityType="huntableModel.MasterHour" Width="1.5" PointX="8.2796680295279579" PointY="4.9088460825890516" />
+        <EntityTypeShape EntityType="huntableModel.MasterIndustry" Width="1.5" PointX="0.71360679376572689" PointY="0.40362884123047293" />
+        <EntityTypeShape EntityType="huntableModel.MasterInterest" Width="1.5" PointX="0.64894999966442113" PointY="1.3034469342340933" />
+        <EntityTypeShape EntityType="huntableModel.MasterInvitationType" Width="1.5" PointX="11.666469281384009" PointY="31.952510744311152" />
+        <EntityTypeShape EntityType="huntableModel.MasterJobPackage" Width="1.5" PointX="8.5661309252335371" PointY="14.336387193918409" />
+        <EntityTypeShape EntityType="huntableModel.MasterJobType" Width="1.5" PointX="4.89594142739472" PointY="14.578463650577918" />
+        <EntityTypeShape EntityType="huntableModel.MasterLanguage" Width="1.5" PointX="5.6786187969514259" PointY="6.4742810905325605" />
+        <EntityTypeShape EntityType="huntableModel.MasterMessageType" Width="1.5" PointX="0.35632822120391217" PointY="4.0901641864749436" />
+        <EntityTypeShape EntityType="huntableModel.MasterMonth" Width="1.5" PointX="2.6921351843942585" PointY="22.945000286654103" />
+        <EntityTypeShape EntityType="huntableModel.MasterNationality" Width="1.5" PointX="0.71806680444537985" PointY="31.511053845058687" />
+        <EntityTypeShape EntityType="huntableModel.MasterPaymentType" Width="1.5" PointX="0.40802782792971837" PointY="20.870985920015251" />
+        <EntityTypeShape EntityType="huntableModel.MasterProfileImportSource" Width="1.5" PointX="8.5383863619241787" PointY="15.668665625000683" />
+        <EntityTypeShape EntityType="huntableModel.MasterSalary" Width="1.5" PointX="4.341854125420495" PointY="4.7744940392554245" />
+        <EntityTypeShape EntityType="huntableModel.MasterSector" Width="1.5" PointX="1.3165982930532649" PointY="24.505044650521615" />
+        <EntityTypeShape EntityType="huntableModel.MasterSkill" Width="1.5" PointX="6.2287628269888282" PointY="15.522837988810073" />
+        <EntityTypeShape EntityType="huntableModel.MasterState" Width="1.5" PointX="9.4576018608443437" PointY="6.9930934491535153" />
+        <EntityTypeShape EntityType="huntableModel.MasterTitle" Width="1.5" PointX="8.9908696026498784" PointY="3.4450839326926896" />
+        <EntityTypeShape EntityType="huntableModel.MasterYear" Width="1.5" PointX="11.597353163919111" PointY="24.3023774588026" />
+        <EntityTypeShape EntityType="huntableModel.News" Width="1.5" PointX="0.52933955962273271" PointY="13.857259846225968" />
+        <EntityTypeShape EntityType="huntableModel.PreferredFeedUserCountry" Width="1.5" PointX="10.765775184503651" PointY="3.0913185640663459" />
+        <EntityTypeShape EntityType="huntableModel.PreferredFeedUserIndustry" Width="1.5" PointX="6.5587654069805357" PointY="29.515066607629446" />
+        <EntityTypeShape EntityType="huntableModel.PreferredFeedUserInterest" Width="1.5" PointX="10.568060086373269" PointY="16.553443126638161" />
+        <EntityTypeShape EntityType="huntableModel.PreferredFeedUserSkill" Width="1.5" PointX="7.2153729513359135" PointY="28.610112725109847" />
+        <EntityTypeShape EntityType="huntableModel.PreferredFeedUserUser" Width="1.5" PointX="4.316809663696592" PointY="27.525032309594113" />
+        <EntityTypeShape EntityType="huntableModel.PreferredFeedUserUserDerived" Width="1.5" PointX="10.592696986437169" PointY="13.572961321833059" />
+        <EntityTypeShape EntityType="huntableModel.PreferredJobUserCompany" Width="1.5" PointX="5.5647723570302006" PointY="27.219248992958686" />
+        <EntityTypeShape EntityType="huntableModel.PreferredJobUserCountry" Width="1.5" PointX="3.0982412263277181" PointY="12.05506808127047" />
+        <EntityTypeShape EntityType="huntableModel.PreferredJobUserIndustry" Width="1.5" PointX="7.6604342123774973" PointY="1.2081288253926341" />
+        <EntityTypeShape EntityType="huntableModel.PreferredJobUserInterest" Width="1.5" PointX="5.3024309190467145" PointY="18.234285825041255" />
+        <EntityTypeShape EntityType="huntableModel.PreferredJobUserJobType" Width="1.5" PointX="7.8095066900409318" PointY="28.956039293183032" />
+        <EntityTypeShape EntityType="huntableModel.PreferredJobUserSkill" Width="1.5" PointX="11.172194307284521" PointY="6.60554009983574" />
+        <EntityTypeShape EntityType="huntableModel.PreferredJobUserUser" Width="1.5" PointX="5.7534287021278541" PointY="7.3201778118126919" />
+        <EntityTypeShape EntityType="huntableModel.SeoInfo" Width="1.5" PointX="8.4760542663168419" PointY="11.697899525844445" />
+        <EntityTypeShape EntityType="huntableModel.sysdiagram" Width="1.5" PointX="2.8305022450306" PointY="8.6478311310744989" />
+        <EntityTypeShape EntityType="huntableModel.UserBlockList" Width="1.5" PointX="9.8385999229916372" PointY="30.823526247788" />
+        <EntityTypeShape EntityType="huntableModel.UserEmailPreference" Width="1.5" PointX="5.2578797849164713" PointY="3.5730076001831366" />
+        <EntityTypeShape EntityType="huntableModel.UserEmploymentSkill" Width="1.5" PointX="9.2585596336324514" PointY="6.21558717182632" />
+        <EntityTypeShape EntityType="huntableModel.UserEndorseList" Width="1.5" PointX="10.660376658039343" PointY="14.968164942678142" />
+        <EntityTypeShape EntityType="huntableModel.UserFeed" Width="1.5" PointX="9.4736256010241924" PointY="7.98589647188126" />
+        <EntityTypeShape EntityType="huntableModel.UserInterest" Width="1.5" PointX="10.596694757508438" PointY="3.0370728834704837" />
+        <EntityTypeShape EntityType="huntableModel.UserInvoice" Width="1.5" PointX="0.25629188877357723" PointY="30.001022635959565" />
+        <EntityTypeShape EntityType="huntableModel.UserLanguage" Width="1.5" PointX="14.25" PointY="11.5" />
+        <EntityTypeShape EntityType="huntableModel.UserMessage" Width="1.5" PointX="5.6314722623822613" PointY="29.718146278391661" />
+        <EntityTypeShape EntityType="huntableModel.UserMessageType" Width="1.5" PointX="3.8109606280042607" PointY="15.177286333952699" />
+        <EntityTypeShape EntityType="huntableModel.UserPaymentInfo" Width="1.5" PointX="9.3869657522938041" PointY="31.752694532160039" />
+        <EntityTypeShape EntityType="huntableModel.UserProfileVisitedHistory" Width="1.5" PointX="1.9870501542403596" PointY="10.884500985445689" />
+        <EntityTypeShape EntityType="huntableModel.UserTransaction" Width="1.5" PointX="5.3147212757331879" PointY="20.861315751849354" />
+        <AssociationConnector Association="huntableModel.FK_Association_Month" />
+        <AssociationConnector Association="huntableModel.FK_Association_Month1" />
+        <AssociationConnector Association="huntableModel.FK_Association_Year" />
+        <AssociationConnector Association="huntableModel.FK_Association_Year1" />
+        <AssociationConnector Association="huntableModel.FK_ChatIgnoredUsers_ChatIgnoredUsers" />
+        <AssociationConnector Association="huntableModel.FK_ChatIgnoredUsers_ChatUsers" />
+        <AssociationConnector Association="huntableModel.FK_EducationHistory_Month" />
+        <AssociationConnector Association="huntableModel.FK_EducationHistory_Month1" />
+        <AssociationConnector Association="huntableModel.FK_EducationHistory_Year" />
+        <AssociationConnector Association="huntableModel.FK_EducationHistory_Year1" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_CurrencyType" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_Hours" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_MasterCompany" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_MasterIndustry" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_Month" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_Month1" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_PaymentType" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_Year" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_Year1" />
+        <AssociationConnector Association="huntableModel.FK_UserEmploymentSkill_EmploymentHistory" />
+        <AssociationConnector Association="huntableModel.FK_FeaturedIndustry_MasterIndustry" />
+        <AssociationConnector Association="huntableModel.FK_FeaturedInterest_MasterInterest" />
+        <AssociationConnector Association="huntableModel.FK_FeaturedSkill_MasterSkill" />
+        <AssociationConnector Association="huntableModel.FK_Invitation_MasterInvitationType" />
+        <AssociationConnector Association="huntableModel.FK_Job_MasterIndustry" />
+        <AssociationConnector Association="huntableModel.FK_Job_MasterJobType" />
+        <AssociationConnector Association="huntableModel.FK_Job_MasterSector" />
+        <AssociationConnector Association="huntableModel.FK_Job_MasterSkill" />
+        <AssociationConnector Association="huntableModel.FK_JobApplication_Job" />
+        <AssociationConnector Association="huntableModel.FK_JobFeed_JobFeed" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserCompany_MasterCompany" />
+        <AssociationConnector Association="huntableModel.FK_PreferredFeedUserIndustry_MasterIndustry" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserIndustry_MasterIndustry" />
+        <AssociationConnector Association="huntableModel.FK_PreferredFeedUserInterest_MasterInterest" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserInterest_MasterInterest" />
+        <AssociationConnector Association="huntableModel.FK_UserInterest_MasterInterest" />
+        <AssociationConnector Association="huntableModel.FK_MasterSalary_MasterJobType" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserJobType_MasterJobType" />
+        <AssociationConnector Association="huntableModel.FK_UserLanguage_MasterLanguage" />
+        <AssociationConnector Association="huntableModel.FK_UserMessageType_MasterMessageType" />
+        <AssociationConnector Association="huntableModel.FK_PreferredFeedUserSkill_PreferredFeedUserSkill" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserSkill_MasterSkill" />
+        <AssociationConnector Association="huntableModel.FK_UserSkill_MasterSkill" />
+        <AssociationConnector Association="huntableModel.FK_UserMessageType_UserMessage" />
+        <EntityTypeShape EntityType="huntableModel.User" Width="1.5" PointX="2.2982135965946191" PointY="13.581542021400082" />
+        <AssociationConnector Association="huntableModel.FK_Association_User" />
+        <AssociationConnector Association="huntableModel.FK_User_ChatUsers" />
+        <AssociationConnector Association="huntableModel.FK_EducationHistory_User" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_User" />
+        <AssociationConnector Association="huntableModel.FK_FeaturedCountry_User" />
+        <AssociationConnector Association="huntableModel.FK_FeaturedIndustry_User" />
+        <AssociationConnector Association="huntableModel.FK_FeaturedInterest_User1" />
+        <AssociationConnector Association="huntableModel.FK_FeaturedSkill_User" />
+        <AssociationConnector Association="huntableModel.FK_Job_User" />
+        <AssociationConnector Association="huntableModel.FK_JobFeed_User" />
+        <AssociationConnector Association="huntableModel.FK_User_MasterNationality" />
+        <AssociationConnector Association="huntableModel.FK_PreferredFeedUserCountry_User" />
+        <AssociationConnector Association="huntableModel.FK_PreferredFeedUserIndustry_User" />
+        <AssociationConnector Association="huntableModel.FK_PreferredFeedUserInterest_User" />
+        <AssociationConnector Association="huntableModel.FK_UserFollowup_FollowingUser" />
+        <AssociationConnector Association="huntableModel.FK_UserFollowup_User" />
+        <AssociationConnector Association="huntableModel.FK_PreferredFeedUserUserDerived_User" />
+        <AssociationConnector Association="huntableModel.FK_PreferredFeedUserUserDerived_User1" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserCompany_User" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserCountry_User" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserIndustry_User" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserInterest_User" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserJobType_User" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserSkill_User" />
+        <AssociationConnector Association="huntableModel.FK_UserJobFollowup_FollowingUser" />
+        <AssociationConnector Association="huntableModel.FK_UserJobFollowup_User" />
+        <AssociationConnector Association="huntableModel.FK__UserFeeds__UserI__542C7691" />
+        <AssociationConnector Association="huntableModel.FK_UserBlockList_User" />
+        <AssociationConnector Association="huntableModel.FK_UserBlockList_User1" />
+        <AssociationConnector Association="huntableModel.FK_UserEndorseList_User" />
+        <AssociationConnector Association="huntableModel.FK_UserEndorseList_User1" />
+        <AssociationConnector Association="huntableModel.FK_UserInterest_User" />
+        <AssociationConnector Association="huntableModel.FK_UserLanguage_User" />
+        <AssociationConnector Association="huntableModel.FK_UserMessage_User" />
+        <AssociationConnector Association="huntableModel.FK_UserMessage_User1" />
+        <AssociationConnector Association="huntableModel.FK_UserProfileVisitedHistory_User" />
+        <AssociationConnector Association="huntableModel.FK_UserProfileVisitedHistory_VisitedUser" />
+        <EntityTypeShape EntityType="huntableModel.MasterCountry" Width="1.5" PointX="3.9360286425501236" PointY="28.337646840297452" />
+        <AssociationConnector Association="huntableModel.FK_EducationHistory_MasterCountry" />
+        <AssociationConnector Association="huntableModel.FK_EmploymentHistory_MasterCountry" />
+        <AssociationConnector Association="huntableModel.FK_FeaturedCountry_MasterCountry" />
+        <AssociationConnector Association="huntableModel.FK_Job_MasterCountry" />
+        <AssociationConnector Association="huntableModel.FK_PreferredFeedUserCountry_MasterCountry" />
+        <AssociationConnector Association="huntableModel.FK_PreferredJobUserCountry_MasterCountry" />
+        <EntityTypeShape EntityType="huntableModel.FriendsToInvite" Width="1.5" PointX="3.7991093209940519" PointY="13.378602838785668" />
+        <AssociationConnector Association="huntableModel.FK_FriendsToInvite_FriendsToInvite" />
+        <AssociationConnector Association="huntableModel.FK_FriendsToInvite_Invitation" />
+        <EntityTypeShape EntityType="huntableModel.FeaturedUserCompany" Width="1.5" PointX="11.674379819852476" PointY="31.32958976893201" />
+        <AssociationConnector Association="huntableModel.FK_FeaturedUserCompanies_MasterCompany" />
+        <AssociationConnector Association="huntableModel.FK_FeaturedUserCompanies_User" />
+        <AssociationConnector Association="huntableModel.FK_User_MasterCountry" />
+        <AssociationConnector Association="huntableModel.FK_PreferredFeedUserSkill_PreferredFeedUserSkill1" />
+        <AssociationConnector Association="huntableModel.FK_PreferredFeedUserSkill_User" />
+        <EntityTypeShape EntityType="huntableModel.PreferredUserCompany" Width="1.5" PointX="8.9388029132684714" PointY="18.33420530815339" />
+        <AssociationConnector Association="huntableModel.FK_PreferredUserCompanies_MasterCompany" />
+        <AssociationConnector Association="huntableModel.FK_PreferredUserCompanies_User" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

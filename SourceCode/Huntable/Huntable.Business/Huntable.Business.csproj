@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{24010045-86FC-46BE-AEC2-5BC1C4845EF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Huntable.Business</RootNamespace>
+    <AssemblyName>Huntable.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentConversion, Version=6.4.6400.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\CommonDlls\Sovren\DocumentConversion.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.ApplicationBlock, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonDlls\DotNetOpenAuth\DotNetOpenAuth.ApplicationBlock.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.Pdf">
+      <HintPath>..\CommonDlls\EO.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonDlls\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="MoreLinq">
+      <HintPath>..\CommonDlls\morelinq\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="SrpAllInOne, Version=6.4.6400.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\CommonDlls\Sovren\SrpAllInOne.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BatchJobs\BatchJobBase.cs" />
+    <Compile Include="BatchJobs\EmailInvites.cs" />
+    <Compile Include="BatchJobs\FollowCompany.cs" />
+    <Compile Include="BatchJobs\JobAlert.cs" />
+    <Compile Include="BatchJobs\JobFeeds.cs" />
+    <Compile Include="BatchJobs\JobRemember.cs" />
+    <Compile Include="BatchJobs\MutualFollowers.cs" />
+    <Compile Include="BatchJobs\PeopleYouMayKnowDelete.cs" />
+    <Compile Include="BatchJobs\RememberEmail.cs" />
+    <Compile Include="BatchJobs\ReSendInvitations.cs" />
+    <Compile Include="BatchJobs\FeaturedRecruiters.cs" />
+    <Compile Include="BatchJobs\FeedsUserConnectionsUpdate.cs" />
+    <Compile Include="BatchJobs\JobUserConnectionsUpdate.cs" />
+    <Compile Include="BatchJobs\PeopleYouMayKnowUpdate.cs" />
+    <Compile Include="BatchJobs\sitemap.cs" />
+    <Compile Include="CompanyManager.cs" />
+    <Compile Include="CompanyMessageManager.cs" />
+    <Compile Include="CustomProfileVisitedHistory.cs" />
+    <Compile Include="DataProviders\JobsUserJobTypeDataProvider.cs" />
+    <Compile Include="DataProviders\JobsUserCompanyDataProvider.cs" />
+    <Compile Include="DataProviders\JobsUserInterestDataProvider.cs" />
+    <Compile Include="DataProviders\JobsUserIndustryDataProvider.cs" />
+    <Compile Include="DataProviders\JobsUserSkillDataProvider.cs" />
+    <Compile Include="DataProviders\JobsUserCountryDataProvider.cs" />
+    <Compile Include="DataProviders\FeedsSkillDataProvider.cs" />
+    <Compile Include="DataProviders\FeedsInterestDataProvider.cs" />
+    <Compile Include="DataProviders\FeedsIndustryDataProvider.cs" />
+    <Compile Include="DataProviders\FeedsCountryDataProvider.cs" />
+    <Compile Include="DataProviders\FeaturedCountryDataProvider.cs" />
+    <Compile Include="DataProviders\DataProviderBase.cs" />
+    <Compile Include="EmailTemplateManager.cs" />
+    <Compile Include="ExportManager.cs" />
+    <Compile Include="DataProviders\IDataProvider.cs" />
+    <Compile Include="FeedContentManager.cs" />
+    <Compile Include="FeedManager.cs" />
+    <Compile Include="InvitationManager.cs" />
+    <Compile Include="JobsManager.cs" />
+    <Compile Include="PageNames.cs" />
+    <Compile Include="PostCVManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SocialShareManager.cs" />
+    <Compile Include="UrlGenerator.cs" />
+    <Compile Include="UserFeedManager.cs" />
+    <Compile Include="UserMessageManager.cs" />
+    <Compile Include="UserManager.cs" />
+    <Compile Include="UserProfileManager.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="SessionNames.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Huntable.Data\Huntable.Data.csproj">
+      <Project>{7163BB65-E7DE-4D12-94E4-696977013B5E}</Project>
+      <Name>Huntable.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Huntable.Entities\Huntable.Entities.csproj">
+      <Project>{171B2981-BC4B-4855-B472-4803F91B3E0B}</Project>
+      <Name>Huntable.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Huntable.OAuthUtility\Huntable.OAuthUtility.csproj">
+      <Project>{F60877D3-3EEF-47F6-84F2-E6132FD5AA91}</Project>
+      <Name>Huntable.OAuthUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Snovaspace.LinkedIn\Snovaspace.LinkedIn.csproj">
+      <Project>{4E4C3E30-A7B4-4E85-9298-48111DF255E7}</Project>
+      <Name>Snovaspace.LinkedIn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Snovaspace.Util\Snovaspace.Util.csproj">
+      <Project>{136B474D-5A66-4D73-B968-DF3566E234E4}</Project>
+      <Name>Snovaspace.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

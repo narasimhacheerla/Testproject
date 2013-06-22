@@ -1,0 +1,59 @@
+﻿#overlay
+{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #808080;
+    opacity: 0.4;
+}
+
+.main
+{
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    margin-left: -70px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    
+    border: 3px solid gray;
+    padding: 0;
+    border: thick solid silver;
+    background-color: #FFFFFF;
+}
+#dv_no_move
+{
+    padding: 2px -40px -50px 2px;
+    height: 90%;
+    width: 100%;
+}
+.close
+{
+    float: right;
+    cursor: pointer;
+    margin-top: 3px;
+}
+.close:hover
+{
+    
+    
+}
+.title
+{
+    cursor: default;
+}
+#title_left
+{
+    padding: 4px 0 3px 9px;
+    float: left;
+    cursor: default;
+}
+
+#dv_load
+{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin: 0 auto;
+}

@@ -1,0 +1,86 @@
+﻿body 
+{
+    margin:20px;
+    padding:0;
+ 
+    line-height:150%;
+}
+
+#header
+{
+    height:68px; 
+    top:0;
+    left:0;
+    position: absolute;
+    padding: 0px;
+    background: #1589FF;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+#header .innner
+{
+    
+ 
+    color:#fff;
+    background:#1589FF;
+}
+#header a
+{
+    display:block;
+    float:right;
+    color:#fff;
+    font-weight:normal;
+    font-size:80%;
+}
+#content
+{
+    float:left;
+    width:65%;
+    margin:0 0 20px 0;
+    padding:0;
+}
+#content .inner
+{
+    margin-right:20px;
+    padding:20px;
+}
+ #image
+   {height: 25px; margin-left: 32px; margin-top: 1px
+   }
+ #footer{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+ 
+ }
+ <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+        .style2
+        {
+            width: 197px;
+        }
+        .style3
+        {
+            width: 197px;
+            height: 54px;
+        }
+        .style4
+        {
+            height: 54px;
+        }
+        .style5
+        {
+            height: 54px;
+            width: 674px;
+        }
+        .style6
+        {
+            width: 674px;
+        }
+    </style>

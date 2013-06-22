@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site_popup.master.cs"
+    Inherits="Huntable.UI.Site_popup" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link id="Link1" runat="server" rel="shortcut icon" href="~/HuntableImages/email-footer-logo.png"
+        type="image/x-icon" />
+    <link id="Link2" runat="server" rel="icon" href="~/HuntableImages/email-footer-logo.png"
+        type="image/ico" />
+    <link id="Link3" runat="server" rel="Shortcut Icon" type="image/x-icon" href="http://huntable.snovaspace.com/email-footer-logo.png" />
+    <link id="Link4" runat="server" rel="icon" type="image/ico" href="http://huntable.snovaspace.com/email-footer-logo.png" />
+    <title>Huntable - The Professional Network</title>
+    <meta name="description" content="Huntable - The Professional Network" />
+    <meta name="keywords" content="The Professional Network" />
+    <link href="css/style-innerpage.css" type="text/css" rel="stylesheet" />
+    <link href="Styles/jquery.ui.datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/PagerStyles.css" rel="Stylesheet" type="text/css" />
+    <link href="JqueryPopup/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="../css1/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/counter.css" />
+    <!-- Add jQuery library -->
+    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" method="post">
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <div id="dialog" title="Confirm Message">
+        <asp:Label ID="lblConfirmMessage" runat="server" />
+    </div>
+        <script type="text/javascript" src="../js1/jquery-ui-1.8.23.custom.min.js"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+    </form>
+</body>
+</html>

@@ -1,0 +1,3406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CDD92FD9-03FE-4E73-AC63-7EB68F8644C6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Huntable.UI</RootNamespace>
+    <AssemblyName>Huntable.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxChat">
+      <HintPath>..\CommonDlls\AjaxChat\AjaxChat.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxControlToolkit, Version=4.1.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60623\lib\40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="BitFactory.Logging">
+      <HintPath>..\CommonDlls\AjaxChat\BitFactory.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="CKEditor.NET, Version=3.6.2.0, Culture=neutral, PublicKeyToken=e379cdf2f8354999, processorArchitecture=MSIL">
+      <HintPath>..\CommonDlls\CKEditor.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DeployLX.Licensing.v3">
+      <HintPath>..\CommonDlls\AjaxChat\DeployLX.Licensing.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentConversion, Version=6.4.6400.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\CommonDlls\Sovren\DocumentConversion.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth, Version=3.4.7.11121, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonDlls\DotNetOpenAuth\DotNetOpenAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.2.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL" />
+    <Reference Include="DotNetOpenAuth.Core, Version=4.2.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.2.2.13055\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EFCachingProvider">
+      <HintPath>..\CommonDlls\EFTrace\EFCachingProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EFProviderWrapperToolkit">
+      <HintPath>..\CommonDlls\EFTrace\EFProviderWrapperToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="EFTracingProvider">
+      <HintPath>..\CommonDlls\EFTrace\EFTracingProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.Pdf, Version=3.0.104.2, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonDlls\EO.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="EO.Web, Version=10.0.31.2, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonDlls\EO.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="eStreamChat.Interfaces">
+      <HintPath>..\CommonDlls\Chat\eStreamChat.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="eStreamChat.SampleProviders">
+      <HintPath>..\CommonDlls\Chat\eStreamChat.SampleProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="GMaps">
+      <HintPath>..\CommonDlls\GMAP\GMaps.dll</HintPath>
+    </Reference>
+    <Reference Include="Hammock.ClientProfile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonDlls\Twitter\Hammock.ClientProfile.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ImpactWorks.FBGraph, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonDlls\Facebook\ImpactWorks.FBGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonDlls\Paypal\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data">
+      <HintPath>..\CommonDlls\AjaxChat\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\CommonDlls\Chat\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\CommonDlls\Chat\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="MoreLinq">
+      <HintPath>..\CommonDlls\morelinq\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="paypal_base">
+      <HintPath>..\CommonDlls\Paypal\paypal_base.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal_Merchant_SDK">
+      <HintPath>..\CommonDlls\Paypal\PayPal_Merchant_SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="SanitizerProviders">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60623\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="SrpAllInOne, Version=6.4.6400.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\CommonDlls\Sovren\SrpAllInOne.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="TweetSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonDlls\Twitter\TweetSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AboutUs.aspx" />
+    <Content Include="AddPictures.aspx" />
+    <Content Include="AddVideos.aspx" />
+    <Content Include="AdminExportData.aspx" />
+    <Content Include="AdminFunctions.aspx" />
+    <Content Include="AdminInvoices.aspx" />
+    <Content Include="AdvancedSearch.aspx" />
+    <Content Include="AffliatePartner.aspx" />
+    <Content Include="ajax-like.aspx" />
+    <Content Include="ajax-picture.aspx" />
+    <Content Include="ajaxchat\Admin\BrowseUsers.aspx" />
+    <Content Include="ajaxchat\Admin\EditStrings.aspx" />
+    <Content Include="ajaxchat\Admin\Home.aspx" />
+    <Content Include="ajaxchat\Admin\Images\backbuttons.jpg" />
+    <Content Include="ajaxchat\Admin\Images\background.jpg" />
+    <Content Include="ajaxchat\Admin\Images\background1.jpg" />
+    <Content Include="ajaxchat\Admin\Images\backnav_m.jpg" />
+    <Content Include="ajaxchat\Admin\Images\backtable.jpg" />
+    <Content Include="ajaxchat\Admin\Images\contentheader.jpg" />
+    <Content Include="ajaxchat\Admin\Images\headerbkgr.jpg" />
+    <Content Include="ajaxchat\Admin\Images\headerline1.jpg" />
+    <Content Include="ajaxchat\Admin\Images\headerline2.jpg" />
+    <Content Include="ajaxchat\Admin\Images\help_icon.gif" />
+    <Content Include="ajaxchat\Admin\Images\i_browsemembers.jpg" />
+    <Content Include="ajaxchat\Admin\Images\i_home.jpg" />
+    <Content Include="ajaxchat\Admin\Images\i_managebadwords.jpg" />
+    <Content Include="ajaxchat\Admin\Images\i_managechatrooms.jpg" />
+    <Content Include="ajaxchat\Admin\Images\i_settings.jpg" />
+    <Content Include="ajaxchat\Admin\Images\i_textmanagement.jpg" />
+    <Content Include="ajaxchat\Admin\Images\leftline1.jpg" />
+    <Content Include="ajaxchat\Admin\Images\Logo.jpg" />
+    <Content Include="ajaxchat\Admin\Images\navtag.jpg" />
+    <Content Include="ajaxchat\Admin\Images\pattern.jpg" />
+    <Content Include="ajaxchat\Admin\Images\style.css" />
+    <Content Include="ajaxchat\Admin\Images\tag.jpg" />
+    <Content Include="ajaxchat\Admin\Login.aspx" />
+    <Content Include="ajaxchat\Admin\ManageBadWords.aspx" />
+    <Content Include="ajaxchat\Admin\ManageChatRooms.aspx" />
+    <Content Include="ajaxchat\Admin\MessageBox.ascx" />
+    <Content Include="ajaxchat\Admin\Settings.aspx" />
+    <Content Include="ajaxchat\Avatars\109.gif" />
+    <Content Include="ajaxchat\Avatars\11.gif" />
+    <Content Include="ajaxchat\Avatars\13.gif" />
+    <Content Include="ajaxchat\Avatars\14.gif" />
+    <Content Include="ajaxchat\Avatars\16.gif" />
+    <Content Include="ajaxchat\Avatars\16j1s79.gif" />
+    <Content Include="ajaxchat\Avatars\18.gif" />
+    <Content Include="ajaxchat\Avatars\184.gif" />
+    <Content Include="ajaxchat\Avatars\198.gif" />
+    <Content Include="ajaxchat\Avatars\200.gif" />
+    <Content Include="ajaxchat\Avatars\216.gif" />
+    <Content Include="ajaxchat\Avatars\241.gif" />
+    <Content Include="ajaxchat\Avatars\247.gif" />
+    <Content Include="ajaxchat\Avatars\257.gif" />
+    <Content Include="ajaxchat\Avatars\286.gif" />
+    <Content Include="ajaxchat\Avatars\288.gif" />
+    <Content Include="ajaxchat\Avatars\291.gif" />
+    <Content Include="ajaxchat\Avatars\293.gif" />
+    <Content Include="ajaxchat\Avatars\2i1d1co.gif" />
+    <Content Include="ajaxchat\Avatars\352nmsp.gif" />
+    <Content Include="ajaxchat\Avatars\42.gif" />
+    <Content Include="ajaxchat\Avatars\4bhn7et.gif" />
+    <Content Include="ajaxchat\Avatars\4fvfcja.gif" />
+    <Content Include="ajaxchat\Avatars\5.gif" />
+    <Content Include="ajaxchat\Avatars\899.gif" />
+    <Content Include="ajaxchat\Avatars\90.gif" />
+    <Content Include="ajaxchat\Avatars\97.gif" />
+    <Content Include="ajaxchat\Avatars\bandit.gif" />
+    <Content Include="ajaxchat\Avatars\birgits_snill.gif" />
+    <Content Include="ajaxchat\Avatars\connie_1.gif" />
+    <Content Include="ajaxchat\Avatars\frantic.gif" />
+    <Content Include="ajaxchat\Avatars\girl_crazy.gif" />
+    <Content Include="ajaxchat\Avatars\girl_sigh.gif" />
+    <Content Include="ajaxchat\Avatars\hi.gif" />
+    <Content Include="ajaxchat\Avatars\imslow.gif" />
+    <Content Include="ajaxchat\Avatars\Just_Cuz_13.gif" />
+    <Content Include="ajaxchat\Avatars\kaffeetrinker_2.gif" />
+    <Content Include="ajaxchat\Avatars\music.gif" />
+    <Content Include="ajaxchat\Avatars\prankster2.gif" />
+    <Content Include="ajaxchat\Avatars\sarcastic.gif" />
+    <Content Include="ajaxchat\Avatars\smoke.gif" />
+    <Content Include="ajaxchat\Avatars\sun_bespectacled.gif" />
+    <Content Include="ajaxchat\Avatars\teef.gif" />
+    <Content Include="ajaxchat\Avatars\th_running1.gif" />
+    <Content Include="ajaxchat\Avatars\to_clue.gif" />
+    <Content Include="ajaxchat\Avatars\to_pick_ones_nose.gif" />
+    <Content Include="ajaxchat\Avatars\Vishenka_09.gif" />
+    <Content Include="ajaxchat\Avatars\wassat.gif" />
+    <Content Include="ajaxchat\Avatars\wha[1].gif" />
+    <Content Include="ajaxchat\beep.wav" />
+    <Content Include="ajaxchat\ChatEngine.asmx" />
+    <Content Include="ajaxchat\ChatWindow.aspx" />
+    <Content Include="ajaxchat\Components\DatePicker.ascx" />
+    <Content Include="ajaxchat\Components\MessengerPresence.ascx" />
+    <Content Include="ajaxchat\Components\MessengerPresence.asmx" />
+    <Content Include="ajaxchat\Components\MessengerPresence.css" />
+    <Content Include="ajaxchat\Default.aspx" />
+    <Content Include="ajaxchat\favicon.ico" />
+    <Content Include="ajaxchat\Images\avatar.gif" />
+    <Content Include="ajaxchat\Images\avatar.png" />
+    <Content Include="ajaxchat\Images\bell.png" />
+    <Content Include="ajaxchat\Images\colorpick.gif" />
+    <Content Include="ajaxchat\Images\emoticon_smile.png" />
+    <Content Include="ajaxchat\Images\folder_go.png" />
+    <Content Include="ajaxchat\Images\logo.png" />
+    <Content Include="ajaxchat\Images\style.css" />
+    <Content Include="ajaxchat\Images\text_bold.png" />
+    <Content Include="ajaxchat\Images\text_italic.png" />
+    <Content Include="ajaxchat\Images\text_underline.png" />
+    <Content Include="ajaxchat\Images\webcam.png" />
+    <Content Include="ajaxchat\MessengerWindow.aspx" />
+    <Content Include="ajaxchat\SendFile.aspx" />
+    <Content Include="ajaxchat\Smilies\arrow.gif" />
+    <Content Include="ajaxchat\Smilies\badgrin.gif" />
+    <Content Include="ajaxchat\Smilies\biggrin.gif" />
+    <Content Include="ajaxchat\Smilies\confused.gif" />
+    <Content Include="ajaxchat\Smilies\cool.gif" />
+    <Content Include="ajaxchat\Smilies\cry.gif" />
+    <Content Include="ajaxchat\Smilies\doubt.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_angel.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_boohoo.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_clap.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_dance.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_doh.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_drool.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_eh.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_hand.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_liar.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_naughty.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_pray.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_shhh.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_shifty.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_sick.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_silenced.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_snooty.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_think.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_wall.gif" />
+    <Content Include="ajaxchat\Smilies\eusa_whistle.gif" />
+    <Content Include="ajaxchat\Smilies\evil.gif" />
+    <Content Include="ajaxchat\Smilies\exclaim.gif" />
+    <Content Include="ajaxchat\Smilies\idea.gif" />
+    <Content Include="ajaxchat\Smilies\lol.gif" />
+    <Content Include="ajaxchat\Smilies\mad.gif" />
+    <Content Include="ajaxchat\Smilies\neutral.gif" />
+    <Content Include="ajaxchat\Smilies\question.gif" />
+    <Content Include="ajaxchat\Smilies\razz.gif" />
+    <Content Include="ajaxchat\Smilies\redface.gif" />
+    <Content Include="ajaxchat\Smilies\rolleyes.gif" />
+    <Content Include="ajaxchat\Smilies\sad.gif" />
+    <Content Include="ajaxchat\Smilies\shock.gif" />
+    <Content Include="ajaxchat\Smilies\smile.gif" />
+    <Content Include="ajaxchat\Smilies\surprised.gif" />
+    <Content Include="ajaxchat\Smilies\wink.gif" />
+    <Content Include="ajaxchat\SQL\ajaxchat sql2000.sql" />
+    <Content Include="ajaxchat\SQL\AjaxChat SQL2005.sql" />
+    <Content Include="App_Data\TokensAndSecrets.xml" />
+    <Content Include="App_Themes\ChatBlue\alert.png" />
+    <Content Include="App_Themes\ChatBlue\aside-btm-bgr.png" />
+    <Content Include="App_Themes\ChatBlue\aside-top-bgr.png" />
+    <Content Include="App_Themes\ChatBlue\body_bgr.png" />
+    <Content Include="App_Themes\ChatBlue\btn_bgr.png" />
+    <Content Include="App_Themes\ChatBlue\btn_bgr_hover.png" />
+    <Content Include="App_Themes\ChatBlue\half-bgr.png" />
+    <Content Include="App_Themes\ChatBlue\jquery-ui.css" />
+    <Content Include="App_Themes\ChatBlue\layout.js" />
+    <Content Include="App_Themes\ChatBlue\poweredby.png" />
+    <Content Include="App_Themes\ChatBlue\sendfile.png" />
+    <Content Include="App_Themes\ChatBlue\shadow.png" />
+    <Content Include="App_Themes\ChatBlue\templates.html" />
+    <Content Include="App_Themes\ChatBlue\text_bold.png" />
+    <Content Include="App_Themes\ChatBlue\text_italic.png" />
+    <Content Include="App_Themes\ChatBlue\text_underline.png" />
+    <Content Include="App_Themes\ChatBlue\ui-anim_basic_16x16.gif" />
+    <Content Include="App_Themes\ChatBlue\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="App_Themes\ChatBlue\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="App_Themes\ChatBlue\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="App_Themes\ChatBlue\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="App_Themes\ChatBlue\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="App_Themes\ChatBlue\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="App_Themes\ChatBlue\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="App_Themes\ChatBlue\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="App_Themes\ChatBlue\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="App_Themes\ChatBlue\ui-icons_222222_256x240.png" />
+    <Content Include="App_Themes\ChatBlue\ui-icons_228ef1_256x240.png" />
+    <Content Include="App_Themes\ChatBlue\ui-icons_ef8c08_256x240.png" />
+    <Content Include="App_Themes\ChatBlue\ui-icons_ffd27a_256x240.png" />
+    <Content Include="App_Themes\ChatBlue\ui-icons_ffffff_256x240.png" />
+    <Content Include="App_Themes\ChatGrey\alert.png" />
+    <Content Include="App_Themes\ChatGrey\aside-btm-bgr.png" />
+    <Content Include="App_Themes\ChatGrey\aside-top-bgr.png" />
+    <Content Include="App_Themes\ChatGrey\body_bgr.png" />
+    <Content Include="App_Themes\ChatGrey\btn_bgr.png" />
+    <Content Include="App_Themes\ChatGrey\btn_bgr_hover.png" />
+    <Content Include="App_Themes\ChatGrey\footer_bgr.png" />
+    <Content Include="App_Themes\ChatGrey\half-bgr.png" />
+    <Content Include="App_Themes\ChatGrey\jquery-ui.css" />
+    <Content Include="App_Themes\ChatGrey\layout.js" />
+    <Content Include="App_Themes\ChatGrey\poweredby.png" />
+    <Content Include="App_Themes\ChatGrey\sendfile.png" />
+    <Content Include="App_Themes\ChatGrey\shadow.png" />
+    <Content Include="App_Themes\ChatGrey\templates.html" />
+    <Content Include="App_Themes\ChatGrey\text_bold.png" />
+    <Content Include="App_Themes\ChatGrey\text_italic.png" />
+    <Content Include="App_Themes\ChatGrey\text_underline.png" />
+    <Content Include="App_Themes\ChatGrey\ui-anim_basic_16x16.gif" />
+    <Content Include="App_Themes\ChatGrey\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="App_Themes\ChatGrey\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="App_Themes\ChatGrey\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="App_Themes\ChatGrey\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="App_Themes\ChatGrey\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="App_Themes\ChatGrey\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="App_Themes\ChatGrey\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="App_Themes\ChatGrey\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="App_Themes\ChatGrey\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="App_Themes\ChatGrey\ui-icons_222222_256x240.png" />
+    <Content Include="App_Themes\ChatGrey\ui-icons_228ef1_256x240.png" />
+    <Content Include="App_Themes\ChatGrey\ui-icons_ef8c08_256x240.png" />
+    <Content Include="App_Themes\ChatGrey\ui-icons_ffd27a_256x240.png" />
+    <Content Include="App_Themes\ChatGrey\ui-icons_ffffff_256x240.png" />
+    <Content Include="App_Themes\ChatPaper\alert.png" />
+    <Content Include="App_Themes\ChatPaper\aside-btm-bgr.png" />
+    <Content Include="App_Themes\ChatPaper\aside-top-bgr.png" />
+    <Content Include="App_Themes\ChatPaper\body_bgr.png" />
+    <Content Include="App_Themes\ChatPaper\btn_bgr.png" />
+    <Content Include="App_Themes\ChatPaper\btn_bgr_hover.png" />
+    <Content Include="App_Themes\ChatPaper\footer_bgr.png" />
+    <Content Include="App_Themes\ChatPaper\half-bgr.png" />
+    <Content Include="App_Themes\ChatPaper\jquery-ui.css" />
+    <Content Include="App_Themes\ChatPaper\layout.js" />
+    <Content Include="App_Themes\ChatPaper\poweredby.png" />
+    <Content Include="App_Themes\ChatPaper\sendfile.png" />
+    <Content Include="App_Themes\ChatPaper\shadow.png" />
+    <Content Include="App_Themes\ChatPaper\templates.html" />
+    <Content Include="App_Themes\ChatPaper\text_bold.png" />
+    <Content Include="App_Themes\ChatPaper\text_italic.png" />
+    <Content Include="App_Themes\ChatPaper\text_underline.png" />
+    <Content Include="App_Themes\ChatPaper\ui-anim_basic_16x16.gif" />
+    <Content Include="App_Themes\ChatPaper\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="App_Themes\ChatPaper\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="App_Themes\ChatPaper\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="App_Themes\ChatPaper\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="App_Themes\ChatPaper\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="App_Themes\ChatPaper\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="App_Themes\ChatPaper\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="App_Themes\ChatPaper\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="App_Themes\ChatPaper\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="App_Themes\ChatPaper\ui-icons_222222_256x240.png" />
+    <Content Include="App_Themes\ChatPaper\ui-icons_228ef1_256x240.png" />
+    <Content Include="App_Themes\ChatPaper\ui-icons_cccccc_256x240.png" />
+    <Content Include="App_Themes\ChatPaper\ui-icons_ef8c08_256x240.png" />
+    <Content Include="App_Themes\ChatPaper\ui-icons_ffd27a_256x240.png" />
+    <Content Include="App_Themes\ChatPaper\ui-icons_ffffff_256x240.png" />
+    <Content Include="App_Themes\ChatPaper\white30.png" />
+    <Content Include="Article.aspx" />
+    <Content Include="ArticleView.aspx" />
+    <Content Include="BusinessActivity.aspx" />
+    <Content Include="Careers.aspx" />
+    <Content Include="ChangeEmail.aspx" />
+    <Content Include="ChangeEmailSettings.aspx" />
+    <EmbeddedResource Include="Chat\broadcast_fms.swf" />
+    <Content Include="Chat\broadcast_red5.swf" />
+    <Content Include="Chat\ChatEngine.svc" />
+    <Content Include="Chat\ChatRoom.aspx" />
+    <EmbeddedResource Include="Chat\DetectWebcam.swf" />
+    <Content Include="Chat\Emoticons\angel.gif" />
+    <Content Include="Chat\Emoticons\arrow.gif" />
+    <Content Include="Chat\Emoticons\badgrin.gif" />
+    <Content Include="Chat\Emoticons\biggrin.gif" />
+    <Content Include="Chat\Emoticons\boohoo.gif" />
+    <Content Include="Chat\Emoticons\clap.gif" />
+    <Content Include="Chat\Emoticons\confused.gif" />
+    <Content Include="Chat\Emoticons\cool.gif" />
+    <Content Include="Chat\Emoticons\cry.gif" />
+    <Content Include="Chat\Emoticons\dance.gif" />
+    <Content Include="Chat\Emoticons\doh.gif" />
+    <Content Include="Chat\Emoticons\doubt.gif" />
+    <Content Include="Chat\Emoticons\drool.gif" />
+    <Content Include="Chat\Emoticons\eh.gif" />
+    <Content Include="Chat\Emoticons\evil.gif" />
+    <Content Include="Chat\Emoticons\exclaim.gif" />
+    <Content Include="Chat\Emoticons\hand.gif" />
+    <Content Include="Chat\Emoticons\idea.gif" />
+    <Content Include="Chat\Emoticons\liar.gif" />
+    <Content Include="Chat\Emoticons\lol.gif" />
+    <Content Include="Chat\Emoticons\mad.gif" />
+    <Content Include="Chat\Emoticons\naughty.gif" />
+    <Content Include="Chat\Emoticons\neutral.gif" />
+    <Content Include="Chat\Emoticons\pray.gif" />
+    <Content Include="Chat\Emoticons\question.gif" />
+    <Content Include="Chat\Emoticons\razz.gif" />
+    <Content Include="Chat\Emoticons\redface.gif" />
+    <Content Include="Chat\Emoticons\rolleyes.gif" />
+    <Content Include="Chat\Emoticons\sad.gif" />
+    <Content Include="Chat\Emoticons\shhh.gif" />
+    <Content Include="Chat\Emoticons\shifty.gif" />
+    <Content Include="Chat\Emoticons\shock.gif" />
+    <Content Include="Chat\Emoticons\sick.gif" />
+    <Content Include="Chat\Emoticons\silenced.gif" />
+    <Content Include="Chat\Emoticons\smile.gif" />
+    <Content Include="Chat\Emoticons\snooty.gif" />
+    <Content Include="Chat\Emoticons\surprised.gif" />
+    <Content Include="Chat\Emoticons\think.gif" />
+    <Content Include="Chat\Emoticons\wall.gif" />
+    <Content Include="Chat\Emoticons\whistle.gif" />
+    <Content Include="Chat\Emoticons\wink.gif" />
+    <Content Include="Chat\MessengerWindow.aspx" />
+    <Content Include="Chat\PrivateMessage.wav" />
+    <Content Include="Chat\PublicMessage.wav" />
+    <EmbeddedResource Include="Chat\receive_fms.swf" />
+    <Content Include="Chat\receive_red5.swf" />
+    <Content Include="Chat\Scripts\eStreamChat.js" />
+    <Content Include="Chat\Scripts\jquery.ajaxfileupload.js" />
+    <Content Include="Chat\Scripts\jquery.blink.js" />
+    <Content Include="Chat\Scripts\jquery.colorPicker.js" />
+    <Content Include="Chat\Scripts\jquery.contextMenu.mod.js" />
+    <Content Include="Chat\Scripts\jquery.emoticon.js" />
+    <Content Include="Chat\Scripts\jquery.jqote2.js" />
+    <Content Include="Chat\Styles\arrow.gif" />
+    <Content Include="Chat\Styles\ContextMenuImages\ban.png" />
+    <Content Include="Chat\Styles\ContextMenuImages\chat.png" />
+    <Content Include="Chat\Styles\ContextMenuImages\door.png" />
+    <Content Include="Chat\Styles\ContextMenuImages\fish.png" />
+    <Content Include="Chat\Styles\ContextMenuImages\ignore.png" />
+    <Content Include="Chat\Styles\ContextMenuImages\kick.png" />
+    <Content Include="Chat\Styles\ContextMenuImages\profile.png" />
+    <Content Include="Chat\Styles\jquery.contextMenu.css" />
+    <Content Include="Chat\Styles\logo.png" />
+    <Content Include="Chat\Styles\Style.css" />
+    <Content Include="Chat\Styles\videobroadcast.png" />
+    <Content Include="Chat\Styles\webcam.png" />
+    <Content Include="CheckoutError.aspx" />
+    <Content Include="Applicants.aspx" />
+    <Content Include="CheckoutSuccess.aspx" />
+    <Content Include="Companies.aspx" />
+    <Content Include="CompaniesCountry.aspx" />
+    <Content Include="CompaniesFindFollowers.aspx" />
+    <Content Include="CompaniesFollowers.aspx" />
+    <Content Include="CompaniesHome.aspx" />
+    <Content Include="CompaniesIndustry.aspx" />
+    <Content Include="CompaniesJobs.aspx" />
+    <Content Include="CompaniesSearch.aspx" />
+    <Content Include="CompaniesSize.aspx" />
+    <Content Include="CompaniesYouMayWant.aspx" />
+    <Content Include="Company-blogs-popular.aspx" />
+    <Content Include="Company-registration.aspx" />
+    <Content Include="CompanyBlogsRecent.aspx" />
+    <Content Include="CompanyCareers.aspx" />
+    <Content Include="CompanyFollowConfirmation.aspx" />
+    <Content Include="CompanyInvite.aspx" />
+    <Content Include="CompanyJobs.aspx" />
+    <Content Include="CompanyOverview.aspx" />
+    <Content Include="CompanyProducts.aspx" />
+    <Content Include="CompanyRegistration2.aspx" />
+    <Content Include="CompanyRegistration3.aspx" />
+    <Content Include="CompanyView.aspx" />
+    <Content Include="ConfirmCompanyEmailAddress.aspx" />
+    <Content Include="contact-invitepage.aspx" />
+    <Content Include="CookiesPolicy.aspx" />
+    <Content Include="css\Home-Video-css\icon_close.png" />
+    <Content Include="css\Home-Video-css\style-pop1.css" />
+    <Content Include="css\Home-Video-css\videopop.css" />
+    <Content Include="css\nyroModal.css" />
+    <Content Include="email-contacts.aspx" />
+    <Content Include="EmailTemplates\AutomaticInvoice.htm" />
+    <Content Include="EmailTemplates\CompanyFollow.htm" />
+    <Content Include="EmailTemplates\CompanyInvitation.htm" />
+    <Content Include="EmailTemplates\JobAlert.htm" />
+    <Content Include="EmailTemplates\JobEmailtemplate.htm" />
+    <Content Include="EmailTemplates\NewEmailAddress.htm" />
+    <Content Include="EmailTemplates\premium.htm" />
+    <Content Include="EmailTemplates\Rememberemail.htm" />
+    <Content Include="Endorsement.aspx" />
+    <Content Include="HeaderAfterLoggingInWithoutLinks.ascx" />
+    <Content Include="css\jquery.fancybox-picture.css" />
+    <Content Include="css\nivo-slider.css" />
+    <Content Include="css\slider.css" />
+    <Content Include="CustomizedHomepage.aspx" />
+    <Content Include="HtmlAgilityForJobs.aspx" />
+    <Content Include="HuntableImages\huntable_logo.jpg" />
+    <Content Include="images\2013-04-15_10-07-09.png" />
+    <Content Include="images\add-icon-withtext.png" />
+    <Content Include="images\add-icon.png" />
+    <Content Include="images\banner-im1.jpg" />
+    <Content Include="images\banner-im2.jpg" />
+    <Content Include="images\banner-im3.jpg" />
+    <Content Include="images\basic-user-advert.gif" />
+    <Content Include="images\benfilt-1-icon.png" />
+    <Content Include="images\benfilt-2-icon.png" />
+    <Content Include="images\benfilt-3-icon.png" />
+    <Content Include="images\cancel.jpg" />
+    <Content Include="images\close_icon.png" />
+    <Content Include="images\d-user.jpg" />
+    <Content Include="images\drop-list-bg.jpg" />
+    <Content Include="images\fb.png" />
+    <Content Include="images\gg.png" />
+    <Content Include="images\h-logo.png" />
+    <Content Include="images\h.png" />
+    <Content Include="images\huntable_logo.jpg" />
+    <Content Include="images\icon-recruiter.png" />
+    <Content Include="images\in.png" />
+    <Content Include="images\index.jpg" />
+    <Content Include="images\Interests\arts.png" />
+    <Content Include="images\Interests\automobiles.png" />
+    <Content Include="images\Interests\beauty.png" />
+    <Content Include="images\Interests\charity.png" />
+    <Content Include="images\Interests\chemicals.png" />
+    <Content Include="images\Interests\children.png" />
+    <Content Include="images\Interests\clothing.png" />
+    <Content Include="images\Interests\computer.png" />
+    <Content Include="images\Interests\cooking.png" />
+    <Content Include="images\Interests\cycling.png" />
+    <Content Include="images\Interests\dance.png" />
+    <Content Include="images\Interests\design.png" />
+    <Content Include="images\Interests\diy.png" />
+    <Content Include="images\Interests\entertainment.png" />
+    <Content Include="images\Interests\environment.png" />
+    <Content Include="images\Interests\family.png" />
+    <Content Include="images\Interests\fashion.png" />
+    <Content Include="images\Interests\fitness.png" />
+    <Content Include="images\Interests\food-dining.png" />
+    <Content Include="images\Interests\gaming.png" />
+    <Content Include="images\Interests\gardening.png" />
+    <Content Include="images\Interests\health.png" />
+    <Content Include="images\Interests\history.png" />
+    <Content Include="images\Interests\home-garden.png" />
+    <Content Include="images\Interests\interior-design.png" />
+    <Content Include="images\Interests\it.png" />
+    <Content Include="images\Interests\movie.png" />
+    <Content Include="images\Interests\music.png" />
+    <Content Include="images\Interests\nature.png" />
+    <Content Include="images\Interests\nav-loader-icon.png" />
+    <Content Include="images\Interests\nav-loader.png" />
+    <Content Include="images\Interests\news.png" />
+    <Content Include="images\Interests\outdoor-activities.png" />
+    <Content Include="images\Interests\pets.png" />
+    <Content Include="images\Interests\photography.png" />
+    <Content Include="images\Interests\politics.png" />
+    <Content Include="images\Interests\pshycology.png" />
+    <Content Include="images\Interests\reading.png" />
+    <Content Include="images\Interests\religious.png" />
+    <Content Include="images\Interests\science.png" />
+    <Content Include="images\Interests\shopping.png" />
+    <Content Include="images\Interests\signup-bg.png" />
+    <Content Include="images\Interests\spirituality.png" />
+    <Content Include="images\Interests\sports.png" />
+    <Content Include="images\Interests\travel.png" />
+    <Content Include="images\Interests\wine.png" />
+    <Content Include="images\Interests\writing.png" />
+    <Content Include="images\level-bg.png" />
+    <Content Include="images\no_video.gif" />
+    <Content Include="images\orange-check-mark-md.png" />
+    <Content Include="images\p.png" />
+    <Content Include="images\premium-user-advert.gif" />
+    <Content Include="images\premium_member_icon.png" />
+    <Content Include="images\rating-star1.png" />
+    <Content Include="images\s-banner-img1.jpg" />
+    <Content Include="images\s-banner-img2.jpg" />
+    <Content Include="images\s-banner-img3.jpg" />
+    <Content Include="images\s-banner-img4.jpg" />
+    <Content Include="images\shadow.png" />
+    <Content Include="images\signout1.jpg" />
+    <Content Include="images\signout2.jpg" />
+    <Content Include="images\signout3.jpg" />
+    <Content Include="images\signout4.jpg" />
+    <Content Include="images\signout5.jpg" />
+    <Content Include="images\signout6.jpg" />
+    <Content Include="images\signout7.jpg" />
+    <Content Include="images\signout8.jpg" />
+    <Content Include="images\signout9.jpg" />
+    <Content Include="images\skils-tag-center.png" />
+    <Content Include="images\skils-tag-left.png" />
+    <Content Include="images\skils-tag.png" />
+    <Content Include="images\social\connect_facebook.png" />
+    <Content Include="images\social\facebook_authenticate2.png" />
+    <Content Include="images\social\fb.png" />
+    <Content Include="images\top-arrow1.png" />
+    <Content Include="images\tw.png" />
+    <Content Include="images\UserCompany.png" />
+    <Content Include="JobsStatus.aspx" />
+    <Content Include="js\bpopup.js" />
+    <Content Include="js\common.js" />
+    <Content Include="js\jquery.blockUI.js" />
+    <Content Include="js\jquery.easing.js" />
+    <Content Include="js\jquery.fancybox-activity.js" />
+    <Content Include="js\jquery.nivo.slider.js" />
+    <Content Include="js\jquery.nivo.slider.pack.js" />
+    <Content Include="js\jquery.nyroModal.custom.js" />
+    <Content Include="js\Jtip.js" />
+    <Content Include="js\nyroModal\images\ajaxLoader.gif" />
+    <Content Include="js\nyroModal\images\close.png" />
+    <Content Include="js\nyroModal\images\next.gif" />
+    <Content Include="js\nyroModal\images\prev.gif" />
+    <Content Include="js\nyroModal\js\jquery.nyroModal-ie6.js" />
+    <Content Include="js\nyroModal\js\jquery.nyroModal-ie6.min.js" />
+    <Content Include="js\nyroModal\js\jquery.nyroModal.custom.js" />
+    <Content Include="js\nyroModal\js\jquery.nyroModal.custom.min.js" />
+    <Content Include="js\nyroModal\styles\nyroModal.css" />
+    <Content Include="js\script1.js" />
+    <Content Include="js\UserFeed.js" />
+    <Content Include="PeopleYouCanFollw.aspx" />
+    <Content Include="Recruiter.aspx" />
+    <Content Include="Recuirters.aspx" />
+    <Content Include="RssJobFeeds.aspx" />
+    <Content Include="Scripts\fancybox\lightbox1.css" />
+    <Content Include="Scripts\fancybox\lightbox1.js" />
+    <Content Include="Scripts\Messenger.js" />
+    <Content Include="signout1.aspx" />
+    <Content Include="signout2.aspx" />
+    <Content Include="signout3.aspx" />
+    <Content Include="Signout4.aspx" />
+    <Content Include="Signout5.aspx" />
+    <Content Include="Signout6.aspx" />
+    <Content Include="Signout7.aspx" />
+    <Content Include="signout8.aspx" />
+    <Content Include="signout9.aspx" />
+    <Content Include="Sitemap.xml" />
+    <Content Include="test.htm" />
+    <Content Include="TestFeed.aspx" />
+    <Content Include="TestFeedHtml.aspx" />
+    <Content Include="testingemailtemplate.aspx" />
+    <Content Include="themes\1\bullet.png" />
+    <Content Include="themes\1\jquery-slider.js" />
+    <Content Include="themes\1\js-image-slider.css" />
+    <Content Include="themes\1\js-image-slider.js" />
+    <Content Include="themes\1\loading.gif" />
+    <Content Include="themes\1\navbuttons.png" />
+    <Content Include="themes\1\slider.css" />
+    <Content Include="themes\generic.css" />
+    <Content Include="themes\jquery-1.7.1.min.js" />
+    <Content Include="UserControls\AddVideo.ascx" />
+    <Content Include="UserControls\InfosysEmployees%283%29.ascx" />
+    <Content Include="UserControls\InfosysEmployees.ascx" />
+    <Content Include="UserControls\PeopleYouMayKnow.ascx" />
+    <Content Include="UserControls\PeopleYouMayKnowHorizontalDisplay.ascx" />
+    <Content Include="UserControls\Portfolio.ascx" />
+    <Content Include="PortfoliosAchievementsVideos.aspx" />
+    <Content Include="ConnectAndNetwork.aspx" />
+    <Content Include="css1\images1\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css1\images1\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css1\images1\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css1\images1\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css1\images1\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css1\images1\ui-bg_glass_75_ffffff_1x400.png" />
+    <Content Include="css1\images1\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css1\images1\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="css1\images1\ui-icons_222222_256x240.png" />
+    <Content Include="css1\images1\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css1\images1\ui-icons_454545_256x240.png" />
+    <Content Include="css1\images1\ui-icons_888888_256x240.png" />
+    <Content Include="css1\images1\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css1\jquery-ui-1.8.23.custom.css" />
+    <Content Include="css\counter.css" />
+    <Content Include="css\EmpFollow.css" />
+    <Content Include="css\images1\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\images1\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\images1\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\images1\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\images1\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\images1\ui-bg_glass_75_ffffff_1x400.png" />
+    <Content Include="css\images1\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\images1\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="css\images1\ui-icons_222222_256x240.png" />
+    <Content Include="css\images1\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\images1\ui-icons_454545_256x240.png" />
+    <Content Include="css\images1\ui-icons_888888_256x240.png" />
+    <Content Include="css\images1\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\jquery-ui-1.7.2.custom.css" />
+    <Content Include="css\jquery-ui-1.8.23.custom.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery.fancybox.css" />
+    <Content Include="css\portfolio-js-style.css" />
+    <Content Include="css\skin2.css" />
+    <Content Include="css\skin3.css" />
+    <Content Include="CustomizedInvitation.aspx" />
+    <Content Include="CustomizeFeedsAndJobs.aspx" />
+    <Content Include="CustomizeJobsSalary.aspx" />
+    <Content Include="EmailTemplates\BusinessPageTemplate.htm" />
+    <Content Include="EmailTemplates\EndorsementRequestTemplate.Debug.htm" />
+    <Content Include="EmailTemplates\EndorsementRequestTemplate.htm" />
+    <Content Include="EmailTemplates\FirstConnectionJoinNotification.Debug.htm" />
+    <Content Include="EmailTemplates\FirstConnectionJoinNotification.htm" />
+    <Content Include="EmailTemplates\FollowUser.htm" />
+    <Content Include="EmailTemplates\ForgotPassword.Debug.htm" />
+    <Content Include="EmailTemplates\ForgotPassword.htm" />
+    <Content Include="EmailTemplates\FriendFriendJoinedNotification.Debug.htm" />
+    <Content Include="EmailTemplates\FriendFriendJoinedNotification.htm" />
+    <Content Include="EmailTemplates\HuntableNewsLetterNotification.htm" />
+    <Content Include="EmailTemplates\InviteFriendNotification.htm" />
+    <Content Include="EmailTemplates\JobSeekerAppliedForJob.htm" />
+    <Content Include="EmailTemplates\ThirdConnectionJoinedNotification.htm" />
+    <Content Include="EmailTemplates\Upgrade.htm" />
+    <Content Include="EmailTemplates\VerifyEmail.Debug.htm" />
+    <Content Include="EmailTemplates\VerifyEmail.htm" />
+    <Content Include="EmailTemplates\SendMessageToUser.Debug.htm" />
+    <Content Include="EmailTemplates\SendMessageToUser.htm" />
+    <Content Include="EmailTemplates\WelcomeEmailTemplate.Debug.htm" />
+    <Content Include="EmailTemplates\WelcomeEmailTemplate.htm" />
+    <Content Include="EmployeeActivity.aspx" />
+    <Content Include="fancybox\source\blank.gif" />
+    <Content Include="fancybox\source\fancybox_loading.gif" />
+    <Content Include="fancybox\source\fancybox_sprite.png" />
+    <Content Include="fancybox\source\helpers\fancybox_buttons.png" />
+    <Content Include="fancybox\source\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="fancybox\source\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="fancybox\source\helpers\jquery.fancybox-media.js" />
+    <Content Include="fancybox\source\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="fancybox\source\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="fancybox\source\jquery.fancybox.css" />
+    <Content Include="fancybox\source\jquery.fancybox.js" />
+    <Content Include="fancybox\source\jquery.fancybox.pack.js" />
+    <Content Include="FindYourDreamJob.aspx" />
+    <Content Include="Follow.aspx" />
+    <Content Include="Followers.aspx" />
+    <Content Include="Following.aspx" />
+    <Content Include="GetHunted.aspx" />
+    <Content Include="Graph.aspx" />
+    <Content Include="HomePageTour.aspx" />
+    <Content Include="HuntableImages\email-footer-logo.png" />
+    <Content Include="HuntableImages\favicon.ico" />
+    <Content Include="HuntableImages\loading.gif" />
+    <Content Include="HuntableImages\logo.jpg" />
+    <Content Include="HuntableImages\profile-thumb-large.jpg" />
+    <Content Include="HuntableImages\share-email-fb.png" />
+    <Content Include="HuntableImages\share-email-tr.png" />
+    <Content Include="HuntableImages\youtube.gif" />
+    <Content Include="HuntableWebService.asmx" />
+    <Content Include="images\achievements-icon.jpg" />
+    <Content Include="images\act-icon1.png" />
+    <Content Include="images\act-icon2.png" />
+    <Content Include="images\act-icon3.png" />
+    <Content Include="images\act-icon4.png" />
+    <Content Include="images\add-photo-thumb_caption.jpg" />
+    <Content Include="images\add-your-picture.jpg" />
+    <Content Include="images\aim.png" />
+    <Content Include="images\auto-img-large.jpg" />
+    <Content Include="images\auto-img-small1.jpg" />
+    <Content Include="images\bell.png" />
+    <Content Include="images\bell01.png" />
+    <Content Include="images\bell2.png" />
+    <Content Include="images\cake1.jpg" />
+    <Content Include="images\calendar.png" />
+    <Content Include="images\chat-icon.png" />
+    <Content Include="images\circular.gif" />
+    <Content Include="images\close.png" />
+    <Content Include="images\close1.png" />
+    <Content Include="images\close2.png" />
+    <Content Include="images\closeNew.jpg" />
+    <Content Include="images\coke.jpg" />
+    <Content Include="images\comments-icon.png" />
+    <Content Include="images\company-logo.jpg" />
+    <Content Include="images\credit-icon.png" />
+    <Content Include="images\customized-img1.jpg" />
+    <Content Include="images\customized-img2.jpg" />
+    <Content Include="images\customized-img3.jpg" />
+    <Content Include="images\customized-img4.jpg" />
+    <Content Include="images\customized-img5.jpg" />
+    <Content Include="images\customized-img6.jpg" />
+    <Content Include="images\digits.png" />
+    <Content Include="images\edit-icon.jpg" />
+    <Content Include="images\dream-job.png" />
+    <Content Include="images\edit-icon-new.png" />
+    <Content Include="images\error.jpeg" />
+    <Content Include="images\excel-icon.png" />
+    <Content Include="images\excel.png" />
+    <Content Include="images\fancy_closebox.png" />
+    <Content Include="images\fancy_right.png" />
+    <Content Include="images\fancy_shadow_e.png" />
+    <Content Include="images\fancy_shadow_n.png" />
+    <Content Include="images\fancy_shadow_ne.png" />
+    <Content Include="images\fancy_shadow_nw.png" />
+    <Content Include="images\fancy_shadow_s.png" />
+    <Content Include="images\fancy_shadow_se.png" />
+    <Content Include="images\fancy_shadow_sw.png" />
+    <Content Include="images\fancy_title_left.png" />
+    <Content Include="images\fancy_title_main.png" />
+    <Content Include="images\fancy_title_right.png" />
+    <Content Include="images\follow.png" />
+    <Content Include="images\footerBg.png" />
+    <Content Include="images\growth-icon.png" />
+    <Content Include="images\hand-thumb.png" />
+    <Content Include="images\how-to-icon.gif" />
+    <Content Include="images\icon-blog.gif" />
+    <Content Include="images\icon-feed.gif" />
+    <Content Include="images\icon-like1.png" />
+    <Content Include="images\icon-plus-inner.png" />
+    <Content Include="images\infosys-banner.jpg" />
+    <Content Include="images\infosys-banner2.jpg" />
+    <Content Include="images\infosys-banner3.jpg" />
+    <Content Include="images\infosys-twitter.gif" />
+    <Content Include="images\job-posted-logo.jpg" />
+    <Content Include="images\like-icon.png" />
+    <Content Include="images\loadingBar.gif" />
+    <Content Include="images\map-icon.jpg" />
+    <Content Include="images\network.png" />
+    <Content Include="images\next-horizontal.png" />
+    <Content Include="images\online-now.jpg" />
+    <Content Include="images\next.png" />
+    <Content Include="images\no-image1.jpg" />
+    <Content Include="images\online-now.jpg" />
+    <Content Include="images\pagination-arrow-left.png" />
+    <Content Include="images\pagination-arrow-left1.png" />
+    <Content Include="images\pagination-arrow-right1.png" />
+    <Content Include="images\paypal-icon.jpg" />
+    <Content Include="images\portfolio-icon.jpg" />
+    <Content Include="images\popup-right.png" />
+    <Content Include="images\popup-up.png" />
+    <Content Include="images\portfolio-icon1.jpg" />
+    <Content Include="images\portfolio-list-img.jpg" />
+    <Content Include="images\power.png" />
+    <Content Include="images\prev-horizontal.png" />
+    <Content Include="images\range-bg.png" />
+    <Content Include="images\range-circle-img.png" />
+    <Content Include="images\rating-star2.png" />
+    <Content Include="images\rating-star3.png" />
+    <Content Include="images\rating-star4.png" />
+    <Content Include="images\rating-star5.png" />
+    <Content Include="images\prev.png" />
+    <Content Include="images\promote.png" />
+    <Content Include="images\registration-ribbon.png" />
+    <Content Include="images\selected.png" />
+    <Content Include="images\si-1.jpg" />
+    <Content Include="images\si-2.jpg" />
+    <Content Include="images\si-3.jpg" />
+    <Content Include="images\si-4.jpg" />
+    <Content Include="images\tick.png" />
+    <Content Include="images\title.png" />
+    <Content Include="images\tour_video.png" />
+    <Content Include="images\trans-list.png" />
+    <Content Include="images\video-icon.jpg" />
+    <Content Include="images\video-img.png" />
+    <Content Include="images\video-comes-here.jpg" />
+    <Content Include="images\video-thumb.jpg" />
+    <Content Include="images\vision-mission.jpg" />
+    <Content Include="images\what-like-img1.jpg" />
+    <Content Include="images\what-like-img2.jpg" />
+    <Content Include="images\you-invited.jpg" />
+    <Content Include="img\digits-bottom.png" />
+    <Content Include="img\digits-top.png" />
+    <Content Include="img\digits.png" />
+    <Content Include="InviteFriendsnew.aspx" />
+    <Content Include="JobApplicants.aspx" />
+    <Content Include="css\style.css" />
+    <Content Include="FeaturedUser.aspx" />
+    <Content Include="HuntableTourCustomizeFeeds.aspx" />
+    <Content Include="CustomizeFeedsSkill.aspx" />
+    <Content Include="css\style-innerpage.css" />
+    <Content Include="App_Themes\AjaxChatBlue1\background.jpg" />
+    <Content Include="App_Themes\AjaxChatBlue1\backnav_m.jpg" />
+    <Content Include="App_Themes\AjaxChatBlue1\button.gif" />
+    <Content Include="App_Themes\AjaxChatBlue1\close.jpg" />
+    <Content Include="App_Themes\AjaxChatBlue1\header.jpg" />
+    <Content Include="App_Themes\AjaxChatBlue1\messages.jpg" />
+    <Content Include="App_Themes\AjaxChatBlue1\style.css" />
+    <Content Include="App_Themes\AjaxChatBlue1\style.js" />
+    <Content Include="App_Themes\AjaxChatBlue1\tabs.jpg" />
+    <Content Include="App_Themes\AjaxChatBlue1\tab_inactive.jpg" />
+    <Content Include="App_Themes\AjaxChatDark1\back.jpg" />
+    <Content Include="App_Themes\AjaxChatDark1\button.gif" />
+    <Content Include="App_Themes\AjaxChatDark1\close.jpg" />
+    <Content Include="App_Themes\AjaxChatDark1\footer_back.jpg" />
+    <Content Include="App_Themes\AjaxChatDark1\header_left.jpg" />
+    <Content Include="App_Themes\AjaxChatDark1\header_right.gif" />
+    <Content Include="App_Themes\AjaxChatDark1\img_back.jpg" />
+    <Content Include="App_Themes\AjaxChatDark1\left_back.jpg" />
+    <Content Include="App_Themes\AjaxChatDark1\left_top.jpg" />
+    <Content Include="App_Themes\AjaxChatDark1\right_top.jpg" />
+    <Content Include="App_Themes\AjaxChatDark1\selectroom_back.jpg" />
+    <Content Include="App_Themes\AjaxChatDark1\style.css" />
+    <Content Include="App_Themes\AjaxChatDark1\style.js" />
+    <Content Include="App_Themes\AjaxChatDark1\tab_active_left.gif" />
+    <Content Include="App_Themes\AjaxChatDark1\tab_active_right.gif" />
+    <Content Include="App_Themes\AjaxChatDark1\tab_inactive_left.gif" />
+    <Content Include="App_Themes\AjaxChatDark1\tab_inactive_right.gif" />
+    <Content Include="App_Themes\AjaxChatDark1\tab_off.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\button.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\close.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\footer_back.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\header_back.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\header_right.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\left_back.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\left_btm.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\left_top.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\right_btm.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\right_top.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\style.css" />
+    <Content Include="App_Themes\AjaxChatDefault\style.js" />
+    <Content Include="App_Themes\AjaxChatDefault\tab_active.jpg" />
+    <Content Include="App_Themes\AjaxChatDefault\tab_inactive.jpg" />
+    <Content Include="App_Themes\AjaxChatGreen1\backgr.jpg" />
+    <Content Include="App_Themes\AjaxChatGreen1\backgr_footer.jpg" />
+    <Content Include="App_Themes\AjaxChatGreen1\button.gif" />
+    <Content Include="App_Themes\AjaxChatGreen1\close.jpg" />
+    <Content Include="App_Themes\AjaxChatGreen1\right_btm.jpg" />
+    <Content Include="App_Themes\AjaxChatGreen1\style.css" />
+    <Content Include="App_Themes\AjaxChatGreen1\style.js" />
+    <Content Include="App_Themes\AjaxChatGreen1\tab_active_left.gif" />
+    <Content Include="App_Themes\AjaxChatGreen1\tab_active_right.gif" />
+    <Content Include="App_Themes\AjaxChatGreen1\tab_inactive_left.gif" />
+    <Content Include="App_Themes\AjaxChatGreen1\tab_inactive_right.gif" />
+    <Content Include="App_Themes\AjaxChatGreen1\uo_left.jpg" />
+    <Content Include="App_Themes\AjaxChatGreen1\uo_right.jpg" />
+    <Content Include="Customize-User.aspx" />
+    <Content Include="HuntableTourCustomizeJobs.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="footer.aspx" />
+    <Content Include="header-innerpage.aspx" />
+    <Content Include="FeaturedIndustry.aspx" />
+    <Content Include="FeaturedCountry.aspx" />
+    <Content Include="FeaturedInterest.aspx" />
+    <Content Include="FeaturedSkill.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="HuntableImages\nomore.jpg" />
+    <Content Include="JobsApplied.aspx" />
+    <Content Include="js1\jquery-1.8.0.min.js" />
+    <Content Include="js1\jquery-ui-1.8.23.custom.min.js" />
+    <Content Include="js\braviPopup.js" />
+    <Content Include="js\fancyplayer.js" />
+    <Content Include="js\flipcounter.js" />
+    <Content Include="js\flipcounter.min.js" />
+    <Content Include="js\flowplayer-3.1.4.min.js" />
+    <Content Include="js\jquery-1.3.2.min.js" />
+    <Content Include="js\jquery-1.8.0.min.js" />
+    <Content Include="js\jquery-ui-1.7.2.custom.min.js" />
+    <Content Include="js\jquery-ui-1.8.23.custom.min.js" />
+    <Content Include="js\jquery.carouFredSel-6.0.3-packed.js" />
+    <Content Include="js\jquery.fancybox-1.2.1.pack.js" />
+    <Content Include="js\jquery.fancyzoom.min.js" />
+    <Content Include="js\jquery.ifixpng.js" />
+    <Content Include="js\jquery.jcarousel.min.js" />
+    <Content Include="js\jquery.shadow.js" />
+    <Content Include="js\jquery.touchSwipe.min.js" />
+    <Content Include="Likes.aspx" />
+    <Content Include="MessageRead.aspx" />
+    <Content Include="Pictures.aspx" />
+    <Content Include="PreviewJob.aspx" />
+    <Content Include="ProfileUploadPage.aspx" />
+    <Content Include="images\about-connect.jpg" />
+    <Content Include="images\about-follow.jpg" />
+    <Content Include="images\about-mission.jpg" />
+    <Content Include="images\about-nav-active.png" />
+    <Content Include="images\about-nav-hover.png" />
+    <Content Include="images\about-search.jpg" />
+    <Content Include="images\about-search.png" />
+    <Content Include="images\about-tab-hover.png" />
+    <Content Include="images\about-tab.png" />
+    <Content Include="images\aboutus-customize.jpg" />
+    <Content Include="images\aboutus-img.jpg" />
+    <Content Include="images\aboutus-promote.jpg" />
+    <Content Include="images\add-photo-thumb.jpg" />
+    <Content Include="images\advanced-search-img.png" />
+    <Content Include="images\american-express.jpg" />
+    <Content Include="images\applicant-bar-graph.png" />
+    <Content Include="images\attach-link.png" />
+    <Content Include="images\banner-img1.png" />
+    <Content Include="images\banner-img2.png" />
+    <Content Include="images\banner-img3.png" />
+    <Content Include="images\banner-img4.png" />
+    <Content Include="images\banner-img5.png" />
+    <Content Include="images\box-arrow.jpg" />
+    <Content Include="images\box-huntered.jpg" />
+    <Content Include="images\box-people.jpg" />
+    <Content Include="images\btn_arrows.gif" />
+    <Content Include="images\checkout-icon.jpg" />
+    <Content Include="images\cirrus.jpg" />
+    <Content Include="images\closelabel.gif" />
+    <Content Include="images\close_pop.png" />
+    <Content Include="images\companies-img.jpg" />
+    <Content Include="images\companies-img.png" />
+    <Content Include="images\company-logo.png" />
+    <Content Include="images\contact-tab-hover.png" />
+    <Content Include="images\contact-tab.png" />
+    <Content Include="images\counts.jpg" />
+    <Content Include="images\counts.png" />
+    <Content Include="images\current-arrow.png" />
+    <Content Include="images\cv-chart.png" />
+    <Content Include="images\down-arrow.png" />
+    <Content Include="images\drag-bg.jpg" />
+    <Content Include="images\dragval_bg1.png" />
+    <Content Include="images\dragval_indicator.png" />
+    <Content Include="images\email-footer-logo.png" />
+    <Content Include="images\enlarge.jpg" />
+    <Content Include="images\facebook.jpg" />
+    <Content Include="images\faq-tab-hover.png" />
+    <Content Include="images\faq-tab.png" />
+    <Content Include="images\featured-logo1.jpg" />
+    <Content Include="images\featured-logo2.jpg" />
+    <Content Include="images\feedback-hover.png" />
+    <Content Include="images\feedback-icon1.jpg" />
+    <Content Include="images\feedback-icon2.jpg" />
+    <Content Include="images\feedback-icon3.jpg" />
+    <Content Include="images\feedback-icon4.jpg" />
+    <Content Include="images\feedback-icon5.jpg" />
+    <Content Include="images\feedback.png" />
+    <Content Include="images\footer-copyright.png" />
+    <Content Include="images\footer-logo.jpg" />
+    <Content Include="images\footer-strip.jpg" />
+    <Content Include="images\gmail.jpg" />
+    <Content Include="images\google-ad1.jpg" />
+    <Content Include="images\google-banner-medium.jpg" />
+    <Content Include="images\google2.jpg" />
+    <Content Include="images\green-circle.png" />
+    <Content Include="images\header-bg.jpg" />
+    <Content Include="images\header-bottom-strip.jpg" />
+    <Content Include="images\header-top-strip.png" />
+    <Content Include="images\help-tab-hover.png" />
+    <Content Include="images\help-tab.png" />
+    <Content Include="images\hot-it-works-img.jpg" />
+    <Content Include="images\how-img1.jpg" />
+    <Content Include="images\how-img2.jpg" />
+    <Content Include="images\how-img3.jpg" />
+    <Content Include="images\how-img4.jpg" />
+    <Content Include="images\how-img5.jpg" />
+    <Content Include="images\how-img6.jpg" />
+    <Content Include="images\huntable-tab-hover.png" />
+    <Content Include="images\huntable-tab.png" />
+    <Content Include="images\icon-affiliate.png" />
+    <Content Include="images\icon-close-stats.png" />
+    <Content Include="images\icon-close.png" />
+    <Content Include="images\icon-comment.png" />
+    <Content Include="images\icon-doc.png" />
+    <Content Include="images\icon-friends.png" />
+    <Content Include="images\icon-hand.png" />
+    <Content Include="images\icon-home.png" />
+    <Content Include="images\icon-how.png" />
+    <Content Include="images\icon-inbox.png" />
+    <Content Include="images\icon-invite.png" />
+    <Content Include="images\icon-jobs.png" />
+    <Content Include="images\icon-like.png" />
+    <Content Include="images\icon-login.png" />
+    <Content Include="images\icon-mail.png" />
+    <Content Include="images\icon-message.png" />
+    <Content Include="images\icon-no.png" />
+    <Content Include="images\icon-pdf.png" />
+    <Content Include="images\icon-print.png" />
+    <Content Include="images\icon-privacy.png" />
+    <Content Include="images\icon-privacy1.png" />
+    <Content Include="images\icon-profile.png" />
+    <Content Include="images\icon-search.png" />
+    <Content Include="images\icon-setting.png" />
+    <Content Include="images\icon-share.jpg" />
+    <Content Include="images\icon-share.png" />
+    <Content Include="images\icon-showmore.png" />
+    <Content Include="images\icon-tick.png" />
+    <Content Include="images\icon-tips.png" />
+    <Content Include="images\icon-what.png" />
+    <Content Include="images\import-facebook.png" />
+    <Content Include="images\import-linkedin.png" />
+    <Content Include="images\job-desc-img.jpg" />
+    <Content Include="images\job-seeker-img.jpg" />
+    <Content Include="images\job-seeker-img.png" />
+    <Content Include="images\language-select.png" />
+    <Content Include="images\laptop.jpg" />
+    <Content Include="images\left-arrow.png" />
+    <Content Include="images\linkedin.jpg" />
+    <Content Include="images\list-green-tick.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\map-overlay.png" />
+    <Content Include="images\master.jpg" />
+    <Content Include="images\menu-tab-plus.png" />
+    <Content Include="images\msn.jpg" />
+    <Content Include="images\nextlabel.gif" />
+    <Content Include="images\notification-msg.jpg" />
+    <Content Include="images\pagination-arrow-right.png" />
+    <Content Include="images\payment-option.jpg" />
+    <Content Include="images\people-arrow.png" />
+    <Content Include="images\plus-arrow.png" />
+    <Content Include="images\premium.png" />
+    <Content Include="images\prevlabel.gif" />
+    <Content Include="images\profile-arrow.png" />
+    <Content Include="images\profile-complete.png" />
+    <Content Include="images\profile-graph.jpg" />
+    <Content Include="images\profile-thumb-large.jpg" />
+    <Content Include="images\profile-thumb-small.jpg" />
+    <Content Include="images\promote-arrow.png" />
+    <Content Include="images\rating-count.jpg" />
+    <Content Include="images\rating.jpg" />
+    <Content Include="images\recruiters-img.jpg" />
+    <Content Include="images\recruiters-img.png" />
+    <Content Include="images\red-circle.png" />
+    <Content Include="images\search-arrow.png" />
+    <Content Include="images\search-img.png" />
+    <Content Include="images\searching-tips-image.jpg" />
+    <Content Include="images\secured-payment.jpg" />
+    <Content Include="images\see-more-arrow.png" />
+    <Content Include="images\share-email-fb.png" />
+    <Content Include="images\share-email-gplus.png" />
+    <Content Include="images\share-email-mail.png" />
+    <Content Include="images\share-email-tr.png" />
+    <Content Include="images\share-img.jpg" />
+    <Content Include="images\slider-pagination-bg-hover.jpg" />
+    <Content Include="images\slider-pagination-bg.jpg" />
+    <Content Include="images\slider-pagination-strip.jpg" />
+    <Content Include="images\star-blck.png" />
+    <Content Include="images\star-yellow.png" />
+    <Content Include="images\star.png" />
+    <Content Include="images\tell-the-world-arrow.png" />
+    <Content Include="images\top-news-img1.jpg" />
+    <Content Include="images\top-news-tab-arrow.png" />
+    <Content Include="images\twitter.jpg" />
+    <Content Include="images\upgrade-box-main-bg.jpg" />
+    <Content Include="images\viewer-by-type-img.jpg" />
+    <Content Include="images\visa.jpg" />
+    <Content Include="images\what-huntable.png" />
+    <Content Include="images\windows-live.jpg" />
+    <Content Include="images\yahoo.png" />
+    <Content Include="js\fadeSlideShow.js" />
+    <Content Include="js\fancydropdown.js" />
+    <Content Include="js\google.js" />
+    <Content Include="js\jquery-1.7.1.min.js" />
+    <Content Include="js\jquery.dragval-1.0-pack.js" />
+    <Content Include="js\jquery.easing.1.3.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.mousewheel.min.js" />
+    <Content Include="js\jquery.scrollTo.js" />
+    <Content Include="js\menu.js" />
+    <Content Include="js\myTheme.js" />
+    <Content Include="js\sample.js" />
+    <Content Include="js\script.js" />
+    <Content Include="js\slimbox2.js" />
+    <Content Include="post-an-opportunity.aspx" />
+    <Content Include="profile-update.aspx" />
+    <Content Include="Scripts\fancybox\blank.gif" />
+    <Content Include="Scripts\fancybox\fancybox-x.png" />
+    <Content Include="Scripts\fancybox\fancybox-y.png" />
+    <Content Include="Scripts\fancybox\fancybox.png" />
+    <Content Include="Scripts\fancybox\fancy_close.png" />
+    <Content Include="Scripts\fancybox\fancy_loading.png" />
+    <Content Include="Scripts\fancybox\fancy_nav_left.png" />
+    <Content Include="Scripts\fancybox\fancy_nav_right.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_e.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_n.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_ne.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_nw.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_s.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_se.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_sw.png" />
+    <Content Include="Scripts\fancybox\fancy_shadow_w.png" />
+    <Content Include="Scripts\fancybox\fancy_title_left.png" />
+    <Content Include="Scripts\fancybox\fancy_title_main.png" />
+    <Content Include="Scripts\fancybox\fancy_title_over.png" />
+    <Content Include="Scripts\fancybox\fancy_title_right.png" />
+    <Content Include="Scripts\fancybox\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\fancybox\jquery.easing-1.3.pack.js" />
+    <Content Include="Scripts\fancybox\jquery.fancybox-1.3.4.css" />
+    <Content Include="Scripts\fancybox\jquery.fancybox-1.3.4.js" />
+    <Content Include="Scripts\fancybox\jquery.fancybox-1.3.4.pack.js" />
+    <Content Include="Scripts\fancybox\jquery.mousewheel-3.0.4.pack.js" />
+    <Content Include="Scripts\fancybox\lightbox.css" />
+    <Content Include="Scripts\fancybox\lightbox.js" />
+    <Content Include="SeeMoreRecruiter.aspx" />
+    <Content Include="Signout.aspx" />
+    <Content Include="Styles\BraveStyle.css" />
+    <Content Include="Styles\fancydropdown.css" />
+    <Content Include="Styles\NewsSkin.css" />
+    <Content Include="Styles\Newsstyle.css" />
+    <Content Include="Styles\NewStyle.css" />
+    <Content Include="Styles\skin.css" />
+    <Content Include="Styles\skin1.css" />
+    <Content Include="Styles\slimbox2.css" />
+    <Content Include="Styles\style.css" />
+    <Content Include="CustomizeFeedsCountry.aspx" />
+    <Content Include="ForgotPassword.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="GridUserControl.ascx" />
+    <Content Include="HuntableImages\counts.jpg" />
+    <Content Include="HuntableImages\facebook.jpg" />
+    <Content Include="HuntableImages\featured-logo1.jpg" />
+    <Content Include="HuntableImages\featured-logo2.jpg" />
+    <Content Include="HuntableImages\footer-copyright.png" />
+    <Content Include="HuntableImages\footer-logo.jpg" />
+    <Content Include="HuntableImages\gmail.jpg" />
+    <Content Include="HuntableImages\icon-friends.png" />
+    <Content Include="HuntableImages\icon-home.png" />
+    <Content Include="HuntableImages\icon-inbox.png" />
+    <Content Include="HuntableImages\icon-search.png" />
+    <Content Include="HuntableImages\icon-what.png" />
+    <Content Include="HuntableImages\linkedin.jpg" />
+    <Content Include="HuntableImages\logo.png" />
+    <Content Include="HuntableImages\msn.jpg" />
+    <Content Include="HuntableImages\pagination-arrow-right.png" />
+    <Content Include="HuntableImages\people-arrow.png" />
+    <Content Include="HuntableImages\profile-thumb-small.jpg" />
+    <Content Include="HuntableImages\search-arrow.png" />
+    <Content Include="HuntableImages\search-img.png" />
+    <Content Include="HuntableImages\twitter.jpg" />
+    <Content Include="HuntableImages\yahoo.png" />
+    <Content Include="js\jquery.zclip.js" />
+    <Content Include="js\jquery.zclip.min.js" />
+    <Content Include="js\ZeroClipboard.js" />
+    <Content Include="js\ZeroClipboard.swf" />
+    <Content Include="BuyCredit.aspx" />
+    <Content Include="CompanyLogo\CompanyPhoto.jpg" />
+    <Content Include="ConfirmEmailAddress.aspx" />
+    <Content Include="EditProfilePage.aspx" />
+    <Content Include="FacebookAuthenticate.aspx" />
+    <Content Include="Facebookfriends.aspx" />
+    <Content Include="GmailmsnContacts.aspx" />
+    <Content Include="images\copy.png" />
+    <Content Include="images\Delete-icon.png" />
+    <Content Include="images\home.png" />
+    <Content Include="images\postCover.png" />
+    <Content Include="images\social.png" />
+    <Content Include="images\social\facebook.png" />
+    <Content Include="images\social\google.png" />
+    <Content Include="images\social\linkedin.png" />
+    <Content Include="images\social\msn.png" />
+    <Content Include="images\social\myspace.png" />
+    <Content Include="images\social\twitter.png" />
+    <Content Include="images\social\yahoo.png" />
+    <Content Include="image\caution1.png" />
+    <Content Include="image\caution2.png" />
+    <Content Include="image\cc.png" />
+    <Content Include="image\flag.png" />
+    <Content Include="image\test.JPG" />
+    <Content Include="ImportDetailsFromFacebook.aspx" />
+    <Content Include="InsertNews.aspx" />
+    <Content Include="CustomizeFeedsInterest.aspx" />
+    <Content Include="InvitationsOverview.aspx" />
+    <Content Include="InvitationsReport.aspx" />
+    <Content Include="InviteFriends.aspx" />
+    <Content Include="CustomizeJobsCompany.aspx" />
+    <Content Include="CustomizeJobsCountry.aspx" />
+    <Content Include="JobSearch.aspx" />
+    <Content Include="CustomizeJobsIndustry.aspx" />
+    <Content Include="CustomizeJobsInterest.aspx" />
+    <Content Include="CustomizeJobsJobType.aspx" />
+    <Content Include="CustomizeJobsSkill.aspx" />
+    <Content Include="CustomizeJobsUsers.aspx" />
+    <Content Include="LinkedInFriends.aspx" />
+    <Content Include="MyAccount.aspx" />
+    <Content Include="Myinvitations.aspx" />
+    <Content Include="oauth.aspx" />
+    <Content Include="PopTest.aspx" />
+    <Content Include="PostJob.aspx" />
+    <Content Include="Profilestats.aspx" />
+    <Content Include="ProfileStatusAtGlance.aspx" />
+    <Content Include="ResetPassword.aspx" />
+    <Content Include="Scripts\JQPlot\excanvas.js" />
+    <Content Include="Scripts\JQPlot\excanvas.min.js" />
+    <Content Include="Scripts\JQPlot\jquery.jqplot.js" />
+    <Content Include="Scripts\JQPlot\jquery.jqplot.min.js" />
+    <Content Include="Scripts\JQPlot\jquery.js" />
+    <Content Include="Scripts\JQPlot\jquery.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.barRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.barRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.BezierCurveRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.BezierCurveRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.blockRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.blockRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.bubbleRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.bubbleRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.canvasAxisLabelRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.canvasAxisLabelRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.canvasAxisTickRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.canvasAxisTickRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.canvasOverlay.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.canvasOverlay.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.canvasTextRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.canvasTextRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.categoryAxisRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.categoryAxisRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.ciParser.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.ciParser.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.cursor.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.cursor.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.dateAxisRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.dateAxisRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.donutRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.donutRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.dragable.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.dragable.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.enhancedLegendRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.enhancedLegendRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.funnelRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.funnelRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.highlighter.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.highlighter.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.json2.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.json2.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.logAxisRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.logAxisRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.mekkoAxisRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.mekkoAxisRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.mekkoRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.mekkoRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.meterGaugeRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.meterGaugeRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.ohlcRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.ohlcRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.pieRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.pieRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.pointLabels.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.pointLabels.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.pyramidAxisRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.pyramidAxisRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.pyramidGridRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.pyramidGridRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.pyramidRenderer.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.pyramidRenderer.min.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.trendline.js" />
+    <Content Include="Scripts\JQPlot\plugins\jqplot.trendline.min.js" />
+    <Content Include="Scripts\jquery-1.7.1.min - Copy.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.dragval-1.0-pack.js" />
+    <Content Include="SendInvitations.aspx" />
+    <Content Include="CustomizeFeedsIndustry.aspx" />
+    <Content Include="ShareMail.aspx" />
+    <Content Include="Styles\stylenew.css" />
+    <Content Include="Super-power.aspx" />
+    <Content Include="test.aspx" />
+    <Content Include="Tooltip.htm" />
+    <Content Include="TopReferrers.aspx" />
+    <Content Include="TwitterFriends.aspx" />
+    <Content Include="HeaderBeforeLoggingIn.ascx" />
+    <Content Include="UploadPortfolio.aspx" />
+    <Content Include="UserControls\atozsearch.ascx" />
+    <Content Include="UserControls\CompaniesYouMayBeIntrested.ascx" />
+    <Content Include="UserControls\CompaniesYouMayWantFollow.ascx" />
+    <Content Include="Controls\DataPager.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="UserControls\EmployeesYouMayWantToFollow.ascx" />
+    <Content Include="UserControls\Followers%286%29.ascx" />
+    <Content Include="UserControls\Followers.ascx" />
+    <Content Include="UserControls\FriendsInvitaions.ascx" />
+    <Content Include="UserControls\GoogleAdds.ascx" />
+    <Content Include="UserControls\HAccountsAtGlance.ascx" />
+    <Content Include="UserControls\FeaturedRecruiters.ascx" />
+    <Content Include="UserControls\FriendsToInvite.ascx" />
+    <Content Include="UserControls\ItemDisplayTemplate.ascx" />
+    <Content Include="UserControls\JobControl.ascx" />
+    <Content Include="UserControls\HTopNews.ascx" />
+    <Content Include="UserControls\ImportContacts.ascx" />
+    <Content Include="UserControls\InvitingFriends.ascx" />
+    <Content Include="UserControls\Messagepopup.ascx" />
+    <Content Include="UserControls\PortfolioImages.ascx" />
+    <Content Include="UserControls\SeeYourFriendsInvitations.ascx" />
+    <Content Include="UserControls\ShowProfileImage.ascx" />
+    <Content Include="UserControls\Slider.ascx" />
+    <Content Include="UserControls\TopNewsDesign.ascx" />
+    <Content Include="UserControls\UserFeedAlerts.ascx" />
+    <Content Include="UserControls\UserFeedComments.ascx" />
+    <Content Include="UserControls\UserFeedLikedUser.ascx" />
+    <Content Include="UserControls\UserFeedList.ascx" />
+    <Content Include="UserControls\UserMessagePopup.ascx" />
+    <Content Include="UserControls\UserPhotoLikes_Right.ascx" />
+    <Content Include="UserControls\video.ascx" />
+    <Content Include="UserControls\ViewersOfCompanyAlso.ascx" />
+    <Content Include="UserControls\ViewersOfThisProfile.ascx" />
+    <Content Include="UserControls\Viewers_also_viewed.ascx" />
+    <Content Include="UserControls\YourAccountAtGlance.ascx" />
+    <Content Include="UserEmailNotification.aspx" />
+    <Content Include="UserFeed.aspx" />
+    <Content Include="UserFeedService.asmx" />
+    <Content Include="UserInvoice.aspx" />
+    <Content Include="UserPassiveJobs.aspx" />
+    <Content Include="JqueryPopup\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="JqueryPopup\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="JqueryPopup\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="JqueryPopup\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="JqueryPopup\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="JqueryPopup\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="JqueryPopup\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="JqueryPopup\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="JqueryPopup\images\ui-icons_222222_256x240.png" />
+    <Content Include="JqueryPopup\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="JqueryPopup\images\ui-icons_454545_256x240.png" />
+    <Content Include="JqueryPopup\images\ui-icons_888888_256x240.png" />
+    <Content Include="JqueryPopup\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="JqueryPopup\jquery-ui-1.7.2.custom.css" />
+    <Content Include="ContactUs.aspx" />
+    <Content Include="CopyUrl.aspx" />
+    <Content Include="EmailConfirmationSentSuccess.aspx" />
+    <Content Include="EmailTemplateEditPage.aspx" />
+    <Content Include="endorseAnotherUser.aspx" />
+    <Content Include="FacebookAuthorization.aspx" />
+    <Content Include="Help.aspx" />
+    <Content Include="HomePageAfterLoggingIn.aspx" />
+    <Content Include="images\FooterBackground.png" />
+    <Content Include="images\PagingFirst.png" />
+    <Content Include="images\PagingLast.png" />
+    <Content Include="images\PagingNext.png" />
+    <Content Include="images\PagingPrevious.png" />
+    <Content Include="images\RedDot.png" />
+    <Content Include="images\footer1.png" />
+    <Content Include="images\greendot.jpg" />
+    <Content Include="images\header1.png" />
+    <Content Include="images\icon-success.gif" />
+    <Content Include="images\name.png" />
+    <Content Include="images\twitter.png" />
+    <Content Include="image\abacus.png" />
+    <Content Include="image\AmericanExpress.png" />
+    <Content Include="image\amey.png" />
+    <Content Include="image\army.png" />
+    <Content Include="image\bank.png" />
+    <Content Include="image\biggraph.png" />
+    <Content Include="image\bingo.png" />
+    <Content Include="image\copy.png" />
+    <Content Include="image\credit.png" />
+    <Content Include="image\creditCard.png" />
+    <Content Include="image\creditCard_1.png" />
+    <Content Include="image\engro.png" />
+    <Content Include="image\f+.png" />
+    <Content Include="image\facebook.png" />
+    <Content Include="image\fatima.png" />
+    <Content Include="image\footerimg.png" />
+    <Content Include="image\g+.png" />
+    <Content Include="image\graph.png" />
+    <Content Include="image\graph1.png" />
+    <Content Include="image\harveyNash.png" />
+    <Content Include="image\header1.png" />
+    <Content Include="image\headerimg.png" />
+    <Content Include="image\headerimg1.png" />
+    <Content Include="image\home.png" />
+    <Content Include="image\hotMail.png" />
+    <Content Include="image\image13_4.png" />
+    <Content Include="image\image13_6.png" />
+    <Content Include="image\image13_7.png" />
+    <Content Include="image\image13_8.png" />
+    <Content Include="image\image15_1.png" />
+    <Content Include="image\image34.png" />
+    <Content Include="image\image50.png" />
+    <Content Include="image\image7_1.png" />
+    <Content Include="image\image7_2.png" />
+    <Content Include="image\image7_3.png" />
+    <Content Include="image\imageLady.png" />
+    <Content Include="image\imagesquare.png" />
+    <Content Include="image\imageUc.png" />
+    <Content Include="image\img15.png" />
+    <Content Include="image\img34_1.png" />
+    <Content Include="image\imgfooter.png" />
+    <Content Include="image\imgMail.png" />
+    <Content Include="image\imguc1.png" />
+    <Content Include="image\imguc2.png" />
+    <Content Include="image\imguc3.png" />
+    <Content Include="image\jobs.png" />
+    <Content Include="image\lines.png" />
+    <Content Include="image\linked.png" />
+    <Content Include="image\linkedinimg.png" />
+    <Content Include="image\lock.png" />
+    <Content Include="image\lookup.png" />
+    <Content Include="image\lucky.png" />
+    <Content Include="image\maestero.png" />
+    <Content Include="image\mail.png" />
+    <Content Include="image\makro.png" />
+    <Content Include="image\map.png" />
+    <Content Include="image\mcafee.png" />
+    <Content Include="image\nationwide.png" />
+    <Content Include="image\offline.png" />
+    <Content Include="image\online.png" />
+    <Content Include="image\orkut.png" />
+    <Content Include="image\pageimg.png" />
+    <Content Include="image\payPal.png" />
+    <Content Include="image\pdf.png" />
+    <Content Include="image\photo13.png" />
+    <Content Include="image\photo13_1.png" />
+    <Content Include="image\photo13_2.png" />
+    <Content Include="image\photo13_3.png" />
+    <Content Include="image\photo51.png" />
+    <Content Include="image\photo9.png" />
+    <Content Include="image\plus.png" />
+    <Content Include="image\post.png" />
+    <Content Include="image\postCover.png" />
+    <Content Include="image\print.png" />
+    <Content Include="image\save.png" />
+    <Content Include="image\sharePrint.png" />
+    <Content Include="image\sky.png" />
+    <Content Include="image\social.png" />
+    <Content Include="image\te.png" />
+    <Content Include="image\topnews.png" />
+    <Content Include="image\topNewsImage_1.png" />
+    <Content Include="image\topNewsimage_2.png" />
+    <Content Include="image\topNewsimage_3.png" />
+    <Content Include="image\total.png" />
+    <Content Include="image\Truste.png" />
+    <Content Include="image\twitter.png" />
+    <Content Include="image\twitterimg.png" />
+    <Content Include="image\VeriSign.png" />
+    <Content Include="image\viewersbytype.png" />
+    <Content Include="image\virginHolidays.png" />
+    <Content Include="image\visa.png" />
+    <Content Include="image\wand.png" />
+    <Content Include="image\worldMap.png" />
+    <Content Include="image\yahoo.png" />
+    <Content Include="JobView.aspx" />
+    <Content Include="MessageInbox.aspx" />
+    <Content Include="JobsearchTips.aspx" />
+    <Content Include="faq.aspx" />
+    <Content Include="feedback.aspx" />
+    <Content Include="UserPayment.aspx" />
+    <Content Include="UserPDF.aspx" />
+    <Content Include="UsersInWebsite.ascx" />
+    <Content Include="Videos.aspx" />
+    <Content Include="ViewPurchases.aspx" />
+    <Content Include="VisualCV.aspx" />
+    <Content Include="VisualCvActivity.aspx" />
+    <Content Include="WhatIsHuntable.aspx" />
+    <Content Include="WhatIsHuntableUpgrade.aspx" />
+    <Content Include="Scripts\ModalPopups.js" />
+    <Content Include="Scripts\shBrushJScript.js" />
+    <Content Include="Scripts\shCore.js" />
+    <Content Include="Scripts\SyntaxHighlighter.css" />
+    <Content Include="securecheckout.aspx" />
+    <Content Include="MyPostedJobs.aspx" />
+    <Content Include="LinkedInProfile.aspx" />
+    <Content Include="PictureUpload.aspx" />
+    <Content Include="PrivacyPolicy.aspx" />
+    <Content Include="Profile-Free.aspx" />
+    <Content Include="Profile-premium.aspx" />
+    <Content Include="ProfileImages\default-avatar.png" />
+    <Content Include="Profile_premiumUser.aspx" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\StesCodes.js" />
+    <Content Include="Scripts\StesCodesHelper.js" />
+    <Content Include="shareByEmail.aspx" />
+    <Content Include="StyleSheet.css" />
+    <Content Include="Styles\jquery.ui.datepicker.css" />
+    <Content Include="Styles\NewStylesheet.css" />
+    <Content Include="images\cropped.png" />
+    <Content Include="images\footer.png" />
+    <Content Include="images\footerchange.png" />
+    <Content Include="images\g+.png" />
+    <Content Include="images\huntable.png" />
+    <Content Include="images\linkedin.png" />
+    <Content Include="images\orkut.png" />
+    <Content Include="images\recomend.png" />
+    <Content Include="search.aspx" />
+    <Content Include="Styles\PagerStyles.css" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\sitestyles.css" />
+    <Content Include="Styles\StyleSheet.css" />
+    <Content Include="Terms.aspx" />
+    <Content Include="HuntableTourFeatures.aspx" />
+    <Content Include="UserControls\cvStatistics.ascx" />
+    <Content Include="HeaderAfterLoggingIn.ascx" />
+    <Content Include="UserControls\KnowPeoplecontrol.ascx" />
+    <Content Include="UserControls\ProfileCompletionSteps.ascx" />
+    <Content Include="UserControls\topNews.ascx" />
+    <Content Include="UserSearch.aspx" />
+    <Content Include="ViewUserProfile.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WithDrawFunds.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddPictures.aspx.cs">
+      <DependentUpon>AddPictures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPictures.aspx.designer.cs">
+      <DependentUpon>AddPictures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddVideos.aspx.cs">
+      <DependentUpon>AddVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddVideos.aspx.designer.cs">
+      <DependentUpon>AddVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminExportData.aspx.cs">
+      <DependentUpon>AdminExportData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminExportData.aspx.designer.cs">
+      <DependentUpon>AdminExportData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFunctions.aspx.cs">
+      <DependentUpon>AdminFunctions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminFunctions.aspx.designer.cs">
+      <DependentUpon>AdminFunctions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminInvoices.aspx.cs">
+      <DependentUpon>AdminInvoices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminInvoices.aspx.designer.cs">
+      <DependentUpon>AdminInvoices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdvancedSearch.aspx.cs">
+      <DependentUpon>AdvancedSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdvancedSearch.aspx.designer.cs">
+      <DependentUpon>AdvancedSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AffliatePartner.aspx.cs">
+      <DependentUpon>AffliatePartner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AffliatePartner.aspx.designer.cs">
+      <DependentUpon>AffliatePartner.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax-like.aspx.cs">
+      <DependentUpon>ajax-like.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax-like.aspx.designer.cs">
+      <DependentUpon>ajax-like.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax-picture.aspx.cs">
+      <DependentUpon>ajax-picture.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax-picture.aspx.designer.cs">
+      <DependentUpon>ajax-picture.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\GetEmploymentHistoryAchivements.ashx.cs">
+      <DependentUpon>GetEmploymentHistoryAchivements.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\GetEmploymentHistoryPortfolios.ashx.cs">
+      <DependentUpon>GetEmploymentHistoryPortfolios.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\GetEmploymentHistoryVedios.ashx.cs">
+      <DependentUpon>GetEmploymentHistoryVedios.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Article.aspx.cs">
+      <DependentUpon>Article.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Article.aspx.designer.cs">
+      <DependentUpon>Article.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleView.aspx.cs">
+      <DependentUpon>ArticleView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArticleView.aspx.designer.cs">
+      <DependentUpon>ArticleView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BlankSite.Master.cs">
+      <DependentUpon>BlankSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BlankSite.Master.designer.cs">
+      <DependentUpon>BlankSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessActivity.aspx.cs">
+      <DependentUpon>BusinessActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusinessActivity.aspx.designer.cs">
+      <DependentUpon>BusinessActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuyCredit.aspx.cs">
+      <DependentUpon>BuyCredit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuyCredit.aspx.designer.cs">
+      <DependentUpon>BuyCredit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Careers.aspx.cs">
+      <DependentUpon>Careers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Careers.aspx.designer.cs">
+      <DependentUpon>Careers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeEmail.aspx.cs">
+      <DependentUpon>ChangeEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeEmail.aspx.designer.cs">
+      <DependentUpon>ChangeEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeEmailSettings.aspx.cs">
+      <DependentUpon>ChangeEmailSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeEmailSettings.aspx.designer.cs">
+      <DependentUpon>ChangeEmailSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\ChatEngine.svc.cs">
+      <DependentUpon>ChatEngine.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\ChatRoom.aspx.cs">
+      <DependentUpon>ChatRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chat\ChatRoom.aspx.designer.cs">
+      <DependentUpon>ChatRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\Classes\ChatSettings.cs" />
+    <Compile Include="Chat\Classes\Logger.cs" />
+    <Compile Include="Chat\Classes\MemoryCacheProvider.cs" />
+    <Compile Include="Chat\Classes\MemoryChatRoomStorage.cs" />
+    <Compile Include="Chat\Classes\MemoryMessengerPresenceProvider.cs" />
+    <Compile Include="Chat\Classes\Miscellaneous.cs" />
+    <Compile Include="Chat\Classes\RemoteAuthUserProvider.cs" />
+    <Compile Include="Chat\Classes\Timers.cs" />
+    <Compile Include="Chat\Extensions.cs" />
+    <Compile Include="Chat\FlashResource.ashx.cs">
+      <DependentUpon>FlashResource.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\MessengerCommand.ashx.cs">
+      <DependentUpon>MessengerCommand.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\Properties\Settings.Designer.cs" />
+    <Compile Include="Chat\SendFile.ashx.cs">
+      <DependentUpon>SendFile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat\Thumbnail.ashx.cs">
+      <DependentUpon>Thumbnail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutError.aspx.cs">
+      <DependentUpon>CheckoutError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutError.aspx.designer.cs">
+      <DependentUpon>CheckoutError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Applicants.aspx.cs">
+      <DependentUpon>Applicants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Applicants.aspx.designer.cs">
+      <DependentUpon>Applicants.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutSuccess.aspx.cs">
+      <DependentUpon>CheckoutSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutSuccess.aspx.designer.cs">
+      <DependentUpon>CheckoutSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Companies.aspx.cs">
+      <DependentUpon>Companies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Companies.aspx.designer.cs">
+      <DependentUpon>Companies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompaniesCountry.aspx.cs">
+      <DependentUpon>CompaniesCountry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompaniesCountry.aspx.designer.cs">
+      <DependentUpon>CompaniesCountry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompaniesFindFollowers.aspx.cs">
+      <DependentUpon>CompaniesFindFollowers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompaniesFindFollowers.aspx.designer.cs">
+      <DependentUpon>CompaniesFindFollowers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompaniesFollowers.aspx.cs">
+      <DependentUpon>CompaniesFollowers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompaniesFollowers.aspx.designer.cs">
+      <DependentUpon>CompaniesFollowers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompaniesHome.aspx.cs">
+      <DependentUpon>CompaniesHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompaniesHome.aspx.designer.cs">
+      <DependentUpon>CompaniesHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompaniesIndustry.aspx.cs">
+      <DependentUpon>CompaniesIndustry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompaniesIndustry.aspx.designer.cs">
+      <DependentUpon>CompaniesIndustry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompaniesJobs.aspx.cs">
+      <DependentUpon>CompaniesJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompaniesJobs.aspx.designer.cs">
+      <DependentUpon>CompaniesJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompaniesSearch.aspx.cs">
+      <DependentUpon>CompaniesSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompaniesSearch.aspx.designer.cs">
+      <DependentUpon>CompaniesSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompaniesSize.aspx.cs">
+      <DependentUpon>CompaniesSize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompaniesSize.aspx.designer.cs">
+      <DependentUpon>CompaniesSize.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompaniesYouMayWant.aspx.cs">
+      <DependentUpon>CompaniesYouMayWant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompaniesYouMayWant.aspx.designer.cs">
+      <DependentUpon>CompaniesYouMayWant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Company-blogs-popular.aspx.cs">
+      <DependentUpon>Company-blogs-popular.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Company-blogs-popular.aspx.designer.cs">
+      <DependentUpon>Company-blogs-popular.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Company-registration.aspx.cs">
+      <DependentUpon>Company-registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Company-registration.aspx.designer.cs">
+      <DependentUpon>Company-registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyBlogsRecent.aspx.cs">
+      <DependentUpon>CompanyBlogsRecent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyBlogsRecent.aspx.designer.cs">
+      <DependentUpon>CompanyBlogsRecent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyCareers.aspx.cs">
+      <DependentUpon>CompanyCareers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyCareers.aspx.designer.cs">
+      <DependentUpon>CompanyCareers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyFollowConfirmation.aspx.cs">
+      <DependentUpon>CompanyFollowConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyFollowConfirmation.aspx.designer.cs">
+      <DependentUpon>CompanyFollowConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyInvite.aspx.cs">
+      <DependentUpon>CompanyInvite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyInvite.aspx.designer.cs">
+      <DependentUpon>CompanyInvite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyJobs.aspx.cs">
+      <DependentUpon>CompanyJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyJobs.aspx.designer.cs">
+      <DependentUpon>CompanyJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyOverview.aspx.cs">
+      <DependentUpon>CompanyOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyOverview.aspx.designer.cs">
+      <DependentUpon>CompanyOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyProducts.aspx.cs">
+      <DependentUpon>CompanyProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyProducts.aspx.designer.cs">
+      <DependentUpon>CompanyProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyRegistration2.aspx.cs">
+      <DependentUpon>CompanyRegistration2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyRegistration2.aspx.designer.cs">
+      <DependentUpon>CompanyRegistration2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyRegistration3.aspx.cs">
+      <DependentUpon>CompanyRegistration3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyRegistration3.aspx.designer.cs">
+      <DependentUpon>CompanyRegistration3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyView.aspx.cs">
+      <DependentUpon>CompanyView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyView.aspx.designer.cs">
+      <DependentUpon>CompanyView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmCompanyEmailAddress.aspx.cs">
+      <DependentUpon>ConfirmCompanyEmailAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmCompanyEmailAddress.aspx.designer.cs">
+      <DependentUpon>ConfirmCompanyEmailAddress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contact-invitepage.aspx.cs">
+      <DependentUpon>contact-invitepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact-invitepage.aspx.designer.cs">
+      <DependentUpon>contact-invitepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CookiesPolicy.aspx.cs">
+      <DependentUpon>CookiesPolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CookiesPolicy.aspx.designer.cs">
+      <DependentUpon>CookiesPolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="email-contacts.aspx.cs">
+      <DependentUpon>email-contacts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="email-contacts.aspx.designer.cs">
+      <DependentUpon>email-contacts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Endorsement.aspx.cs">
+      <DependentUpon>Endorsement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Endorsement.aspx.designer.cs">
+      <DependentUpon>Endorsement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HeaderAfterLoggingInWithoutLinks.ascx.cs">
+      <DependentUpon>HeaderAfterLoggingInWithoutLinks.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HeaderAfterLoggingInWithoutLinks.ascx.designer.cs">
+      <DependentUpon>HeaderAfterLoggingInWithoutLinks.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizedHomepage.aspx.cs">
+      <DependentUpon>CustomizedHomepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizedHomepage.aspx.designer.cs">
+      <DependentUpon>CustomizedHomepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlAgilityForJobs.aspx.cs">
+      <DependentUpon>HtmlAgilityForJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HtmlAgilityForJobs.aspx.designer.cs">
+      <DependentUpon>HtmlAgilityForJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobsStatus.aspx.cs">
+      <DependentUpon>JobsStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobsStatus.aspx.designer.cs">
+      <DependentUpon>JobsStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PeopleYouCanFollw.aspx.cs">
+      <DependentUpon>PeopleYouCanFollw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PeopleYouCanFollw.aspx.designer.cs">
+      <DependentUpon>PeopleYouCanFollw.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recruiter.aspx.cs">
+      <DependentUpon>Recruiter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recruiter.aspx.designer.cs">
+      <DependentUpon>Recruiter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recuirters.aspx.cs">
+      <DependentUpon>Recuirters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recuirters.aspx.designer.cs">
+      <DependentUpon>Recuirters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RssJobFeeds.aspx.cs">
+      <DependentUpon>RssJobFeeds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RssJobFeeds.aspx.designer.cs">
+      <DependentUpon>RssJobFeeds.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="signout1.aspx.cs">
+      <DependentUpon>signout1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="signout1.aspx.designer.cs">
+      <DependentUpon>signout1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="signout2.aspx.cs">
+      <DependentUpon>signout2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="signout2.aspx.designer.cs">
+      <DependentUpon>signout2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="signout3.aspx.cs">
+      <DependentUpon>signout3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="signout3.aspx.designer.cs">
+      <DependentUpon>signout3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signout4.aspx.cs">
+      <DependentUpon>Signout4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signout4.aspx.designer.cs">
+      <DependentUpon>Signout4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signout5.aspx.cs">
+      <DependentUpon>Signout5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signout5.aspx.designer.cs">
+      <DependentUpon>Signout5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signout6.aspx.cs">
+      <DependentUpon>Signout6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signout6.aspx.designer.cs">
+      <DependentUpon>Signout6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signout7.aspx.cs">
+      <DependentUpon>Signout7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signout7.aspx.designer.cs">
+      <DependentUpon>Signout7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="signout8.aspx.cs">
+      <DependentUpon>signout8.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="signout8.aspx.designer.cs">
+      <DependentUpon>signout8.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="signout9.aspx.cs">
+      <DependentUpon>signout9.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="signout9.aspx.designer.cs">
+      <DependentUpon>signout9.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site_popup.Master.cs">
+      <DependentUpon>Site_popup.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site_popup.Master.designer.cs">
+      <DependentUpon>Site_popup.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TestFeed.aspx.cs">
+      <DependentUpon>TestFeed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestFeed.aspx.designer.cs">
+      <DependentUpon>TestFeed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestFeedHtml.aspx.cs">
+      <DependentUpon>TestFeedHtml.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestFeedHtml.aspx.designer.cs">
+      <DependentUpon>TestFeedHtml.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testingemailtemplate.aspx.cs">
+      <DependentUpon>testingemailtemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testingemailtemplate.aspx.designer.cs">
+      <DependentUpon>testingemailtemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddVideo.ascx.cs">
+      <DependentUpon>AddVideo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddVideo.ascx.designer.cs">
+      <DependentUpon>AddVideo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InfosysEmployees%283%29.ascx.cs">
+      <DependentUpon>InfosysEmployees%283%29.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\InfosysEmployees%283%29.ascx.designer.cs">
+      <DependentUpon>InfosysEmployees%283%29.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InfosysEmployees.ascx.cs">
+      <DependentUpon>InfosysEmployees.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\InfosysEmployees.ascx.designer.cs">
+      <DependentUpon>InfosysEmployees.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PeopleYouMayKnow.ascx.cs">
+      <DependentUpon>PeopleYouMayKnow.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\PeopleYouMayKnow.ascx.designer.cs">
+      <DependentUpon>PeopleYouMayKnow.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PeopleYouMayKnowHorizontalDisplay.ascx.cs">
+      <DependentUpon>PeopleYouMayKnowHorizontalDisplay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\PeopleYouMayKnowHorizontalDisplay.ascx.designer.cs">
+      <DependentUpon>PeopleYouMayKnowHorizontalDisplay.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Portfolio.ascx.cs">
+      <DependentUpon>Portfolio.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Portfolio.ascx.designer.cs">
+      <DependentUpon>Portfolio.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PortfoliosAchievementsVideos.aspx.cs">
+      <DependentUpon>PortfoliosAchievementsVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PortfoliosAchievementsVideos.aspx.designer.cs">
+      <DependentUpon>PortfoliosAchievementsVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectAndNetwork.aspx.cs">
+      <DependentUpon>ConnectAndNetwork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConnectAndNetwork.aspx.designer.cs">
+      <DependentUpon>ConnectAndNetwork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizedInvitation.aspx.cs">
+      <DependentUpon>CustomizedInvitation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizedInvitation.aspx.designer.cs">
+      <DependentUpon>CustomizedInvitation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeFeedsAndJobs.aspx.cs">
+      <DependentUpon>CustomizeFeedsAndJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeFeedsAndJobs.aspx.designer.cs">
+      <DependentUpon>CustomizeFeedsAndJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeJobsSalary.aspx.cs">
+      <DependentUpon>CustomizeJobsSalary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeJobsSalary.aspx.designer.cs">
+      <DependentUpon>CustomizeJobsSalary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeActivity.aspx.cs">
+      <DependentUpon>EmployeeActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeActivity.aspx.designer.cs">
+      <DependentUpon>EmployeeActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindYourDreamJob.aspx.cs">
+      <DependentUpon>FindYourDreamJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FindYourDreamJob.aspx.designer.cs">
+      <DependentUpon>FindYourDreamJob.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Follow.aspx.cs">
+      <DependentUpon>Follow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Follow.aspx.designer.cs">
+      <DependentUpon>Follow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Followers.aspx.cs">
+      <DependentUpon>Followers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Followers.aspx.designer.cs">
+      <DependentUpon>Followers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Following.aspx.cs">
+      <DependentUpon>Following.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Following.aspx.designer.cs">
+      <DependentUpon>Following.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetHunted.aspx.cs">
+      <DependentUpon>GetHunted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GetHunted.aspx.designer.cs">
+      <DependentUpon>GetHunted.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Graph.aspx.cs">
+      <DependentUpon>Graph.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Graph.aspx.designer.cs">
+      <DependentUpon>Graph.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePageTour.aspx.cs">
+      <DependentUpon>HomePageTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePageTour.aspx.designer.cs">
+      <DependentUpon>HomePageTour.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HuntableWebService.asmx.cs">
+      <DependentUpon>HuntableWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InviteFriendsnew.aspx.cs">
+      <DependentUpon>InviteFriendsnew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InviteFriendsnew.aspx.designer.cs">
+      <DependentUpon>InviteFriendsnew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobApplicants.aspx.cs">
+      <DependentUpon>JobApplicants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobApplicants.aspx.designer.cs">
+      <DependentUpon>JobApplicants.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturedUser.aspx.cs">
+      <DependentUpon>FeaturedUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeaturedUser.aspx.designer.cs">
+      <DependentUpon>FeaturedUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HuntableTourCustomizeFeeds.aspx.cs">
+      <DependentUpon>HuntableTourCustomizeFeeds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HuntableTourCustomizeFeeds.aspx.designer.cs">
+      <DependentUpon>HuntableTourCustomizeFeeds.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeFeedsSkill.aspx.cs">
+      <DependentUpon>CustomizeFeedsSkill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeFeedsSkill.aspx.designer.cs">
+      <DependentUpon>CustomizeFeedsSkill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customize-User.aspx.cs">
+      <DependentUpon>Customize-User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customize-User.aspx.designer.cs">
+      <DependentUpon>Customize-User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmEmailAddress.aspx.cs">
+      <DependentUpon>ConfirmEmailAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmEmailAddress.aspx.designer.cs">
+      <DependentUpon>ConfirmEmailAddress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeFeedsCountry.aspx.cs">
+      <DependentUpon>CustomizeFeedsCountry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeFeedsCountry.aspx.designer.cs">
+      <DependentUpon>CustomizeFeedsCountry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HuntableTourCustomizeJobs.aspx.cs">
+      <DependentUpon>HuntableTourCustomizeJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HuntableTourCustomizeJobs.aspx.designer.cs">
+      <DependentUpon>HuntableTourCustomizeJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProfilePage.aspx.cs">
+      <DependentUpon>EditProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProfilePage.aspx.designer.cs">
+      <DependentUpon>EditProfilePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FacebookAuthenticate.aspx.cs">
+      <DependentUpon>FacebookAuthenticate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FacebookAuthenticate.aspx.designer.cs">
+      <DependentUpon>FacebookAuthenticate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Facebookfriends.aspx.cs">
+      <DependentUpon>Facebookfriends.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Facebookfriends.aspx.designer.cs">
+      <DependentUpon>Facebookfriends.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="footer.aspx.cs">
+      <DependentUpon>footer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="footer.aspx.designer.cs">
+      <DependentUpon>footer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GmailmsnContacts.aspx.cs">
+      <DependentUpon>GmailmsnContacts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GmailmsnContacts.aspx.designer.cs">
+      <DependentUpon>GmailmsnContacts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GridUserControl.ascx.cs">
+      <DependentUpon>GridUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GridUserControl.ascx.designer.cs">
+      <DependentUpon>GridUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="header-innerpage.aspx.cs">
+      <DependentUpon>header-innerpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="header-innerpage.aspx.designer.cs">
+      <DependentUpon>header-innerpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturedIndustry.aspx.cs">
+      <DependentUpon>FeaturedIndustry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeaturedIndustry.aspx.designer.cs">
+      <DependentUpon>FeaturedIndustry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturedCountry.aspx.cs">
+      <DependentUpon>FeaturedCountry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeaturedCountry.aspx.designer.cs">
+      <DependentUpon>FeaturedCountry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturedInterest.aspx.cs">
+      <DependentUpon>FeaturedInterest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeaturedInterest.aspx.designer.cs">
+      <DependentUpon>FeaturedInterest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FeaturedSkill.aspx.cs">
+      <DependentUpon>FeaturedSkill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FeaturedSkill.aspx.designer.cs">
+      <DependentUpon>FeaturedSkill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobsApplied.aspx.cs">
+      <DependentUpon>JobsApplied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobsApplied.aspx.designer.cs">
+      <DependentUpon>JobsApplied.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Likes.aspx.cs">
+      <DependentUpon>Likes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Likes.aspx.designer.cs">
+      <DependentUpon>Likes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MessageRead.aspx.cs">
+      <DependentUpon>MessageRead.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessageRead.aspx.designer.cs">
+      <DependentUpon>MessageRead.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pictures.aspx.cs">
+      <DependentUpon>Pictures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pictures.aspx.designer.cs">
+      <DependentUpon>Pictures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PreviewJob.aspx.cs">
+      <DependentUpon>PreviewJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreviewJob.aspx.designer.cs">
+      <DependentUpon>PreviewJob.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileUploadPage.aspx.cs">
+      <DependentUpon>ProfileUploadPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProfileUploadPage.aspx.designer.cs">
+      <DependentUpon>ProfileUploadPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImportDetailsFromFacebook.aspx.cs">
+      <DependentUpon>ImportDetailsFromFacebook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImportDetailsFromFacebook.aspx.designer.cs">
+      <DependentUpon>ImportDetailsFromFacebook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertNews.aspx.cs">
+      <DependentUpon>InsertNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertNews.aspx.designer.cs">
+      <DependentUpon>InsertNews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeFeedsInterest.aspx.cs">
+      <DependentUpon>CustomizeFeedsInterest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeFeedsInterest.aspx.designer.cs">
+      <DependentUpon>CustomizeFeedsInterest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InvitationsOverview.aspx.cs">
+      <DependentUpon>InvitationsOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvitationsOverview.aspx.designer.cs">
+      <DependentUpon>InvitationsOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InvitationsReport.aspx.cs">
+      <DependentUpon>InvitationsReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvitationsReport.aspx.designer.cs">
+      <DependentUpon>InvitationsReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InviteFriends.aspx.cs">
+      <DependentUpon>InviteFriends.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InviteFriends.aspx.designer.cs">
+      <DependentUpon>InviteFriends.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeJobsCompany.aspx.cs">
+      <DependentUpon>CustomizeJobsCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeJobsCompany.aspx.designer.cs">
+      <DependentUpon>CustomizeJobsCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeJobsCountry.aspx.cs">
+      <DependentUpon>CustomizeJobsCountry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeJobsCountry.aspx.designer.cs">
+      <DependentUpon>CustomizeJobsCountry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobSearch.aspx.cs">
+      <DependentUpon>JobSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobSearch.aspx.designer.cs">
+      <DependentUpon>JobSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeJobsIndustry.aspx.cs">
+      <DependentUpon>CustomizeJobsIndustry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeJobsIndustry.aspx.designer.cs">
+      <DependentUpon>CustomizeJobsIndustry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeJobsInterest.aspx.cs">
+      <DependentUpon>CustomizeJobsInterest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeJobsInterest.aspx.designer.cs">
+      <DependentUpon>CustomizeJobsInterest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeJobsJobType.aspx.cs">
+      <DependentUpon>CustomizeJobsJobType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeJobsJobType.aspx.designer.cs">
+      <DependentUpon>CustomizeJobsJobType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeJobsSkill.aspx.cs">
+      <DependentUpon>CustomizeJobsSkill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeJobsSkill.aspx.designer.cs">
+      <DependentUpon>CustomizeJobsSkill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeJobsUsers.aspx.cs">
+      <DependentUpon>CustomizeJobsUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeJobsUsers.aspx.designer.cs">
+      <DependentUpon>CustomizeJobsUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LinkedInFriends.aspx.cs">
+      <DependentUpon>LinkedInFriends.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LinkedInFriends.aspx.designer.cs">
+      <DependentUpon>LinkedInFriends.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Myinvitations.aspx.cs">
+      <DependentUpon>Myinvitations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Myinvitations.aspx.designer.cs">
+      <DependentUpon>Myinvitations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="oauth.aspx.cs">
+      <DependentUpon>oauth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="oauth.aspx.designer.cs">
+      <DependentUpon>oauth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PopTest.aspx.cs">
+      <DependentUpon>PopTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopTest.aspx.designer.cs">
+      <DependentUpon>PopTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="post-an-opportunity.aspx.cs">
+      <DependentUpon>post-an-opportunity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="post-an-opportunity.aspx.designer.cs">
+      <DependentUpon>post-an-opportunity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profile-update.aspx.cs">
+      <DependentUpon>profile-update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profile-update.aspx.designer.cs">
+      <DependentUpon>profile-update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profilestats.aspx.cs">
+      <DependentUpon>Profilestats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profilestats.aspx.designer.cs">
+      <DependentUpon>Profilestats.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileStatusAtGlance.aspx.cs">
+      <DependentUpon>ProfileStatusAtGlance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProfileStatusAtGlance.aspx.designer.cs">
+      <DependentUpon>ProfileStatusAtGlance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeeMoreRecruiter.aspx.cs">
+      <DependentUpon>SeeMoreRecruiter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeeMoreRecruiter.aspx.designer.cs">
+      <DependentUpon>SeeMoreRecruiter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SendInvitations.aspx.cs">
+      <DependentUpon>SendInvitations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendInvitations.aspx.designer.cs">
+      <DependentUpon>SendInvitations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomizeFeedsIndustry.aspx.cs">
+      <DependentUpon>CustomizeFeedsIndustry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomizeFeedsIndustry.aspx.designer.cs">
+      <DependentUpon>CustomizeFeedsIndustry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShareMail.aspx.cs">
+      <DependentUpon>ShareMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShareMail.aspx.designer.cs">
+      <DependentUpon>ShareMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signout.aspx.cs">
+      <DependentUpon>Signout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signout.aspx.designer.cs">
+      <DependentUpon>Signout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super-power.aspx.cs">
+      <DependentUpon>Super-power.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super-power.aspx.designer.cs">
+      <DependentUpon>Super-power.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TopReferrers.aspx.cs">
+      <DependentUpon>TopReferrers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopReferrers.aspx.designer.cs">
+      <DependentUpon>TopReferrers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TwitterFriends.aspx.cs">
+      <DependentUpon>TwitterFriends.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TwitterFriends.aspx.designer.cs">
+      <DependentUpon>TwitterFriends.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HeaderBeforeLoggingIn.ascx.cs">
+      <DependentUpon>HeaderBeforeLoggingIn.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HeaderBeforeLoggingIn.ascx.designer.cs">
+      <DependentUpon>HeaderBeforeLoggingIn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadPortfolio.aspx.cs">
+      <DependentUpon>UploadPortfolio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadPortfolio.aspx.designer.cs">
+      <DependentUpon>UploadPortfolio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\atozsearch.ascx.cs">
+      <DependentUpon>atozsearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\atozsearch.ascx.designer.cs">
+      <DependentUpon>atozsearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CompaniesYouMayBeIntrested.ascx.cs">
+      <DependentUpon>CompaniesYouMayBeIntrested.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CompaniesYouMayBeIntrested.ascx.designer.cs">
+      <DependentUpon>CompaniesYouMayBeIntrested.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CompaniesYouMayWantFollow.ascx.cs">
+      <DependentUpon>CompaniesYouMayWantFollow.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CompaniesYouMayWantFollow.ascx.designer.cs">
+      <DependentUpon>CompaniesYouMayWantFollow.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataPager.ascx.cs">
+      <DependentUpon>DataPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\DataPager.ascx.designer.cs">
+      <DependentUpon>DataPager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\EmployeesYouMayWantToFollow.ascx.cs">
+      <DependentUpon>EmployeesYouMayWantToFollow.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\EmployeesYouMayWantToFollow.ascx.designer.cs">
+      <DependentUpon>EmployeesYouMayWantToFollow.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Followers%286%29.ascx.cs">
+      <DependentUpon>Followers%286%29.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Followers%286%29.ascx.designer.cs">
+      <DependentUpon>Followers%286%29.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Followers.ascx.cs">
+      <DependentUpon>Followers.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Followers.ascx.designer.cs">
+      <DependentUpon>Followers.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FriendsInvitaions.ascx.cs">
+      <DependentUpon>FriendsInvitaions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FriendsInvitaions.ascx.designer.cs">
+      <DependentUpon>FriendsInvitaions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GoogleAdds.ascx.cs">
+      <DependentUpon>GoogleAdds.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\GoogleAdds.ascx.designer.cs">
+      <DependentUpon>GoogleAdds.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HAccountsAtGlance.ascx.cs">
+      <DependentUpon>HAccountsAtGlance.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\HAccountsAtGlance.ascx.designer.cs">
+      <DependentUpon>HAccountsAtGlance.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FeaturedRecruiters.ascx.cs">
+      <DependentUpon>FeaturedRecruiters.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FeaturedRecruiters.ascx.designer.cs">
+      <DependentUpon>FeaturedRecruiters.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FriendsToInvite.ascx.cs">
+      <DependentUpon>FriendsToInvite.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FriendsToInvite.ascx.designer.cs">
+      <DependentUpon>FriendsToInvite.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ItemDisplayTemplate.ascx.cs">
+      <DependentUpon>ItemDisplayTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ItemDisplayTemplate.ascx.designer.cs">
+      <DependentUpon>ItemDisplayTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\JobControl.ascx.cs">
+      <DependentUpon>JobControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\JobControl.ascx.designer.cs">
+      <DependentUpon>JobControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HTopNews.ascx.cs">
+      <DependentUpon>HTopNews.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\HTopNews.ascx.designer.cs">
+      <DependentUpon>HTopNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ImportContacts.ascx.cs">
+      <DependentUpon>ImportContacts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ImportContacts.ascx.designer.cs">
+      <DependentUpon>ImportContacts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\InvitingFriends.ascx.cs">
+      <DependentUpon>InvitingFriends.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\InvitingFriends.ascx.designer.cs">
+      <DependentUpon>InvitingFriends.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Messagepopup.ascx.cs">
+      <DependentUpon>Messagepopup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Messagepopup.ascx.designer.cs">
+      <DependentUpon>Messagepopup.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PortfolioImages.ascx.cs">
+      <DependentUpon>PortfolioImages.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\PortfolioImages.ascx.designer.cs">
+      <DependentUpon>PortfolioImages.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SeeYourFriendsInvitations.ascx.cs">
+      <DependentUpon>SeeYourFriendsInvitations.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SeeYourFriendsInvitations.ascx.designer.cs">
+      <DependentUpon>SeeYourFriendsInvitations.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ShowProfileImage.ascx.cs">
+      <DependentUpon>ShowProfileImage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ShowProfileImage.ascx.designer.cs">
+      <DependentUpon>ShowProfileImage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Slider.ascx.cs">
+      <DependentUpon>Slider.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Slider.ascx.designer.cs">
+      <DependentUpon>Slider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TopNewsDesign.ascx.cs">
+      <DependentUpon>TopNewsDesign.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TopNewsDesign.ascx.designer.cs">
+      <DependentUpon>TopNewsDesign.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserFeedAlerts.ascx.cs">
+      <DependentUpon>UserFeedAlerts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserFeedAlerts.ascx.designer.cs">
+      <DependentUpon>UserFeedAlerts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserFeedComments.ascx.cs">
+      <DependentUpon>UserFeedComments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserFeedComments.ascx.designer.cs">
+      <DependentUpon>UserFeedComments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserFeedLikedUser.ascx.cs">
+      <DependentUpon>UserFeedLikedUser.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserFeedLikedUser.ascx.designer.cs">
+      <DependentUpon>UserFeedLikedUser.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserFeedList.ascx.cs">
+      <DependentUpon>UserFeedList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserFeedList.ascx.designer.cs">
+      <DependentUpon>UserFeedList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserMessagePopup.ascx.cs">
+      <DependentUpon>UserMessagePopup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserMessagePopup.ascx.designer.cs">
+      <DependentUpon>UserMessagePopup.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserPhotoLikes_Right.ascx.cs">
+      <DependentUpon>UserPhotoLikes_Right.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserPhotoLikes_Right.ascx.designer.cs">
+      <DependentUpon>UserPhotoLikes_Right.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\video.ascx.cs">
+      <DependentUpon>video.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\video.ascx.designer.cs">
+      <DependentUpon>video.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ViewersOfCompanyAlso.ascx.cs">
+      <DependentUpon>ViewersOfCompanyAlso.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ViewersOfCompanyAlso.ascx.designer.cs">
+      <DependentUpon>ViewersOfCompanyAlso.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ViewersOfThisProfile.ascx.cs">
+      <DependentUpon>ViewersOfThisProfile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ViewersOfThisProfile.ascx.designer.cs">
+      <DependentUpon>ViewersOfThisProfile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Viewers_also_viewed.ascx.cs">
+      <DependentUpon>Viewers_also_viewed.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Viewers_also_viewed.ascx.designer.cs">
+      <DependentUpon>Viewers_also_viewed.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\YourAccountAtGlance.ascx.cs">
+      <DependentUpon>YourAccountAtGlance.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\YourAccountAtGlance.ascx.designer.cs">
+      <DependentUpon>YourAccountAtGlance.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserEmailNotification.aspx.cs">
+      <DependentUpon>UserEmailNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserEmailNotification.aspx.designer.cs">
+      <DependentUpon>UserEmailNotification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostJob.aspx.cs">
+      <DependentUpon>PostJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostJob.aspx.designer.cs">
+      <DependentUpon>PostJob.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserFeed.aspx.cs">
+      <DependentUpon>UserFeed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserFeed.aspx.designer.cs">
+      <DependentUpon>UserFeed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserFeedService.asmx.cs">
+      <DependentUpon>UserFeedService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserInvoice.aspx.cs">
+      <DependentUpon>UserInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInvoice.aspx.designer.cs">
+      <DependentUpon>UserInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPassiveJobs.aspx.cs">
+      <DependentUpon>UserPassiveJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPassiveJobs.aspx.designer.cs">
+      <DependentUpon>UserPassiveJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CopyUrl.aspx.cs">
+      <DependentUpon>CopyUrl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CopyUrl.aspx.designer.cs">
+      <DependentUpon>CopyUrl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailConfirmationSentSuccess.aspx.cs">
+      <DependentUpon>EmailConfirmationSentSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmailConfirmationSentSuccess.aspx.designer.cs">
+      <DependentUpon>EmailConfirmationSentSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailTemplateEditPage.aspx.cs">
+      <DependentUpon>EmailTemplateEditPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmailTemplateEditPage.aspx.designer.cs">
+      <DependentUpon>EmailTemplateEditPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="endorseAnotherUser.aspx.cs">
+      <DependentUpon>endorseAnotherUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="endorseAnotherUser.aspx.designer.cs">
+      <DependentUpon>endorseAnotherUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FacebookAuthorization.aspx.cs">
+      <DependentUpon>FacebookAuthorization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FacebookAuthorization.aspx.designer.cs">
+      <DependentUpon>FacebookAuthorization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help.aspx.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help.aspx.designer.cs">
+      <DependentUpon>Help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePageAfterLoggingIn.aspx.cs">
+      <DependentUpon>HomePageAfterLoggingIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePageAfterLoggingIn.aspx.designer.cs">
+      <DependentUpon>HomePageAfterLoggingIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobView.aspx.cs">
+      <DependentUpon>JobView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobView.aspx.designer.cs">
+      <DependentUpon>JobView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LinkedIn\LinkedInBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LinkedIn\TokenAndSecret.cs" />
+    <Compile Include="LinkedIn\XmlTokenManager.cs" />
+    <Compile Include="MessageInbox.aspx.cs">
+      <DependentUpon>MessageInbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessageInbox.aspx.designer.cs">
+      <DependentUpon>MessageInbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobsearchTips.aspx.cs">
+      <DependentUpon>JobsearchTips.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobsearchTips.aspx.designer.cs">
+      <DependentUpon>JobsearchTips.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="faq.aspx.cs">
+      <DependentUpon>faq.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="faq.aspx.designer.cs">
+      <DependentUpon>faq.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="feedback.aspx.cs">
+      <DependentUpon>feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="feedback.aspx.designer.cs">
+      <DependentUpon>feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPayment.aspx.cs">
+      <DependentUpon>UserPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPayment.aspx.designer.cs">
+      <DependentUpon>UserPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPDF.aspx.cs">
+      <DependentUpon>UserPDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPDF.aspx.designer.cs">
+      <DependentUpon>UserPDF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UsersInWebsite.ascx.cs">
+      <DependentUpon>UsersInWebsite.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UsersInWebsite.ascx.designer.cs">
+      <DependentUpon>UsersInWebsite.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Videos.aspx.cs">
+      <DependentUpon>Videos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Videos.aspx.designer.cs">
+      <DependentUpon>Videos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPurchases.aspx.cs">
+      <DependentUpon>ViewPurchases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewPurchases.aspx.designer.cs">
+      <DependentUpon>ViewPurchases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VisualCV.aspx.cs">
+      <DependentUpon>VisualCV.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisualCV.aspx.designer.cs">
+      <DependentUpon>VisualCV.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VisualCvActivity.aspx.cs">
+      <DependentUpon>VisualCvActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisualCvActivity.aspx.designer.cs">
+      <DependentUpon>VisualCvActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WhatIsHuntable.aspx.cs">
+      <DependentUpon>WhatIsHuntable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WhatIsHuntable.aspx.designer.cs">
+      <DependentUpon>WhatIsHuntable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WhatIsHuntableUpgrade.aspx.cs">
+      <DependentUpon>WhatIsHuntableUpgrade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WhatIsHuntableUpgrade.aspx.designer.cs">
+      <DependentUpon>WhatIsHuntableUpgrade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="securecheckout.aspx.cs">
+      <DependentUpon>securecheckout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="securecheckout.aspx.designer.cs">
+      <DependentUpon>securecheckout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyPostedJobs.aspx.cs">
+      <DependentUpon>MyPostedJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyPostedJobs.aspx.designer.cs">
+      <DependentUpon>MyPostedJobs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LinkedInProfile.aspx.cs">
+      <DependentUpon>LinkedInProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LinkedInProfile.aspx.designer.cs">
+      <DependentUpon>LinkedInProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PictureUpload.aspx.cs">
+      <DependentUpon>PictureUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PictureUpload.aspx.designer.cs">
+      <DependentUpon>PictureUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrivacyPolicy.aspx.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrivacyPolicy.aspx.designer.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile-Free.aspx.cs">
+      <DependentUpon>Profile-Free.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile-Free.aspx.designer.cs">
+      <DependentUpon>Profile-Free.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile-premium.aspx.cs">
+      <DependentUpon>Profile-premium.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile-premium.aspx.designer.cs">
+      <DependentUpon>Profile-premium.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile_premiumUser.aspx.cs">
+      <DependentUpon>Profile_premiumUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile_premiumUser.aspx.designer.cs">
+      <DependentUpon>Profile_premiumUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="search.aspx.cs">
+      <DependentUpon>search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="search.aspx.designer.cs">
+      <DependentUpon>search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shareByEmail.aspx.cs">
+      <DependentUpon>shareByEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shareByEmail.aspx.designer.cs">
+      <DependentUpon>shareByEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Terms.aspx.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Terms.aspx.designer.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HuntableTourFeatures.aspx.cs">
+      <DependentUpon>HuntableTourFeatures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HuntableTourFeatures.aspx.designer.cs">
+      <DependentUpon>HuntableTourFeatures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\cvStatistics.ascx.cs">
+      <DependentUpon>cvStatistics.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\cvStatistics.ascx.designer.cs">
+      <DependentUpon>cvStatistics.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="HeaderAfterLoggingIn.ascx.cs">
+      <DependentUpon>HeaderAfterLoggingIn.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HeaderAfterLoggingIn.ascx.designer.cs">
+      <DependentUpon>HeaderAfterLoggingIn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\KnowPeoplecontrol.ascx.cs">
+      <DependentUpon>KnowPeoplecontrol.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\KnowPeoplecontrol.ascx.designer.cs">
+      <DependentUpon>KnowPeoplecontrol.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProfileCompletionSteps.ascx.cs">
+      <DependentUpon>ProfileCompletionSteps.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProfileCompletionSteps.ascx.designer.cs">
+      <DependentUpon>ProfileCompletionSteps.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\topNews.ascx.cs">
+      <DependentUpon>topNews.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\topNews.ascx.designer.cs">
+      <DependentUpon>topNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserSearch.aspx.cs">
+      <DependentUpon>UserSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserSearch.aspx.designer.cs">
+      <DependentUpon>UserSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewUserProfile.aspx.cs">
+      <DependentUpon>ViewUserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewUserProfile.aspx.designer.cs">
+      <DependentUpon>ViewUserProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WithDrawFunds.aspx.cs">
+      <DependentUpon>WithDrawFunds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WithDrawFunds.aspx.designer.cs">
+      <DependentUpon>WithDrawFunds.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Huntable.Business\Huntable.Business.csproj">
+      <Project>{24010045-86FC-46BE-AEC2-5BC1C4845EF0}</Project>
+      <Name>Huntable.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Huntable.Data.UI\Huntable.Data.UI.csproj">
+      <Project>{3025B23A-E441-4F7E-9DC2-A978C63F30E1}</Project>
+      <Name>Huntable.Data.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Huntable.Data\Huntable.Data.csproj">
+      <Project>{7163BB65-E7DE-4D12-94E4-696977013B5E}</Project>
+      <Name>Huntable.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Huntable.Entities\Huntable.Entities.csproj">
+      <Project>{171B2981-BC4B-4855-B472-4803F91B3E0B}</Project>
+      <Name>Huntable.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Huntable.OAuthUtility\Huntable.OAuthUtility.csproj">
+      <Project>{F60877D3-3EEF-47F6-84F2-E6132FD5AA91}</Project>
+      <Name>Huntable.OAuthUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Snovaspace.Facebook\Snovaspace.Facebook.csproj">
+      <Project>{550621A6-D1FC-4F29-B2AB-524B46BD231B}</Project>
+      <Name>Snovaspace.Facebook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Snovaspace.LinkedIn\Snovaspace.LinkedIn.csproj">
+      <Project>{4E4C3E30-A7B4-4E85-9298-48111DF255E7}</Project>
+      <Name>Snovaspace.LinkedIn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Snovaspace.Util\Snovaspace.Util.csproj">
+      <Project>{136B474D-5A66-4D73-B968-DF3566E234E4}</Project>
+      <Name>Snovaspace.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajaxchat\Admin\Admin.Master" />
+    <Content Include="ajaxchat\Admin\Web.config" />
+    <None Include="ajaxchat\Documentation\AspNetAjaxChat.chm" />
+    <Content Include="ajaxchat\FlashResource.ashx" />
+    <None Include="ajaxchat\Logs\Logfile120424101239.log" />
+    <None Include="ajaxchat\Logs\Logfile120424101602.log" />
+    <None Include="ajaxchat\Smilies\smilies.pak" />
+    <Content Include="ajaxchat\Thumbnail.ashx" />
+    <Content Include="ajaxchat\Web.config" />
+    <None Include="ajaxchat\Web.config.integration" />
+    <Content Include="App_Themes\AjaxChatBlue1\style.skin" />
+    <Content Include="App_Themes\AjaxChatDark1\style.skin" />
+    <Content Include="App_Themes\AjaxChatDefault\style.skin" />
+    <Content Include="App_Themes\AjaxChatGreen1\style.skin" />
+    <Content Include="BlankSite.Master" />
+    <Content Include="Ajax\GetEmploymentHistoryAchivements.ashx" />
+    <Content Include="Ajax\GetEmploymentHistoryVedios.ashx" />
+    <Content Include="Ajax\GetEmploymentHistoryPortfolios.ashx" />
+    <Content Include="Site_popup.Master" />
+    <Content Include="Chat\FlashResource.ashx" />
+    <Content Include="Chat\MessengerCommand.ashx" />
+    <None Include="Chat\Properties\Settings.settings" />
+    <Content Include="Chat\SendFile.ashx" />
+    <Content Include="Chat\Thumbnail.ashx" />
+    <Content Include="Chat\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ajaxchat\UserFiles\" />
+    <Folder Include="Chat\UserFiles\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>5934</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

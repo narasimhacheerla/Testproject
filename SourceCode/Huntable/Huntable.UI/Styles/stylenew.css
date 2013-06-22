@@ -1,0 +1,23 @@
+﻿.tdNormal
+{
+    height: 45px;
+    background-color: deepskyblue;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    color:White;
+}
+
+.tdActive
+{
+    height: 45px;
+    background-color: White;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    color:Black;
+}
+.hr
+{
+    border-color:skyblue;
+}

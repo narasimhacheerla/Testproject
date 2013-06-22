@@ -1,0 +1,57 @@
+﻿/*Pager related styles*/
+.PagingContainer
+{
+	border-top: 1px solid #C2C2C2;
+}
+.PagingContainer, .PagingContainer input, .PagingContainer select
+{
+	font-family: Verdana;
+	font-size: 8pt;
+}
+.GridFooter
+{
+	background-image: url('../Images/FooterBackground.png');
+	color: Black;
+}
+.PagingShowingRecord
+{
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.PagingNavigation td
+{
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.PagingIcon, .PagingFirst, .PagingPrevious, .PagingNext, .PagingLast
+{
+	height: 16px;
+	width: 16px;
+	border-style: none;
+	cursor: pointer;
+}
+.PagingFirst
+{
+	background-image: url('../Images/PagingFirst.png');
+}
+.PagingPrevious
+{
+	background-image: url('../Images/PagingPrevious.png');
+}
+.CurrentPage
+{
+	text-align: center;
+}
+.PagingNext
+{
+	background-image: url('../Images/PagingNext.png');
+}
+.PagingLast
+{
+	background-image: url('../Images/PagingLast.png');
+}
+.PagingRecords td
+{
+	padding-left: 2px;
+	padding-right: 2px;
+}

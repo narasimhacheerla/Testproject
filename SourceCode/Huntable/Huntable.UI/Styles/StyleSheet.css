@@ -1,0 +1,250 @@
+﻿body 
+{
+   
+}
+.page
+{
+    
+}
+
+.header
+{   
+    height:80px; 
+    background-color: #1589FF;  
+    
+}
+#logo
+{
+    float:left;
+}
+#google_translate_element
+{
+    float:right;
+}
+.main
+{
+}
+ .innner
+{
+
+    background:#1589FF;
+}
+.header a
+{
+    display:block;
+    float:right;
+    color:#fff;
+    font-weight:normal;
+    font-size:80%;
+}
+#content
+{
+    float:left;
+    width:65%;
+    margin:0 0 20px 0;
+    padding:0;
+}
+#content .inner
+{
+    margin-right:20px;
+    padding:20px;
+}
+ #image
+   {height: 25px; margin-left: 32px; margin-top: 1px
+   }
+ #footer{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  }
+ <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+        .style2
+        {
+            width: 197px;
+        }
+        .style3
+        {
+            width: 197px;
+            height: 54px;
+        }
+        .style4
+        {
+            height: 54px;
+        }
+        .style5
+        {
+            height: 54px;
+            width: 674px;
+        }
+        .style6
+        {
+            width: 674px;
+        }
+    </style>
+ .clear
+        {
+            width: 985px;
+            height: 96px;
+        }
+        .style7
+        {
+            width: 94px;
+        }
+        .style8
+        {
+            width: 140px;
+        }
+        .style9
+        {
+            width: 180px;
+        }
+        .LinkButton:link { text-decoration:none; }
+        
+   div#google_translate_element select {
+font-size: xx-small;
+}
+div#google_translate_element {
+text-align: center;
+}
+div#google_translate_element a, div#google_translate_element img {
+display: block;
+}
+
+.nav
+{
+    
+    height: 135px;
+    margin: 0px;
+    padding-left: 130px;
+    float: left;
+}
+
+.nav ul
+{
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.nav ul li
+{
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    position: relative;
+}
+
+.nav ul li a
+{
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 11px 18px 0px 20px;
+    height: 24px;
+    text-decoration: none;
+    float: left;
+    margin-right: 2px;
+    color: #6600CC;
+}
+
+.nav ul li a:hover
+{
+    font-size: 12px;
+    color: #005cb7;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 2px;
+    
+}
+
+a img
+{
+    border: 0 !important;
+}
+
+.nav ul li a.rqstQte
+{
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 11px 18px 0px 20px;
+    height: 24px;
+    text-decoration: none;
+    float: left;
+    margin-right: 2px;
+    color: #FFFFFF;
+    background-color: blue;
+}
+
+.nav ul li a.rqstQte:hover
+{
+    font-size: 12px;
+    color: #005cb7;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 2px;
+    
+}
+
+.nav ul li a.active
+{
+    font-size: 12px;
+    color: #005cb7;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 2px;
+   
+}
+
+
+.nav ul li ul
+{
+    display: none;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    z-index: 200000;
+}
+
+
+.nav ul li:hover ul
+{
+    border: 1px solid #8B8B8B;
+    display: block;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 34px;
+}
+
+.nav ul li:hover ul li a
+{
+    background: #FFFFFF;
+    color: #333333;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+    padding: 5px 10px;
+    height: 15px;
+    width: 120px;
+    z-index: 200000;
+}
+
+.nav ul li:hover ul li a:hover
+{
+    background: #005cb7;
+    color: #FFFFFF;
+    line-height: normal;
+    z-index: 200000;
+}
+
+     

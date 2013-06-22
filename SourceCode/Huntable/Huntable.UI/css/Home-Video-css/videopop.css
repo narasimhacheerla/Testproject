@@ -1,0 +1,111 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#hideshow1 {
+	position: absolute;
+    width: 100%;
+	height: 100%;
+    top: 0;
+	left: 0;
+}
+ #fade1
+        {
+        background: #000; 
+	
+	width: 100%;
+	height: 100%;
+	filter:alpha(opacity=40);
+	opacity: .40;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"; /*--IE 8 Transparency--*/
+	left: 0;
+	z-index: 99999;
+	position:relative;
+
+  
+            position: relative;
+
+        }
+.popup_block1
+        {
+        background: #ddd;
+padding: 5px;
+border: 5px solid #fff;
+float: left;
+width: 501px;
+position: absolute;
+top: 30%;
+left: 60%;
+margin: -60px 0 0 -370px;
+z-index: 99999;
+        }      
+.popup_block1 .popupv {
+float: left;
+	width: 330px;
+	margin: 0px 0 0px 0;
+	padding: 0px 0;
+	
+}
+.popupv h3 {
+	margin: 0 0 20px;
+	padding: 5px 5px;
+	border-bottom: 1px solid #bbb;
+	font-size: 1.5em;
+	font-weight: normal;
+}
+.popupv p {
+	padding: 5px 10px;
+	/*margin: 5px 0;*/
+}
+.popupv img.cntrl {
+	position: absolute;
+	right: -20px;
+	top: -292px;
+}
+
+/*--Making IE6 Understand Fixed Positioning--
+
+ #fade1 {
+	position: absolute;
+	top:expression(eval(document.compatMode &&
+	document.compatMode=='CSS1Compat') ?
+	documentElement.scrollTop : document.body.scrollTop);
+}
+
+ .popup_block1 {
+	position: absolute;
+	top:expression(eval(document.compatMode &&
+	document.compatMode=='CSS1Compat') ?
+	documentElement.scrollTop
+	+((documentElement.clientHeight-this.clientHeight)/2)
+	: document.body.scrollTop
+	+((document.body.clientHeight-this.clientHeight)/2));
+	
+	left:expression(eval(document.compatMode &&
+	document.compatMode=='CSS1Compat') ?
+	documentElement.scrollLeft 
+	+ (document.body.clientWidth /2 ) 
+	: document.body.scrollLeft 
+	+ (document.body.offsetWidth /2 ));
+}
+
+/*--IE 6 PNG Fix--*/
+
+img{ behavior: url(iepngfix.htc) }
+
+
+
+.dont-show1
+{
+position: absolute;
+    width: 96%;
+
+font-size: 12px;
+font-style: normal;
+margin-top: 270px;
+}
+.dont-show1 a
+{
+	color:#fff;
+	font-weight:bold;
+}

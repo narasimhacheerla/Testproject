@@ -1,0 +1,33 @@
+﻿html, body
+{
+    height: 100%;
+    overflow: hidden;
+    padding: 5px;
+    margin: 0;
+    font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+}
+div.messages
+{
+    overflow: auto;
+}
+div.color_picker
+{
+    width: 40px;
+    background-image: url(arrow.gif);
+	background-repeat:no-repeat;
+	background-position:bottom right;
+    cursor: pointer;
+}
+div.color_swatch
+{
+    height: 12px;
+    width: 12px;
+    border: 1px solid #000;
+    margin: 2px;
+    float: left;
+    cursor: pointer;
+    line-height: 12px;
+}
+.messenger .content{ overflow:auto}
+.clear{ clear:both}
+#aside_messenger	{ min-width:220px !important;overflow:hidden}
